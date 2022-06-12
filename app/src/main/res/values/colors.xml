@@ -17,6 +17,6 @@
     <color name="grac_orange">#FFB70F</color>
     <color name="grac_grey">#777777</color>
     <color name="grac_black">#282E3A</color>
-
+    <color name="grac_green_bg">#eaf1ee</color>
 
 </resources>
