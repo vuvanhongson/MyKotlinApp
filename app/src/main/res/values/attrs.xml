@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AppToolbar">
+        <attr name="showTitle" format="boolean" />
+        <attr name="showInfoButton" format="boolean" />
+        <attr name="showQRcodeButton" format="boolean" />
+        <attr name="showNotifiButton" format="boolean" />
+        <attr name="toolBarBackground" format="reference"/>
+    </declare-styleable>
+</resources>
