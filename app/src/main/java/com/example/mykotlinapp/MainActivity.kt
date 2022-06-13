@@ -35,8 +35,6 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvMain.setText("Hai anh Tai")
-
         viewPageAdapter = ViewPageAdapter(
             supportFragmentManager!!,
             FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT

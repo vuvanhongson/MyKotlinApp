@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">MyKotlinApp</string>
     <string name="Script_slide_onboarding">Cuộc thi Greentech sáng kiến, giải pháp, mô hình giảm thiểu và xử lý chất thải rắn sinh hoạt do Trung tâm Truyền thông TNMT, Bộ Tài Nguyên và Môi trường tổ chức</string>
+    <string name="Title_slide_grac" >CÙNG GRAC XÂY DỰNG \nĐÔ THỊ KHÔNG RÁC</string>
+    <string name="script_slide_grac">Công nghệ quản lý tập trung lấy\nngười dân làm trung tâm với quản lý\ncủa chính quyền đô thị</string>
+    <string name="book_garbage_collection">Đặt lịch gom rác</string>
+    <string name="money_lookup">Tra cứu tiền rác</string>
+    <string name="garbage_price">Giá\ntiền rác</string>
+    <string name="take_out_the_trash">Cách\nđổ rác</string>
+    <string name="submit_complaint">Gửi\nkhiếu nại</string>
+    <string name="game">Game</string>
+    <string name="news">Tin tức</string>
+    <string name="bottom_bar_home_title">Trang chủ</string>
+    <string name="bottom_bar_support_title">Hỗ trợ</string>
+    <string name="bottom_bar_booking_title">Đặt lịch</string>
+    <string name="bottom_bar_question_title">Câu hỏi</string>
+    <string name="bottom_bar_wallet_title">Ví</string>
 </resources>

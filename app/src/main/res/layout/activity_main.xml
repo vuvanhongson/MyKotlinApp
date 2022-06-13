@@ -7,16 +7,7 @@
     android:background="@color/grac_green_bg"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
 
     <View
@@ -113,7 +104,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_110sdp"
+                android:layout_height="@dimen/_105sdp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="2dp"
@@ -128,14 +119,15 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/ic_baseline_attach_money_24"></ImageView>
+                    android:src="@drawable/icon_money"></ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cam"
+                    android:text="@string/garbage_price"
+                    android:gravity="center"
                     android:textColor="@color/grac_green"
-                    android:textSize="13dp"></TextView>
+                    android:textSize="12dp"></TextView>
 
             </LinearLayout>
 
@@ -143,7 +135,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_110sdp"
+                android:layout_height="@dimen/_105sdp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="2dp"
@@ -157,14 +149,15 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/ic_baseline_delete_outline_24"></ImageView>
+                    android:src="@drawable/icon_bin"></ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Caption"
+                    android:text="@string/take_out_the_trash"
+                    android:gravity="center"
                     android:textColor="@color/grac_green"
-                    android:textSize="13dp"></TextView>
+                    android:textSize="12dp"></TextView>
 
             </LinearLayout>
 
@@ -172,7 +165,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_110sdp"
+                android:layout_height="@dimen/_105sdp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="2dp"
@@ -186,21 +179,22 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/ic_baseline_event_note_24"></ImageView>
+                    android:src="@drawable/icon_note"></ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Caption"
+                    android:text="@string/submit_complaint"
+                    android:gravity="center"
                     android:textColor="@color/grac_green"
-                    android:textSize="13dp"></TextView>
+                    android:textSize="12dp"></TextView>
 
             </LinearLayout>
 
             <!--            ============================================-->
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_110sdp"
+                android:layout_height="@dimen/_105sdp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="2dp"
@@ -214,21 +208,22 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/ic_baseline_videogame_asset_24"></ImageView>
+                    android:src="@drawable/icon_game_remote"></ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Caption"
+                    android:text="@string/game"
+                    android:gravity="center"
                     android:textColor="@color/grac_green"
-                    android:textSize="13dp"></TextView>
+                    android:textSize="12dp"></TextView>
 
             </LinearLayout>
             <!--            ==================================================-->
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_110sdp"
+                android:layout_height="@dimen/_105sdp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
@@ -242,14 +237,15 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/ic_baseline_text_snippet_24"></ImageView>
+                    android:src="@drawable/icon_news"></ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Caption"
+                    android:text="@string/news"
+                    android:gravity="center"
                     android:textColor="@color/grac_green"
-                    android:textSize="13dp"></TextView>
+                    android:textSize="12dp"></TextView>
 
             </LinearLayout>
             <!--            ==================================================-->
@@ -258,6 +254,13 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <com.example.mykotlinapp.common.BottomBar
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_70sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 
 

@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#00018786"
+        android:background="#00009688"
         android:padding="@dimen/_10sdp">
 
         <androidx.cardview.widget.CardView
@@ -35,9 +35,10 @@
             android:layout_width="@dimen/_210sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_marginStart="10dp"
-            android:paddingLeft="9dp"
+            android:paddingLeft="14dp"
             android:paddingBottom="7dp"
-            android:drawableLeft="@drawable/ic_baseline_search_24"
+            android:drawableLeft="@drawable/icon_search_vector"
+            android:drawablePadding="@dimen/_10sdp"
             android:background="@drawable/radius_layout_whitle"
             android:textSize="@dimen/_12sdp"
             android:hint="Tra cứu tiền rác"
@@ -52,9 +53,9 @@
             android:id="@+id/codeqr"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="52dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_baseline_qr_code_scanner_24"
+            android:src="@drawable/ic_baseline_qr_code_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
@@ -67,7 +68,7 @@
             android:src="@drawable/ic_baseline_notifications_none_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.325"
+            app:layout_constraintHorizontal_bias="0.288"
             app:layout_constraintStart_toEndOf="@+id/codeqr"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
 
