@@ -6,14 +6,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".features.slide.OnBoardingFragment2"
     android:layout_width="match_parent"
-    android:layout_height="179dp">
+    android:layout_height="200dp">
 
     <TextView
         android:id="@+id/tvTitleOnBoarding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_38sdp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="@string/Title_slide_grac"
         android:textColor="@color/grac_green_bg"
         android:textSize="18dp"
@@ -27,7 +27,7 @@
         android:id="@+id/tcScriptOnBoarding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:paddingStart="@dimen/_38sdp"
         android:paddingEnd="@dimen/_50sdp"
         android:text="@string/script_slide_grac"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/_5sdp"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/bg_yellow_buttom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/_5sdp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/bg_white_radius_buttom"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
