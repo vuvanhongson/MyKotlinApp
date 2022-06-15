@@ -1,24 +1,15 @@
 package com.example.mykotlinapp
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.view.WindowManager
-import android.widget.RelativeLayout
-import androidx.core.view.marginTop
-import androidx.core.view.setMargins
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
+import android.view.ViewTreeObserver
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.example.mykotlinapp.databinding.ActivityMainBinding
-import com.example.mykotlinapp.databinding.LayoutViewToolbarBinding
 import com.example.mykotlinapp.features.slide.ViewPageAdapter
-import me.relex.circleindicator.CircleIndicator
-import org.koin.android.ext.android.get
-import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
 //    private var binding: LayoutViewToolbarBinding
@@ -59,5 +50,30 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPageScrollStateChanged(state: Int) {}
         })
+
+        var x = binding.scrollView.scrollX
+        Log.d("scroll", " x - " + x)
+
+        binding.btPrice!!.setOnClickListener{
+            val x = binding.scrollView.scrollY
+            Log.d("scroll", " x - " + x)
+        }
+
+        binding!!.scrollView.viewTreeObserver.addOnScrollChangedListener(ViewTreeObserver.OnScrollChangedListener {
+            val scrollY = binding!!.scrollView.scrollY*2/1000.toFloat() // For ScrollView
+            val scrollX = binding!!.scrollView.scrollX/1000.toFloat()// For HorizontalScrollView
+            // DO SOMETHING WITH THE SCROLL COORDINATES
+            Log.d("scroll", "x top = $scrollX y = $scrollY")
+
+//            binding.view2.animate().alphaBy(1.0.toFloat())
+//                .alpha(1.toFloat() - scrollY).duration = 100
+            binding.view2.alpha = 1.toFloat() - scrollY
+            binding.view2.translationY = -scrollY*300
+
+//            binding.view3.animate().alphaBy(0.0.toFloat())
+//                .alpha(scrollY).duration = 100
+            binding.view3.alpha = scrollY
+        })
+
     }
 }

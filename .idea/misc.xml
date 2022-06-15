@@ -24,6 +24,15 @@
         <entry key="..\:/MyKotlinApp/app/src/main/res/layout/layout_view_bottom_bar_item.xml" value="0.24947916666666667" />
         <entry key="..\:/MyKotlinApp/app/src/main/res/layout/layout_view_toolbar.xml" value="0.4" />
         <entry key="..\:/MyKotlinApp/app/src/main/res/layout/progress_dialog.xml" value="0.10218978102189781" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/drawable/bg_green_radius_bottom_s.xml" value="0.176" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/drawable/bg_radius_white.xml" value="0.2005" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/drawable/bg_white_radius_buttom.xml" value="0.202" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/drawable/radius_layout_bg_greenlight_search.xml" value="0.1295" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/drawable/radius_layout_whitle.xml" value="0.1295" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/layout_view_bottom_bar.xml" value="0.24375" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/layout_view_bottom_bar_item.xml" value="0.24375" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/layout_view_toolbar.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/PIXAR-HEAD/Desktop/Demo Kotlin/MyKotlinApp/app/src/main/res/drawable/bg_radius_white.xml" value="0.295" />
         <entry key="..\:/Users/PIXAR-HEAD/Desktop/Demo Kotlin/MyKotlinApp/app/src/main/res/layout/activity_main.xml" value="0.3489583333333333" />
         <entry key="..\:/Users/PIXAR-HEAD/Desktop/Demo Kotlin/MyKotlinApp/app/src/main/res/layout/fragment_onboarding_1.xml" value="0.3489583333333333" />
@@ -37,7 +46,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

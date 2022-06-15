@@ -8,8 +8,6 @@
     tools:context=".MainActivity">
 
 
-
-
     <View
         android:id="@+id/view2"
         android:layout_width="666dp"
@@ -26,7 +24,9 @@
     <View
         android:id="@+id/view3"
         android:layout_width="match_parent"
-        android:layout_height="23dp"
+        android:layout_height="73dp"
+        android:background="@color/white"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,229 +41,368 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3">
+        app:layout_constraintTop_toTopOf="parent">
 
     </com.example.mykotlinapp.common.AppToolbar>
 
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appToolbar"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <RelativeLayout
-            android:id="@+id/relativeLayoutBottom"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:padding="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.354">
-
-
-            <me.relex.circleindicator.CircleIndicator
-                android:id="@+id/circle_indicartor"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="12dp"/>
-            <!--            app:ci_drawable="@drawable/ic_baseline_account_circle_24" />-->
-
-
-        </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_marginTop="0dp"
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        android:overScrollMode="ifContentScrolls"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewPager"
-        app:layout_constraintVertical_bias="0.028">
+        app:layout_constraintTop_toBottomOf="@+id/appToolbar">
 
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scroll_constraint"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="5">
+            android:layout_height="match_parent">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayoutBottom"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="-15dp"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewPager"
+                app:layout_constraintVertical_bias="0.5">
+
+
+                <me.relex.circleindicator.CircleIndicator
+                    android:id="@+id/circle_indicartor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="12dp" />
+                <!--            app:ci_drawable="@drawable/ic_baseline_account_circle_24" />-->
+
+
+            </RelativeLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_105sdp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_radius_white"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
 
-                <ImageView
-                    android:id="@+id/btnCam"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="8dp"
-                    android:src="@drawable/icon_money"></ImageView>
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewPager"
+                app:layout_constraintVertical_bias="0.028">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+
+                    <LinearLayout
+                        android:id="@+id/bt_price"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_radius_white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:id="@+id/btnCam"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="8dp"
+                            android:src="@drawable/icon_money" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/garbage_price"
+                            android:textColor="@color/grac_green"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+
+                    <!--            ====================================-->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_radius_white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="8dp"
+                            android:src="@drawable/icon_bin" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/take_out_the_trash"
+                            android:textColor="@color/grac_green"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+
+                    <!--            ========================================-->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_radius_white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="8dp"
+                            android:src="@drawable/icon_note" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/submit_complaint"
+                            android:textColor="@color/grac_green"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+
+                    <!--            ============================================-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_radius_white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="8dp"
+                            android:src="@drawable/icon_game_remote" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/game"
+                            android:textColor="@color/grac_green"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+                    <!--            ==================================================-->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_105sdp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_radius_white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="8dp"
+                            android:src="@drawable/icon_news" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/news"
+                            android:textColor="@color/grac_green"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+                    <!--            ==================================================-->
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/layout_list_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/garbage_price"
-                    android:gravity="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:text="Lịch thu gom rác"
                     android:textColor="@color/grac_green"
-                    android:textSize="12dp"></TextView>
+                    android:textSize="@dimen/_20sdp"
+                    android:textStyle="bold" />
 
-            </LinearLayout>
-
-            <!--            ====================================-->
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_105sdp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_radius_white"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="8dp"
-                    android:src="@drawable/icon_bin"></ImageView>
-
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/take_out_the_trash"
-                    android:gravity="center"
-                    android:textColor="@color/grac_green"
-                    android:textSize="12dp"></TextView>
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_3sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_green_radius_bottom_s"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
 
-            <!--            ========================================-->
+                        <ImageView
+                            android:id="@+id/iv_list"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/icon_list_white" />
+
+                    </LinearLayout>
+
+                    <!--            ====================================================-->
+
+                    <LinearLayout
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_3sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_radius_white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/iv_map"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/icon_map_grey" />
+
+                    </LinearLayout>
+
+                    <!--            ====================================================-->
+
+                    <LinearLayout
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_3sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_radius_white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/iv_sort"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/icon_sort_grey" />
+
+                    </LinearLayout>
+
+                    <!--            ====================================================-->
+
+                    <LinearLayout
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_3sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_radius_white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/iv_grid"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/icon_grid_grey" />
+
+                    </LinearLayout>
+
+                    <!--            ====================================================-->
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_105sdp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_radius_white"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_600sdp"
+                android:background="#00000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_list_bottom" />
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="8dp"
-                    android:src="@drawable/icon_note"></ImageView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/submit_complaint"
-                    android:gravity="center"
-                    android:textColor="@color/grac_green"
-                    android:textSize="12dp"></TextView>
-
-            </LinearLayout>
-
-            <!--            ============================================-->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_105sdp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_radius_white"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="8dp"
-                    android:src="@drawable/icon_game_remote"></ImageView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/game"
-                    android:gravity="center"
-                    android:textColor="@color/grac_green"
-                    android:textSize="12dp"></TextView>
-
-            </LinearLayout>
-            <!--            ==================================================-->
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_105sdp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_radius_white"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="8dp"
-                    android:src="@drawable/icon_news"></ImageView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/news"
-                    android:gravity="center"
-                    android:textColor="@color/grac_green"
-                    android:textSize="12dp"></TextView>
-
-            </LinearLayout>
-            <!--            ==================================================-->
-
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
+    </ScrollView>
 
     <com.example.mykotlinapp.common.BottomBar
         android:layout_width="0dp"
         android:layout_height="@dimen/_70sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
