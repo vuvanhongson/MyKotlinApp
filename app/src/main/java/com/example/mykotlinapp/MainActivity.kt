@@ -59,20 +59,34 @@ class MainActivity : AppCompatActivity() {
             Log.d("scroll", " x - " + x)
         }
 
+
         binding!!.scrollView.viewTreeObserver.addOnScrollChangedListener(ViewTreeObserver.OnScrollChangedListener {
             val scrollY = binding!!.scrollView.scrollY*2/1000.toFloat() // For ScrollView
             val scrollX = binding!!.scrollView.scrollX/1000.toFloat()// For HorizontalScrollView
             // DO SOMETHING WITH THE SCROLL COORDINATES
             Log.d("scroll", "x top = $scrollX y = $scrollY")
 
+            if(binding.scrollView.scrollY < 600)
+            {
 //            binding.view2.animate().alphaBy(1.0.toFloat())
 //                .alpha(1.toFloat() - scrollY).duration = 100
-            binding.view2.alpha = 1.toFloat() - scrollY
-            binding.view2.translationY = -scrollY*300
+                binding.view2.alpha = 1.toFloat() - scrollY
+                binding.view2.translationY = -scrollY*300
 
 //            binding.view3.animate().alphaBy(0.0.toFloat())
 //                .alpha(scrollY).duration = 100
-            binding.view3.alpha = scrollY
+                binding.view3.alpha = scrollY
+            }
+
+            if(binding.scrollView.scrollY > 400)
+            {
+                binding.appToolbar.changeColorIcon(0)
+            }
+            else
+            {
+                binding.appToolbar.changeColorIcon(1)
+            }
+
         })
 
     }

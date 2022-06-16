@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="color_FFFFFF">#FFFFFF</color>
     <color name="color_FD6003">#FD6003</color>
-    <color name="color_00000000">#40000000</color>
+    <color name="color_00000000">#00000000</color>
 
     <color name="grac_green">#1D9340</color>
     <color name="grac_green_light">#B7DDD4</color>

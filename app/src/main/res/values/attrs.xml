@@ -6,5 +6,7 @@
         <attr name="showQRcodeButton" format="boolean" />
         <attr name="showNotifiButton" format="boolean" />
         <attr name="toolBarBackground" format="reference"/>
+        <attr name="QRcodeColor" format="reference"/>
+        <attr name="NotifiColor" format="reference"/>
     </declare-styleable>
 </resources>

@@ -2,6 +2,7 @@ package com.example.mykotlinapp.common
 
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
@@ -15,6 +16,8 @@ class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, 
     private var showQRcodeButton = false
     private var showNotifiButton = false
     private var backgroundRes = 0
+    private var QRcodeColor = 0
+    private var NotifiColor = 0
 
     private fun init(attrs: AttributeSet?)
     {
@@ -24,8 +27,26 @@ class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, 
             R.color.color_00000000
         )
         typedArray.recycle()
-
+        fillInfo()
     }
+    private fun fillInfo() {
+
+        binding.layoutToolbarContainer.setBackgroundResource(backgroundRes)
+    }
+
+    fun changeColorIcon(iv1: Int)
+    {
+        if(iv1 == 0) {
+            binding.codeqr.setImageResource(R.drawable.ic_baseline_qr_code_24)
+            binding.notifi.setImageResource(R.drawable.ic_baseline_notifications_none_24)
+        }
+        else
+        {
+            binding.codeqr.setImageResource(R.drawable.ic_baseline_qr_code_white_24)
+            binding.notifi.setImageResource(R.drawable.ic_baseline_notifications_none_white_24)
+        }
+    }
+
 
     init {
         val inflater = LayoutInflater.from(context)
