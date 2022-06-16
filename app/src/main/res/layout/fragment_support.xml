@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grac_green_bg"
+    tools:context=".features.support.SupportFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:background="@color/grac_green"
+            android:layout_width="match_parent"
+            android:layout_height="23dp"></View>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_support"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/grac_green">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_15sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_new_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="HỖ TRỢ"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_22sdp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/icon_question_support_s" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:textSize="@dimen/_17sdp"
+            android:textColor="@color/grac_grey"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:text="Hỗ trợ người dân thực hiện các yêu cầu\nnhanh chống"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@drawable/custom_layout_support">
+
+            <LinearLayout
+                android:id="@+id/tv_hotline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:src="@drawable/vector_call_icon"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"/>
+
+                <TextView
+                    android:id="@+id/tv_hotline1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HOTLINE"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_25sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_toRightOf="@+id/tv_hotline"
+                    android:text="1900 0340"
+                    android:textColor="#f20"
+                    android:textSize="@dimen/_25sdp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="@dimen/_300sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_below="@+id/tv_hotline"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/custom_button_green"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_lienhe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Liên hệ"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/_300sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_below="@+id/tv_hotline"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_90sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/custom_button_wgreen"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phản ánh khiếu nại"
+                    android:textColor="@color/grac_green"
+                    android:textSize="@dimen/_18sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/_300sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_below="@+id/tv_hotline"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_140sdp"
+                android:layout_marginBottom="@dimen/_80sdp"
+                android:background="@drawable/custom_button_wgreen"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đăng ký thu gom"
+                    android:textColor="@color/grac_green"
+                    android:textSize="@dimen/_18sdp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>
