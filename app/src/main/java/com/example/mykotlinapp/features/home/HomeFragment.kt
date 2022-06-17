@@ -17,7 +17,7 @@ import com.example.mykotlinapp.features.schedule.AdapterCollectionSchedule
 import com.example.mykotlinapp.features.schedule.Schedule
 import com.example.mykotlinapp.features.slide.ViewPageAdapter
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
 
     //recyclerview
     private lateinit var newRecyclerView: RecyclerView
@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
     lateinit var dateWork: Array<String>
 
 
-    //    private var binding: LayoutViewToolbarBinding
+        private lateinit var binding: FragmentHomeBinding
     private var viewPageAdapter: ViewPageAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_home, container, false)
-        val binding = FragmentHomeBinding.inflate(inflater)
+        binding = FragmentHomeBinding.inflate(inflater)
 
 
         viewPageAdapter = ViewPageAdapter(
@@ -76,13 +76,17 @@ class HomeFragment : Fragment() {
         binding.btPrice!!.setOnClickListener{
             val x = binding.scrollView.scrollY
             Log.d("scroll", " x - " + x)
+            Log.d("buton", "Clicked")
+            changeWhiteButon()
+            binding.ivMap.setImageResource(R.drawable.icon_map_white)
+            binding.llMap.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
         }
 
         binding!!.scrollView.viewTreeObserver.addOnScrollChangedListener(ViewTreeObserver.OnScrollChangedListener {
             val scrollY = binding!!.scrollView.scrollY*2/1000.toFloat() // For ScrollView
             val scrollX = binding!!.scrollView.scrollX/1000.toFloat()// For HorizontalScrollView
             // DO SOMETHING WITH THE SCROLL COORDINATES
-//            Log.d("scroll", "x top = $scrollX y = $scrollY")
+            Log.d("scroll", "x top = $scrollX y = $scrollY")
 
             if(binding.scrollView.scrollY < 600)
             {
@@ -95,20 +99,6 @@ class HomeFragment : Fragment() {
 //                .alpha(scrollY).duration = 100
                 binding.view3.alpha = scrollY
             }
-
-            if(binding.scrollView.scrollY > 400)
-            {
-                binding.appToolbar.changeColorIcon(0)
-                requireActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);//  set status text dark
-            }
-            else
-            {
-                binding.appToolbar.changeColorIcon(1)
-                requireActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);//  set status text dark
-            }
-
         })
 
         //recyclerView
@@ -122,6 +112,12 @@ class HomeFragment : Fragment() {
         getUserData()
 
 
+        binding.ivMap!!.setOnClickListener{
+            Log.d("buton", "Clicked")
+            changeWhiteButon()
+            binding.ivMap.setImageResource(R.drawable.icon_map_white)
+            binding.llMap.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+        }
 
         return binding.root
     }
@@ -208,6 +204,48 @@ class HomeFragment : Fragment() {
             newArrayList.add(work)
         }
         newRecyclerView.adapter = AdapterCollectionSchedule(newArrayList)
+    }
+
+    override fun  onListClicked() {
+        Log.d("buton", "Clicked")
+        changeWhiteButon()
+        binding.ivList.setImageResource(R.drawable.icon_list_white)
+        binding.llList.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+    }
+
+    override fun onMapClicked() {
+        Log.d("buton", "Clicked")
+        changeWhiteButon()
+        binding.ivMap.setImageResource(R.drawable.icon_map_white)
+        binding.llMap.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+    }
+
+    override fun onSortClicked() {
+        Log.d("buton", "Clicked")
+        changeWhiteButon()
+        binding.ivSort.setImageResource(R.drawable.icon_sort_white)
+        binding.llSort.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+    }
+
+    override fun onGridClicked() {
+        changeWhiteButon()
+        binding.ivGrid.setImageResource(R.drawable.icon_grid_white)
+        binding.ivGrid.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+    }
+
+    fun changeWhiteButon()
+    {
+        binding.ivList.setImageResource(R.drawable.icon_list_grey)
+        binding.llList.setBackgroundResource(R.drawable.bg_radius_white)
+
+        binding.ivMap.setImageResource(R.drawable.icon_map_grey)
+        binding.llMap.setBackgroundResource(R.drawable.bg_radius_white)
+
+        binding.ivSort.setImageResource(R.drawable.icon_sort_grey)
+        binding.llSort.setBackgroundResource(R.drawable.bg_radius_white)
+
+        binding.ivGrid.setImageResource(R.drawable.icon_grid_grey)
+        binding.ivGrid.setBackgroundResource(R.drawable.bg_radius_white)
     }
 
 }

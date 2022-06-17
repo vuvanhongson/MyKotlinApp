@@ -42,7 +42,7 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             binding.itemBooking.setCheck(false)
             binding.itemQuestion.setCheck(false)
             binding.itemWallet.setCheck(false)
-//            mBottomItemChangedListener!!.onBottomItemClicked(HOME)
+            mBottomItemChangedListener!!.onBottomItemClicked(HOME)
         }
     }
 
@@ -58,7 +58,7 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             binding.itemBooking.setCheck(false)
             binding.itemQuestion.setCheck(false)
             binding.itemWallet.setCheck(false)
-//            mBottomItemChangedListener!!.onBottomItemClicked(SUPPORT)
+            mBottomItemChangedListener!!.onBottomItemClicked(SUPPORT)
         }
     }
 
@@ -74,7 +74,7 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             binding.itemBooking.setCheck(true)
             binding.itemQuestion.setCheck(false)
             binding.itemWallet.setCheck(false)
-//            mBottomItemChangedListener!!.onBottomItemClicked(BOOKING)
+            mBottomItemChangedListener!!.onBottomItemClicked(BOOKING)
         }
     }
 
@@ -90,7 +90,7 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             binding.itemBooking.setCheck(false)
             binding.itemQuestion.setCheck(true)
             binding.itemWallet.setCheck(false)
-//            mBottomItemChangedListener!!.onBottomItemClicked(QUESTION)
+            mBottomItemChangedListener!!.onBottomItemClicked(QUESTION)
         }
     }
 
@@ -106,7 +106,7 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             binding.itemBooking.setCheck(false)
             binding.itemQuestion.setCheck(false)
             binding.itemWallet.setCheck(true)
-//            mBottomItemChangedListener!!.onBottomItemClicked(WALLET)
+            mBottomItemChangedListener!!.onBottomItemClicked(WALLET)
         }
     }
 
