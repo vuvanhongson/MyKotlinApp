@@ -149,6 +149,7 @@
                         <!--            ====================================-->
 
                         <LinearLayout
+                            android:id="@+id/bt_trash"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/_105sdp"
                             android:layout_marginLeft="2dp"
@@ -179,6 +180,7 @@
                         <!--            ========================================-->
 
                         <LinearLayout
+                            android:id="@+id/bt_complain"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/_105sdp"
                             android:layout_marginLeft="2dp"
@@ -208,6 +210,7 @@
 
                         <!--            ============================================-->
                         <LinearLayout
+                            android:id="@+id/bt_game"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/_105sdp"
                             android:layout_marginLeft="2dp"
@@ -237,6 +240,7 @@
                         <!--            ==================================================-->
 
                         <LinearLayout
+                            android:id="@+id/bt_news"
                             android:layout_width="0dp"
                             android:layout_height="@dimen/_105sdp"
                             android:layout_marginLeft="2dp"

@@ -6,10 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
+import com.example.mykotlinapp.databinding.FragmentHomeBinding
+import com.example.mykotlinapp.databinding.FragmentSupportBinding
+import com.example.mykotlinapp.features.book.BookFragment
+import com.example.mykotlinapp.features.book.BookNextPageFragment
 
 
 class SupportFragment : Fragment() {
 
+    private lateinit var binding: FragmentSupportBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +25,34 @@ class SupportFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        binding = FragmentSupportBinding.inflate(inflater)
+
+
+
+        binding!!.btSupport.setOnClickListener{
+//            val frament: Fragment = BookFragment()
+//            fragmentManager
+//                ?.beginTransaction()
+//                ?.replace(R.id.container, frament)
+//                ?.commit()
+            //                 Create new fragment and transaction
+            val newFragment: Fragment = BookNextPageFragment()
+            // consider using Java coding conventions (upper first char class names!!!)
+            val transaction = requireFragmentManager().beginTransaction()
+
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack
+            transaction.replace(R.id.container, newFragment)
+            transaction.addToBackStack(null)
+
+            // Commit the transaction
+            transaction.commit()
+
+        }
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_support, container, false)
+        return binding.root
     }
 
 

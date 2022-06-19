@@ -1,5 +1,6 @@
 package com.example.mykotlinapp.features.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,9 +14,15 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.FragmentHomeBinding
+import com.example.mykotlinapp.features.news.NewsActivity
+import com.example.mykotlinapp.features.complain.ComplainActivity
+import com.example.mykotlinapp.features.dumptrash.DumpTrashActivity
+import com.example.mykotlinapp.features.games.GamesActivity
+import com.example.mykotlinapp.features.garbagePrice.GarbagePriceActivity
 import com.example.mykotlinapp.features.schedule.AdapterCollectionSchedule
 import com.example.mykotlinapp.features.schedule.Schedule
 import com.example.mykotlinapp.features.slide.ViewPageAdapter
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
 
@@ -119,7 +126,42 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
             binding.llMap.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
         }
 
+
+        initCtrl()
+
         return binding.root
+    }
+
+    private fun initCtrl(){
+        binding.root.bt_price.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                startActivity(Intent(activity, GarbagePriceActivity::class.java))
+            }
+        })
+
+        binding.root.bt_trash.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                startActivity(Intent(activity, DumpTrashActivity::class.java))
+            }
+        })
+
+        binding.root.bt_complain.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                startActivity(Intent(activity, ComplainActivity::class.java))
+            }
+        })
+
+        binding.root.bt_game.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                startActivity(Intent(activity, GamesActivity::class.java))
+            }
+        })
+
+        binding.root.bt_news.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                startActivity(Intent(activity, NewsActivity::class.java))
+            }
+        })
     }
 
     private fun initWork() {

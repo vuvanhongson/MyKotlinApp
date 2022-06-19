@@ -15,4 +15,7 @@
     <string name="bottom_bar_booking_title">Đặt lịch</string>
     <string name="bottom_bar_question_title">Câu hỏi</string>
     <string name="bottom_bar_wallet_title">Ví</string>
+    <string name="content">Nội dung chi tiết <i style="font-size: 5px">(Giá tiền cần thương lượng)</i></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="addimages"><i>Bạn cần đăng ít nhất 1 hình\ntối đa 3 hình</i></string>
 </resources>

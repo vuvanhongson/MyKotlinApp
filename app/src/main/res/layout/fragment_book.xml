@@ -12,9 +12,9 @@
         android:orientation="vertical">
 
         <View
-            android:background="@color/grac_green"
             android:layout_width="match_parent"
-            android:layout_height="23dp"></View>
+            android:layout_height="23dp"
+            android:background="@color/grac_green"></View>
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_support"
@@ -28,27 +28,153 @@
                 android:layout_marginRight="@dimen/_15sdp">
 
                 <ImageView
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_baseline_arrow_back_ios_new_24" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="ĐẶT LỊCH GOM RÁC"
+                    android:text="CHỌN DANH MỤC RÁC"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_22sdp"
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/icon_question_support_s" />
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Sau khi người dân đặt lịch thu gom rác\nthải, dữ liệu sẽ được gửi về các cá nhân,\ntổ chức được phép thu gom trên địa bàn,\nthông tin này cũng được gửi tới UBND\nPhường và UBND Quận theo dõi."
+            android:textColor="@color/grac_grey"
+            android:textSize="@dimen/_17sdp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_15sdp"
+            android:background="@drawable/custom_layout_support">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:button="@drawable/custom_radiobutton"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Ký hợp đồng thu rác mới" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:button="@drawable/custom_radiobutton"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Rác cồng kềnh" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:button="@drawable/custom_radiobutton"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Rác xây dựng" />
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:button="@drawable/custom_radiobutton"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Rác phát sinh thêm" />
+
+                <RadioButton
+                    android:id="@+id/radioButton5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:button="@drawable/custom_radiobutton"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Rác ve chai, đồng nát" />
+
+                <RadioButton
+                    android:id="@+id/radioButton6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:button="@drawable/custom_radiobutton"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Pin thải" />
+
+                <RadioButton
+                    android:id="@+id/radioButton7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:button="@drawable/custom_radiobutton"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Thiết bị điện tử" />
+
+                <RadioButton
+                    android:id="@+id/radioButton8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:button="@drawable/custom_radiobutton"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Vỏ hộp sữa" />
+
+                <RadioButton
+                    android:id="@+id/radioButton9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:button="@drawable/custom_radiobutton"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Nhớt thải" />
+
+                <RadioButton
+                    android:id="@+id/radioButton10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:button="@drawable/custom_radiobutton"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Dầu ăn thải" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="@dimen/_330sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@+id/radioGroup"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@color/grac_green"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KẾ TIẾP"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp" />
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 </FrameLayout>
