@@ -36,10 +36,14 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
 
 
         private lateinit var binding: FragmentHomeBinding
-    private var viewPageAdapter: ViewPageAdapter? = null
+    private lateinit var viewPageAdapter: ViewPageAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewPageAdapter = ViewPageAdapter(
+            parentFragmentManager!!,
+            FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
+        )
 
     }
 
@@ -80,14 +84,6 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
         var x = binding.scrollView.scrollX
         Log.d("scroll", " x - " + x)
 
-        binding.btPrice!!.setOnClickListener{
-            val x = binding.scrollView.scrollY
-            Log.d("scroll", " x - " + x)
-            Log.d("buton", "Clicked")
-            changeWhiteButon()
-            binding.ivMap.setImageResource(R.drawable.icon_map_white)
-            binding.llMap.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
-        }
 
         binding!!.scrollView.viewTreeObserver.addOnScrollChangedListener(ViewTreeObserver.OnScrollChangedListener {
             val scrollY = binding!!.scrollView.scrollY*2/1000.toFloat() // For ScrollView
@@ -119,13 +115,7 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
         getUserData()
 
 
-        binding.ivMap!!.setOnClickListener{
-            Log.d("buton", "Clicked")
-            changeWhiteButon()
-            binding.ivMap.setImageResource(R.drawable.icon_map_white)
-            binding.llMap.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
-        }
-
+        binding.handler = this
 
         initCtrl()
 
@@ -272,7 +262,7 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
     override fun onGridClicked() {
         changeWhiteButon()
         binding.ivGrid.setImageResource(R.drawable.icon_grid_white)
-        binding.ivGrid.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+        binding.llGrid.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
     }
 
     fun changeWhiteButon()
@@ -287,7 +277,7 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
         binding.llSort.setBackgroundResource(R.drawable.bg_radius_white)
 
         binding.ivGrid.setImageResource(R.drawable.icon_grid_grey)
-        binding.ivGrid.setBackgroundResource(R.drawable.bg_radius_white)
+        binding.llGrid.setBackgroundResource(R.drawable.bg_radius_white)
     }
 
 }

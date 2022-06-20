@@ -37,7 +37,7 @@ class SupportFragment : Fragment() {
 //                ?.replace(R.id.container, frament)
 //                ?.commit()
             //                 Create new fragment and transaction
-            val newFragment: Fragment = BookNextPageFragment()
+            val newFragment: Fragment = ContactFragment()
             // consider using Java coding conventions (upper first char class names!!!)
             val transaction = requireFragmentManager().beginTransaction()
 

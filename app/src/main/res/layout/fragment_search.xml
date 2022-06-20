@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".features.search.SearchFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="23dp"
+            android:background="@color/grac_green"></View>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_contact"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/grac_green">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_15sdp">
+
+                <ImageView
+                    android:id="@+id/back_contact"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_new_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="TRA CỨU TIỀN RÁC"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_22sdp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_question_support_s" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@drawable/custom_layout_support"
+            android:padding="@dimen/_20sdp">
+
+            <TextView
+                android:id="@+id/tv_search"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="ĐIỀN MÃ KHÁCH HÀNG HOẶC ĐỊA CHỈ NHÀ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup_search"
+                android:paddingTop="@dimen/_10sdp"
+                android:gravity="left"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_below="@+id/tv_search"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:textSize="@dimen/_16sdp"
+                    android:layout_marginRight="@dimen/_50sdp"
+                    android:id="@+id/radioButton_MaKH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Mã khách hàng" />
+                <RadioButton
+                    android:textSize="@dimen/_16sdp"
+                    android:id="@+id/radioButton_Diachi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Địa chỉ" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/edt_search"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@+id/radioGroup_search"
+                android:background="@drawable/radius_layout_bg_greenlight_search"
+                android:drawableLeft="@drawable/icon_search_vector"
+                android:drawablePadding="@dimen/_10sdp"
+                android:hint="Mã khách hàng"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="14dp"
+                android:paddingBottom="7dp"
+                android:textColor="@color/grac_grey"
+                android:textColorHint="@color/grac_grey"
+                android:textSize="@dimen/_14sdp"></EditText>
+
+            <LinearLayout
+                android:id="@+id/btn_kq_search"
+                android:layout_width="@dimen/_330sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@+id/edt_search"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@color/grac_green"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KẾT QUẢ"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

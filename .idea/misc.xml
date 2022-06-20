@@ -26,6 +26,7 @@
         <entry key="..\:/MyKotlinApp/app/src/main/res/layout/progress_dialog.xml" value="0.10218978102189781" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/drawable-v24/custom_button_green.xml" value="0.122" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/drawable-v24/vector_call_icon.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/drawable/bg_gradient_grey.xml" value="0.1345" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/drawable/bg_green_radius_bottom_s.xml" value="0.176" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/drawable/bg_radius_white.xml" value="0.2005" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/drawable/bg_white_radius_buttom.xml" value="0.202" />
@@ -38,19 +39,22 @@
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_dump_trash.xml" value="0.3078947368421053" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_games.xml" value="0.3078947368421053" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_garbage_price.xml" value="0.3087719298245614" />
-        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_news.xml" value="0.3047619047619048" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_book.xml" value="0.21302083333333333" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_book_next_page.xml" value="0.3078947368421053" />
-        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_contact.xml" value="0.3078947368421053" />
-        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_contact.xml" value="0.2972972972972973" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_home.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_information.xml" value="0.24605263157894736" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_onboarding_1.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_onboarding_2.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_onboarding_3.xml" value="0.2469298245614035" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_question.xml" value="0.17478632478632478" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_search.xml" value="0.24605263157894736" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_support.xml" value="0.17478632478632478" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_wallet.xml" value="0.21302083333333333" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/layout_item_film.xml" value="0.1" />
-        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/layout_view_bottom_bar.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/layout_view_bottom_bar.xml" value="0.264" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/layout_view_bottom_bar_item.xml" value="0.24375" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/layout_view_toolbar.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/list_item_home.xml" value="0.264" />

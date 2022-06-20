@@ -59,7 +59,7 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:text="Sau khi người dân đặt lịch thu gom rác\nthải, dữ liệu sẽ được gửi về các cá nhân,\ntổ chức được phép thu gom trên địa bàn,\nthông tin này cũng được gửi tới UBND\nPhường và UBND Quận theo dõi."
             android:textColor="@color/grac_grey"
-            android:textSize="@dimen/_17sdp"/>
+            android:textSize="@dimen/_17sdp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -74,6 +74,15 @@
                 android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/_15sdp"
                 android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/grac_green"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_18sdp"
+                    android:text="RÁC THẢI SINH HOẠT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
                 <RadioButton
                     android:id="@+id/radioButton1"
@@ -115,6 +124,15 @@
                     android:button="@drawable/custom_radiobutton"
                     android:paddingLeft="@dimen/_10sdp"
                     android:text="Rác ve chai, đồng nát" />
+
+                <TextView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/grac_green"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_18sdp"
+                    android:text="RÁC THẢI ĐẶC BIỆT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
                 <RadioButton
                     android:id="@+id/radioButton6"
@@ -159,6 +177,7 @@
             </RadioGroup>
 
             <LinearLayout
+                android:id="@+id/btn_book"
                 android:layout_width="@dimen/_330sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_below="@+id/radioGroup"
@@ -176,5 +195,4 @@
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
-
 </FrameLayout>

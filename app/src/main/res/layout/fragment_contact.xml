@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grac_green_bg">
+    android:background="@color/grac_green_bg"
+    tools:context=".features.support.ContactFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +28,7 @@
                 android:layout_marginRight="@dimen/_15sdp">
 
                 <ImageView
-                    android:id="@+id/iv_back_contact"
+                    android:id="@+id/back_contact"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_alignParentStart="true"
@@ -66,19 +67,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
+                <ImageView
+                    android:id="@+id/img_contact_1"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:src="@drawable/vector_call_icon" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Về chúng tôi"
+                    android:layout_toRightOf="@+id/img_contact_1"
+                    android:text="1900 0340"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_18sdp" />
 
                 <ImageView
-                    android:layout_centerVertical="true"
                     android:layout_width="@dimen/_18sdp"
                     android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_baseline_next" />
             </RelativeLayout>
 
@@ -100,11 +110,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
+                <ImageView
+                    android:id="@+id/img_contact_2"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:src="@drawable/icon_zalo" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Đối tác Grac"
+                    android:layout_toRightOf="@+id/img_contact_2"
+                    android:text="Zalo"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_18sdp" />
 
@@ -129,24 +148,33 @@
                 android:background="#4F777777" />
 
             <RelativeLayout
-                android:layout_below="@id/view_contact2"
                 android:id="@+id/layout_contact3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_contact2">
+
+                <ImageView
+                    android:id="@+id/img_contact_3"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:src="@drawable/icon_gmail" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Hợp Tác Xã Môi Trường Quận 3"
+                    android:layout_toRightOf="@id/img_contact_3"
+                    android:text="Gmail"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_18sdp" />
 
                 <ImageView
-                    android:layout_centerVertical="true"
                     android:layout_width="@dimen/_18sdp"
                     android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_baseline_next" />
             </RelativeLayout>
 
@@ -168,11 +196,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
+                <ImageView
+                    android:id="@+id/img_contact_4"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:src="@drawable/icon_link" />
+
                 <TextView
+                    android:layout_toRightOf="@+id/img_contact_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Hợp Tác Xã Môi Trường Quận Tân Bình"
+                    android:text="Link web grac.vn"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_18sdp" />
 

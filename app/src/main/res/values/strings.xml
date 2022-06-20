@@ -18,4 +18,5 @@
     <string name="content">Nội dung chi tiết <i style="font-size: 5px">(Giá tiền cần thương lượng)</i></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="addimages"><i>Bạn cần đăng ít nhất 1 hình\ntối đa 3 hình</i></string>
+    <string name="textinfor"><u><i>Hướng dẫn thanh toán</i></u></string>
 </resources>

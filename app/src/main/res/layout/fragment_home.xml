@@ -5,9 +5,8 @@
 
     <data>
         <variable
-            name="listen"
+            name="handler"
             type="com.example.mykotlinapp.features.home.ItemButonRecyclerviewListener" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -293,7 +292,7 @@
                         android:text="Lịch thu gom rác"
                         android:textColor="@color/grac_green"
                         android:textSize="@dimen/_20sdp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -311,15 +310,14 @@
                             android:background="@drawable/bg_green_radius_bottom_s"
                             android:gravity="center"
                             android:orientation="vertical"
-                            android:padding="5dp"
-                            android:onClick="@{v->listen.onListClicked()}" >
+                            android:padding="5dp">
 
                             <ImageView
                                 android:id="@+id/iv_list"
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:src="@drawable/icon_list_white"
-                                android:onClick="@{v->listen.onListClicked()}"/>
+                                android:onClick="@{h->handler.onListClicked()}" />
 
                         </LinearLayout>
 
@@ -334,15 +332,14 @@
                             android:background="@drawable/bg_radius_white"
                             android:gravity="center"
                             android:orientation="vertical"
-                            android:padding="5dp"
-                            android:onClick="@{v->listen.onMapClicked()}" >
+                            android:padding="5dp">
 
                             <ImageView
                                 android:id="@+id/iv_map"
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
-                                android:onClick="@{v->listen.onMapClicked()}"
-                                android:src="@drawable/icon_map_grey" />
+                                android:src="@drawable/icon_map_grey"
+                                android:onClick="@{h->handler.onMapClicked()}" />
 
                         </LinearLayout>
 
@@ -357,14 +354,14 @@
                             android:background="@drawable/bg_radius_white"
                             android:gravity="center"
                             android:orientation="vertical"
-                            android:padding="5dp"
-                            android:onClick="@{v->listen.onSortClicked()}" >
+                            android:padding="5dp">
 
                             <ImageView
                                 android:id="@+id/iv_sort"
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
-                                android:src="@drawable/icon_sort_grey" />
+                                android:src="@drawable/icon_sort_grey"
+                                android:onClick="@{h->handler.onSortClicked()}" />
 
                         </LinearLayout>
 
@@ -379,14 +376,14 @@
                             android:background="@drawable/bg_radius_white"
                             android:gravity="center"
                             android:orientation="vertical"
-                            android:padding="5dp"
-                            android:onClick="@{v->listen.onGridClicked()}" >
+                            android:padding="5dp">
 
                             <ImageView
                                 android:id="@+id/iv_grid"
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
-                                android:src="@drawable/icon_grid_grey" />
+                                android:src="@drawable/icon_grid_grey"
+                                android:onClick="@{h->handler.onGridClicked()}" />
 
                         </LinearLayout>
 
