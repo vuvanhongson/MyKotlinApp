@@ -2,6 +2,7 @@ package com.example.mykotlinapp.features.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,7 @@ import com.example.mykotlinapp.features.garbagePrice.GarbagePriceActivity
 import com.example.mykotlinapp.features.schedule.AdapterCollectionSchedule
 import com.example.mykotlinapp.features.schedule.Schedule
 import com.example.mykotlinapp.features.slide.ViewPageAdapter
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
@@ -118,8 +120,26 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
         binding.handler = this
 
         initCtrl()
+        initRefresh()
 
         return binding.root
+    }
+
+    private fun initRefresh()
+    {
+        //swipeRefreshLayout
+        binding.swipeRefreshLayout.setOnRefreshListener {
+//            Log.d("aaa","bbb")
+            Handler().postDelayed(Runnable {
+                swipeRefreshLayout.isRefreshing = false
+            }, 3000)
+        }
+        //swipeRefreshLayout custom color
+        binding.swipeRefreshLayout.setColorSchemeResources(
+            R.color.grac_green,
+            R.color.grac_orange,
+            R.color.purple_200
+        );
     }
 
     private fun initCtrl(){

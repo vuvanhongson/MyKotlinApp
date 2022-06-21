@@ -111,4 +111,7 @@ dependencies {
     implementation 'me.relex:circleindicator:2.1.6'
     implementation 'androidx.navigation:navigation-fragment:2.2.2'
 
+    //swiperefreshlayout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
 }

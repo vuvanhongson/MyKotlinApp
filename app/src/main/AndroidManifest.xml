@@ -21,7 +21,11 @@
             android:exported="false" />
         <activity
             android:name=".features.games.GamesActivity"
-            android:exported="false" />
+            android:exported="false"/>
+        <activity
+            android:name=".features.games.GameWebViewActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".features.complain.ComplainNextPageActivity"
             android:exported="false" />

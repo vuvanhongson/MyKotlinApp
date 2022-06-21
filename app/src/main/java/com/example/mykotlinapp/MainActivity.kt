@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
     private fun initControls() {
         mFragmentManager = supportFragmentManager
         binding!!.bottomBar.setOnBottomItemChangedListener(this)
+        mSupport.setOnBottomItemChangedListener(this)
     }
 
     private fun initBottomBar() {
