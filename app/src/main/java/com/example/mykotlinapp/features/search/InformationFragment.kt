@@ -6,8 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
+import com.example.mykotlinapp.databinding.FragmentInformationBinding
+import com.example.mykotlinapp.databinding.FragmentSearchBinding
 
 class InformationFragment : Fragment() {
+
+    private lateinit var binding: FragmentInformationBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +23,12 @@ class InformationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_information, container, false)
+        binding = FragmentInformationBinding.inflate(inflater)
+
+        binding.backInformation.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
+
+        return binding.root
     }
 }

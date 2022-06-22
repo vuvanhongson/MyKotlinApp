@@ -8,15 +8,12 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mykotlinapp.databinding.ActivityGameWebviewBinding
 
-class GameWebViewActivity (url : String) : AppCompatActivity() {
+class GameWebViewActivity  : AppCompatActivity() {
 
     private lateinit var binding: ActivityGameWebviewBinding
 
-    var urlGame : String = ""
+    var urlGame : String = "https://grac.vn/game"
 
-    init {
-        this.urlGame = url
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -28,11 +25,16 @@ class GameWebViewActivity (url : String) : AppCompatActivity() {
 //        getActivity()?.setRequestedOrientation(
 //            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
+        val intent = intent
+        urlGame = intent.getStringExtra("url").toString()
+
         super.onCreate(savedInstanceState)
         binding = ActivityGameWebviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initControls()
+        initListen()
+
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -43,6 +45,13 @@ class GameWebViewActivity (url : String) : AppCompatActivity() {
         binding!!.webView.loadUrl(urlGame)
 //        binding!!.informationToolbarLayout.textToolbar = getString(R.string.tutorial)
 //        binding!!.informationToolbarLayout.setOnBackClickedListener { v: View? -> navController.popBackStack() }
+    }
+
+    private fun initListen()
+    {
+        binding.ivExit.setOnClickListener{
+            onBackPressed()
+        }
     }
 
 }

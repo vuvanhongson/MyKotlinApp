@@ -15,18 +15,18 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.FragmentHomeBinding
-import com.example.mykotlinapp.features.news.NewsActivity
 import com.example.mykotlinapp.features.complain.ComplainActivity
 import com.example.mykotlinapp.features.dumptrash.DumpTrashActivity
 import com.example.mykotlinapp.features.games.GamesActivity
 import com.example.mykotlinapp.features.garbagePrice.GarbagePriceActivity
+import com.example.mykotlinapp.features.news.NewsActivity
 import com.example.mykotlinapp.features.schedule.AdapterCollectionSchedule
 import com.example.mykotlinapp.features.schedule.Schedule
 import com.example.mykotlinapp.features.slide.ViewPageAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
-class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
+class HomeFragment : Fragment(), ItemButonRecyclerviewListener {
 
     //recyclerview
     private lateinit var newRecyclerView: RecyclerView
@@ -37,7 +37,7 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
     lateinit var dateWork: Array<String>
 
 
-        private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var viewPageAdapter: ViewPageAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +64,7 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
         )
 
         binding.viewPager.setAdapter(viewPageAdapter)
-        binding.circleIndicartor.setViewPager( binding.viewPager)
+        binding.circleIndicartor.setViewPager(binding.viewPager)
         binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
@@ -88,17 +88,16 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
 
 
         binding!!.scrollView.viewTreeObserver.addOnScrollChangedListener(ViewTreeObserver.OnScrollChangedListener {
-            val scrollY = binding!!.scrollView.scrollY*2/1000.toFloat() // For ScrollView
-            val scrollX = binding!!.scrollView.scrollX/1000.toFloat()// For HorizontalScrollView
+            val scrollY = binding!!.scrollView.scrollY * 2 / 1000.toFloat() // For ScrollView
+            val scrollX = binding!!.scrollView.scrollX / 1000.toFloat()// For HorizontalScrollView
             // DO SOMETHING WITH THE SCROLL COORDINATES
             Log.d("scroll", "x top = $scrollX y = $scrollY")
 
-            if(binding.scrollView.scrollY < 600)
-            {
+            if (binding.scrollView.scrollY < 600) {
 //            binding.view2.animate().alphaBy(1.0.toFloat())
 //                .alpha(1.toFloat() - scrollY).duration = 100
                 binding.view2.alpha = 1.toFloat() - scrollY
-                binding.view2.translationY = -scrollY*300
+                binding.view2.translationY = -scrollY * 300
 
 //            binding.view3.animate().alphaBy(0.0.toFloat())
 //                .alpha(scrollY).duration = 100
@@ -125,8 +124,7 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
         return binding.root
     }
 
-    private fun initRefresh()
-    {
+    private fun initRefresh() {
         //swipeRefreshLayout
         binding.swipeRefreshLayout.setOnRefreshListener {
 //            Log.d("aaa","bbb")
@@ -142,7 +140,7 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
         );
     }
 
-    private fun initCtrl(){
+    private fun initCtrl() {
         binding.root.bt_price.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 startActivity(Intent(activity, GarbagePriceActivity::class.java))
@@ -258,46 +256,45 @@ class HomeFragment : Fragment() , ItemButonRecyclerviewListener{
         newRecyclerView.adapter = AdapterCollectionSchedule(newArrayList)
     }
 
-    override fun  onListClicked() {
+    override fun onListClicked() {
         Log.d("buton", "Clicked")
         changeWhiteButon()
-        binding.ivList.setImageResource(R.drawable.icon_list_white)
-        binding.llList.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+        binding.ivList.setImageResource(R.drawable.ic_list_green)
+//        binding.llList.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
     }
 
     override fun onMapClicked() {
         Log.d("buton", "Clicked")
         changeWhiteButon()
-        binding.ivMap.setImageResource(R.drawable.icon_map_white)
-        binding.llMap.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+        binding.ivMap.setImageResource(R.drawable.ic_map_green)
+//        binding.llMap.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
     }
 
     override fun onSortClicked() {
         Log.d("buton", "Clicked")
         changeWhiteButon()
-        binding.ivSort.setImageResource(R.drawable.icon_sort_white)
-        binding.llSort.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+        binding.ivSort.setImageResource(R.drawable.ic_sort_green)
+//        binding.llSort.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
     }
 
     override fun onGridClicked() {
         changeWhiteButon()
-        binding.ivGrid.setImageResource(R.drawable.icon_grid_white)
-        binding.llGrid.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+        binding.ivGrid.setImageResource(R.drawable.ic_them_green)
+//        binding.llGrid.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
     }
 
-    fun changeWhiteButon()
-    {
-        binding.ivList.setImageResource(R.drawable.icon_list_grey)
-        binding.llList.setBackgroundResource(R.drawable.bg_radius_white)
+    fun changeWhiteButon() {
+        binding.ivList.setImageResource(R.drawable.ic_list_gray)
+//        binding.llList.setBackgroundResource(R.drawable.bg_radius_white)
 
-        binding.ivMap.setImageResource(R.drawable.icon_map_grey)
-        binding.llMap.setBackgroundResource(R.drawable.bg_radius_white)
+        binding.ivMap.setImageResource(R.drawable.ic_map_gray)
+//        binding.llMap.setBackgroundResource(R.drawable.bg_radius_white)
 
-        binding.ivSort.setImageResource(R.drawable.icon_sort_grey)
-        binding.llSort.setBackgroundResource(R.drawable.bg_radius_white)
+        binding.ivSort.setImageResource(R.drawable.ic_sort_gray)
+//        binding.llSort.setBackgroundResource(R.drawable.bg_radius_white)
 
-        binding.ivGrid.setImageResource(R.drawable.icon_grid_grey)
-        binding.llGrid.setBackgroundResource(R.drawable.bg_radius_white)
+        binding.ivGrid.setImageResource(R.drawable.ic_them_gray)
+//        binding.llGrid.setBackgroundResource(R.drawable.bg_radius_white)
     }
 
 }

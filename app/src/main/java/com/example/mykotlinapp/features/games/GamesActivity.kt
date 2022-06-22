@@ -25,22 +25,40 @@ class GamesActivity : AppCompatActivity() , GameItemHandler {
 
         binding.handler = this
 
+        initControl()
+
+    }
+
+    private fun initControl()
+    {
+        binding.ivBackGame.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 
     override fun Game1Clicked() {
-        startActivity(Intent(applicationContext, GameWebViewActivity("https://grac.vn/game2")::class.java))
+        val intent = Intent(this, GameWebViewActivity::class.java)
+        intent.putExtra("url", "https://grac.vn/game")
+        startActivity(intent)
     }
 
     override fun Game2Clicked() {
-
+        val intent = Intent(this, GameWebViewActivity::class.java)
+        intent.putExtra("url", "https://grac.vn/game2")
+        startActivity(intent)
     }
 
     override fun Game3Clicked() {
-
+        val intent = Intent(this, GameWebViewVerticalActivity::class.java)
+        intent.putExtra("url", "https://grac.vn/game3")
+        startActivity(intent)
     }
 
     override fun Game4Clicked() {
-
+        val intent = Intent(this, GameWebViewVerticalActivity::class.java)
+        intent.putExtra("url", "https://grac.vn/20-cau-hoi-trac-nghiem-ve-quan-ly-va-phan-loai-chat-thai/")
+        startActivity(intent)
     }
 
 }

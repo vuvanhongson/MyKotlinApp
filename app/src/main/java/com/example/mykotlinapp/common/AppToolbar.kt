@@ -34,18 +34,18 @@ class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, 
         binding.layoutToolbarContainer.setBackgroundResource(backgroundRes)
     }
 
-    fun changeColorIcon(iv1: Int)
-    {
-        if(iv1 == 0) {
-            binding.codeqr.setImageResource(R.drawable.ic_baseline_qr_code_24)
-            binding.notifi.setImageResource(R.drawable.ic_baseline_notifications_none_24)
-        }
-        else
-        {
-            binding.codeqr.setImageResource(R.drawable.ic_baseline_qr_code_white_24)
-            binding.notifi.setImageResource(R.drawable.ic_baseline_notifications_none_white_24)
-        }
-    }
+//    fun changeColorIcon(iv1: Int)
+//    {
+//        if(iv1 == 0) {
+//            binding.codeqr.setImageResource(R.drawable.ic_baseline_qr_code_24)
+//            binding.notifi.setImageResource(R.drawable.ic_baseline_notifications_none_24)
+//        }
+//        else
+//        {
+//            binding.codeqr.setImageResource(R.drawable.ic_baseline_qr_code_white_24)
+//            binding.notifi.setImageResource(R.drawable.ic_baseline_notifications_none_white_24)
+//        }
+//    }
 
 
     init {

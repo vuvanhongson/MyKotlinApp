@@ -30,7 +30,7 @@
                 android:layout_height="100dp"
                 android:layout_marginRight="10dp"
                 android:padding="@dimen/_10sdp"
-                android:src="@drawable/image_user" />
+                android:src="@drawable/avata_user" />
 
             <TextView
                 android:id="@+id/tv_name"

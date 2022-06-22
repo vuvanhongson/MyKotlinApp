@@ -17,32 +17,32 @@ class BottomBarItem(context: Context, attrs: AttributeSet?) : FrameLayout(contex
     fun init(type: String?) {
         when (type) {
             BottomBar.HOME -> {
-                mResChecked = R.drawable.icon_home_green
-                mResUnchecked = R.drawable.icon_home_grey
+                mResChecked = R.drawable.ic_trangchu_green
+                mResUnchecked = R.drawable.ic_trangchu_gray
                 binding.tvItemTitle.text = resources.getString(R.string.bottom_bar_home_title)
                 setCheck(false)
             }
             BottomBar.SUPPORT -> {
-                mResChecked = R.drawable.icon_headphone_green
-                mResUnchecked = R.drawable.icon_headphone_grey
+                mResChecked = R.drawable.ic_hotro_green
+                mResUnchecked = R.drawable.ic_hotro_gray
                 binding.tvItemTitle.text = resources.getString(R.string.bottom_bar_support_title)
                 setCheck(false)
             }
             BottomBar.BOOKING -> {
-                mResChecked = R.drawable.icon_calendar_green
-                mResUnchecked = R.drawable.ison_calendar_grey
+                mResChecked = R.drawable.ic_datlich_green
+                mResUnchecked = R.drawable.ic_datlich_gray
                 binding.tvItemTitle.text = resources.getString(R.string.bottom_bar_booking_title)
                 setCheck(false)
             }
             BottomBar.QUESTION -> {
-                mResChecked = R.drawable.icon_question_green
-                mResUnchecked = R.drawable.icon_question_grey
+                mResChecked = R.drawable.ic_cauhoi_green
+                mResUnchecked = R.drawable.ic_cauhoi_gray
                 binding.tvItemTitle.text = resources.getString(R.string.bottom_bar_question_title)
                 setCheck(false)
             }
             BottomBar.WALLET -> {
-                mResChecked = R.drawable.icon_wallet_green
-                mResUnchecked = R.drawable.icon_wallet_grey
+                mResChecked = R.drawable.ic_vi_green
+                mResUnchecked = R.drawable.ic_vi_gray
                 binding.tvItemTitle.text = resources.getString(R.string.bottom_bar_wallet_title)
                 setCheck(false)
             }

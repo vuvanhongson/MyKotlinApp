@@ -24,7 +24,7 @@
                 android:layout_height="@dimen/_25sdp"
                 android:layout_alignParentStart="true"
                 android:layout_centerInParent="true"
-                android:src="@drawable/ic_baseline_arrow_back_ios_new_24" />
+                android:src="@drawable/ic_back" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/icon_question_support_s" />
+                android:src="@drawable/ic_question" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -52,5 +52,39 @@
         android:layout_marginTop="@dimen/_15sdp"
         android:text="Cập nhật giá tiền rác ở Tp.HCM theo quyết\nđịnh mới nhất"
         android:textSize="@dimen/_17sdp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_news"
+        android:layout_centerHorizontal="true"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_hinh1"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_252sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:src="@drawable/news_hinh1" />
+
+        <ImageView
+            android:id="@+id/img_hinh2"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_252sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_toRightOf="@id/img_hinh1"
+            android:src="@drawable/news_hinh2" />
+
+        <ImageView
+            android:id="@+id/img_hinh3"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_265sdp"
+            android:layout_below="@+id/img_hinh1"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:src="@drawable/news_hinh3" />
+    </RelativeLayout>
 
 </LinearLayout>

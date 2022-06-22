@@ -47,61 +47,62 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/image_user"></ImageView>
+                    android:src="@drawable/avata_user"/>
 
             </androidx.cardview.widget.CardView>
 
             <EditText
-                android:inputType="text"
-                android:maxLines="1"
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_30sdp"
-                android:layout_weight="9.6"
                 android:layout_marginStart="10dp"
-                android:paddingLeft="14dp"
+                android:layout_weight="9.6"
+                android:background="@drawable/custom_radius_layout_bg_greenlight_search"
+                android:drawableLeft="@drawable/ic_search"
+                android:drawablePadding="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:hint="Tra cứu tiền rác"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
                 android:paddingBottom="7dp"
                 android:textColor="@color/grac_grey"
                 android:textColorHint="@color/grac_grey"
-                android:drawableLeft="@drawable/icon_search_vector"
-                android:drawablePadding="@dimen/_10sdp"
-                android:background="@drawable/radius_layout_bg_greenlight_search"
                 android:textSize="@dimen/_12sdp"
-                android:hint="Tra cứu tiền rác"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cardView2"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5">
-
-            </EditText>
+                app:layout_constraintVertical_bias="0.5"/>
 
             <ImageView
                 android:id="@+id/codeqr"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="0.1"
+                android:layout_width="@dimen/_23sdp"
+                android:layout_height="@dimen/_23sdp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="5dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_baseline_qr_code_white_24"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="0.1"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_qr"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toTopOf="parent"></ImageView>
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <ImageView
                 android:id="@+id/notifi"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="0.1"
-                android:scaleType="centerCrop"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginEnd="@dimen/_2sdp"
-                android:src="@drawable/ic_baseline_notifications_none_white_24"
+                android:layout_weight="0.1"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_noti"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/codeqr"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5"></ImageView>
+                app:layout_constraintVertical_bias="0.5"/>
 
         </LinearLayout>
     </LinearLayout>

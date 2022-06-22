@@ -19,10 +19,10 @@
 
         <View
             android:id="@+id/view2"
-            android:layout_width="666dp"
-            android:layout_height="375dp"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
             android:layout_marginTop="-0dp"
-            android:background="@drawable/backgroun_slide"
+            android:background="@drawable/bg_banner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,10 +41,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:layout_width="666dp"
-                android:layout_height="375dp"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/backgroun_slide"
+                android:background="@drawable/bg_banner"
                 android:scaleType="centerCrop" />
 
         </LinearLayout>
@@ -127,7 +127,7 @@
                             android:orientation="horizontal"
                             android:weightSum="5">
 
-                            <LinearLayout
+                            <ImageView
                                 android:id="@+id/bt_price"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/_105sdp"
@@ -135,31 +135,16 @@
                                 android:layout_marginTop="8dp"
                                 android:layout_marginRight="2dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_radius_white"
+                                android:background="@drawable/bt_giatienrac"
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:padding="8dp">
 
-                                <ImageView
-                                    android:id="@+id/btnCam"
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:layout_marginBottom="8dp"
-                                    android:src="@drawable/icon_money" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="@string/garbage_price"
-                                    android:textColor="@color/grac_green"
-                                    android:textSize="12dp" />
-
-                            </LinearLayout>
+                            </ImageView>
 
                             <!--            ====================================-->
 
-                            <LinearLayout
+                            <ImageView
                                 android:id="@+id/bt_trash"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/_105sdp"
@@ -167,30 +152,16 @@
                                 android:layout_marginTop="8dp"
                                 android:layout_marginRight="2dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_radius_white"
+                                android:background="@drawable/bt_cachborac"
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:padding="8dp">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:layout_marginBottom="8dp"
-                                    android:src="@drawable/icon_bin" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="@string/take_out_the_trash"
-                                    android:textColor="@color/grac_green"
-                                    android:textSize="12dp" />
-
-                            </LinearLayout>
+                            </ImageView>
 
                             <!--            ========================================-->
 
-                            <LinearLayout
+                            <ImageView
                                 android:id="@+id/bt_complain"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/_105sdp"
@@ -198,29 +169,15 @@
                                 android:layout_marginTop="8dp"
                                 android:layout_marginRight="2dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_radius_white"
+                                android:background="@drawable/bt_guikhieunai"
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:padding="8dp">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:layout_marginBottom="8dp"
-                                    android:src="@drawable/icon_note" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="@string/submit_complaint"
-                                    android:textColor="@color/grac_green"
-                                    android:textSize="12dp" />
-
-                            </LinearLayout>
+                            </ImageView>
 
                             <!--            ============================================-->
-                            <LinearLayout
+                            <ImageView
                                 android:id="@+id/bt_game"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/_105sdp"
@@ -228,29 +185,15 @@
                                 android:layout_marginTop="8dp"
                                 android:layout_marginRight="2dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_radius_white"
+                                android:background="@drawable/bt_game"
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:padding="8dp">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:layout_marginBottom="8dp"
-                                    android:src="@drawable/icon_game_remote" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="@string/game"
-                                    android:textColor="@color/grac_green"
-                                    android:textSize="12dp" />
-
-                            </LinearLayout>
+                            </ImageView>
                             <!--            ==================================================-->
 
-                            <LinearLayout
+                            <ImageView
                                 android:id="@+id/bt_news"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/_105sdp"
@@ -258,26 +201,12 @@
                                 android:layout_marginTop="8dp"
                                 android:layout_marginRight="8dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_radius_white"
+                                android:background="@drawable/bt_tintuc"
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:padding="8dp">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:layout_marginBottom="8dp"
-                                    android:src="@drawable/icon_news" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="@string/news"
-                                    android:textColor="@color/grac_green"
-                                    android:textSize="12dp" />
-
-                            </LinearLayout>
+                            </ImageView>
                             <!--            ==================================================-->
 
 
@@ -313,91 +242,55 @@
                             android:orientation="horizontal"
                             android:weightSum="4">
 
-                            <LinearLayout
-                                android:id="@+id/ll_list"
+                            <ImageView
+                                android:id="@+id/iv_list"
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:layout_marginEnd="@dimen/_3sdp"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_green_radius_bottom_s"
+                                android:background="@drawable/ic_list_gray"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="5dp">
-
-                                <ImageView
-                                    android:id="@+id/iv_list"
-                                    android:layout_width="18dp"
-                                    android:layout_height="18dp"
-                                    android:onClick="@{h->handler.onListClicked()}"
-                                    android:src="@drawable/icon_list_white" />
-
-                            </LinearLayout>
+                                android:onClick="@{h->handler.onListClicked()}"/>
 
                             <!--            ====================================================-->
 
-                            <LinearLayout
-                                android:id="@+id/ll_map"
+                            <ImageView
+                                android:id="@+id/iv_map"
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:layout_marginEnd="@dimen/_3sdp"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_radius_white"
+                                android:background="@drawable/ic_map_gray"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="5dp">
-
-                                <ImageView
-                                    android:id="@+id/iv_map"
-                                    android:layout_width="18dp"
-                                    android:layout_height="18dp"
-                                    android:onClick="@{h->handler.onMapClicked()}"
-                                    android:src="@drawable/icon_map_grey" />
-
-                            </LinearLayout>
+                                android:onClick="@{h->handler.onMapClicked()}"/>
 
                             <!--            ====================================================-->
 
-                            <LinearLayout
-                                android:id="@+id/ll_sort"
+                            <ImageView
+                                android:id="@+id/iv_sort"
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:layout_marginEnd="@dimen/_3sdp"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_radius_white"
+                                android:background="@drawable/ic_sort_gray"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="5dp">
-
-                                <ImageView
-                                    android:id="@+id/iv_sort"
-                                    android:layout_width="18dp"
-                                    android:layout_height="18dp"
-                                    android:onClick="@{h->handler.onSortClicked()}"
-                                    android:src="@drawable/icon_sort_grey" />
-
-                            </LinearLayout>
+                                android:onClick="@{h->handler.onSortClicked()}"/>
 
                             <!--            ====================================================-->
 
-                            <LinearLayout
-                                android:id="@+id/ll_grid"
+                            <ImageView
+                                android:id="@+id/iv_grid"
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:layout_marginEnd="@dimen/_3sdp"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_radius_white"
+                                android:background="@drawable/ic_them_gray"
                                 android:gravity="center"
                                 android:orientation="vertical"
-                                android:padding="5dp">
-
-                                <ImageView
-                                    android:id="@+id/iv_grid"
-                                    android:layout_width="18dp"
-                                    android:layout_height="18dp"
-                                    android:onClick="@{h->handler.onGridClicked()}"
-                                    android:src="@drawable/icon_grid_grey" />
-
-                            </LinearLayout>
+                                android:onClick="@{h->handler.onGridClicked()}"/>
 
                             <!--            ====================================================-->
 

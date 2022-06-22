@@ -27,12 +27,12 @@
                 android:layout_marginRight="@dimen/_15sdp">
 
                 <ImageView
-                    android:id="@+id/back_contact"
+                    android:id="@+id/back_information"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_alignParentStart="true"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/ic_baseline_arrow_back_ios_new_24" />
+                    android:src="@drawable/ic_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
                     android:layout_height="@dimen/_25sdp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/icon_question_support_s" />
+                    android:src="@drawable/ic_question" />
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
 
@@ -405,78 +405,115 @@
                 <!--==========================================-->
 
                 <LinearLayout
-                    android:layout_width="@dimen/_330sdp"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_below="@+id/edt_search"
-                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_20sdp"
-                    android:background="@color/grac_green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:gravity="center">
 
-                    <TextView
+                    <ImageView
+                        android:id="@+id/btn_DiaDiemPhanLoai"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Địa chỉ đã phân loại rác"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_18sdp" />
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_information" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_below="@+id/edt_search"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#E91E63"
+                    android:weightSum="100"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingEnd="@dimen/_10sdp">
+                    android:orientation="horizontal">
 
-                    <TextView
+                    <LinearLayout
+                        android:layout_weight="45"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="THANH TOÁN MOMO"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_18sdp" />
-                </LinearLayout>
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_below="@+id/edt_search"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#F44336"
-                    android:gravity="center"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingEnd="@dimen/_10sdp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="#E91E63"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp">
 
-                    <TextView
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="THANH TOÁN MOMO"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="#03A9F4"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="GIẤY BÁO TIỀN RÁC"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12sdp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="55"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="THANH TOÁN VIETEL MONEY"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_18sdp" />
-                </LinearLayout>
+                        android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_below="@+id/edt_search"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#03A9F4"
-                    android:gravity="center"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingEnd="@dimen/_10sdp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="#F44336"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="GIẤY BÁO TIỀN RÁC"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_18sdp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="THANH TOÁN VIETEL MONEY"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/btn_YeuCauCapNhat"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_below="@+id/edt_search"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="#F20"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="YÊU CẦU CẬP NHẬT"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12sdp" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <TextView
