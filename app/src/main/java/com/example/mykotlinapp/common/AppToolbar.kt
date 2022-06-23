@@ -1,15 +1,18 @@
 package com.example.mykotlinapp.common
 
 
+import android.app.Dialog
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageView
 import com.example.mykotlinapp.R
+import com.example.mykotlinapp.common.listener.ToolbarOnClickListenner
 import com.example.mykotlinapp.databinding.LayoutViewToolbarBinding
 
-class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs){
+class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) , ToolbarOnClickListenner {
 
     private val binding: LayoutViewToolbarBinding
     private var showInfoButton = false
@@ -19,8 +22,7 @@ class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, 
     private var QRcodeColor = 0
     private var NotifiColor = 0
 
-    private fun init(attrs: AttributeSet?)
-    {
+    private fun init(attrs: AttributeSet?) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.AppToolbar)
         backgroundRes = typedArray.getResourceId(
             R.styleable.AppToolbar_toolBarBackground,
@@ -29,6 +31,7 @@ class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, 
         typedArray.recycle()
         fillInfo()
     }
+
     private fun fillInfo() {
 
         binding.layoutToolbarContainer.setBackgroundResource(backgroundRes)
@@ -48,11 +51,40 @@ class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, 
 //    }
 
 
+    private fun showDialog() {
+        val customDialog = Dialog(context)
+        customDialog.setContentView(R.layout.dialog_updating)
+        customDialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        customDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        val ivClose = customDialog.findViewById<ImageView>(R.id.iv_close)
+        ivClose.setOnClickListener {
+            customDialog.dismiss()
+        }
+        customDialog.show()
+    }
+
+
     init {
         val inflater = LayoutInflater.from(context)
         binding = LayoutViewToolbarBinding.inflate(inflater)
+        binding.toolbar = this
         addView(binding.root)
         init(attrs)
+    }
+
+    override fun UserOnClick() {
+        showDialog()
+    }
+
+    override fun CodeQROnClick() {
+        showDialog()
+    }
+
+    override fun NotiOnClick() {
+        showDialog()
     }
 
 }

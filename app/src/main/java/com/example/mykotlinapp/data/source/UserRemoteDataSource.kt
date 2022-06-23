@@ -6,4 +6,6 @@ class UserRemoteDataSource (private val apiService: ApiService) {
 
     suspend fun getMovie(page: Int, per_page : Int) = apiService.getMovie(page, per_page)
 
+    suspend fun getLichGomRac(oderby: String, current : Int, number: Int) = apiService.getLichGomRac(oderby, current, number)
+
 }

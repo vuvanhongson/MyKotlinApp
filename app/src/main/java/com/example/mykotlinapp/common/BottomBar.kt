@@ -1,9 +1,13 @@
 package com.example.mykotlinapp.common
 
+import android.app.Dialog
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageView
+import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.listener.BottomBarItemHandler
 import com.example.mykotlinapp.common.listener.BottomItemChangedListener
 import com.example.mykotlinapp.databinding.LayoutViewBottomBarBinding
@@ -96,17 +100,30 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
 
     override fun onWalletClicked() {
         if (!isWalletClick) {
-            isHomeClick = false
+//            isHomeClick = false
+//            isBookingClick = false
+//            isSupportClick = false
+//            isQuestionlick = false
+//            isWalletClick = true
+//            binding.itemHome.setCheck(false)
+//            binding.itemSupport.setCheck(false)
+//            binding.itemBooking.setCheck(false)
+//            binding.itemQuestion.setCheck(false)
+//            binding.itemWallet.setCheck(true)
+//            mBottomItemChangedListener!!.onBottomItemClicked(WALLET)
+
+            isHomeClick = true
             isBookingClick = false
             isSupportClick = false
             isQuestionlick = false
-            isWalletClick = true
-            binding.itemHome.setCheck(false)
+            isWalletClick = false
+            binding.itemHome.setCheck(true)
             binding.itemSupport.setCheck(false)
             binding.itemBooking.setCheck(false)
             binding.itemQuestion.setCheck(false)
-            binding.itemWallet.setCheck(true)
-            mBottomItemChangedListener!!.onBottomItemClicked(WALLET)
+            binding.itemWallet.setCheck(false)
+            mBottomItemChangedListener!!.onBottomItemClicked(HOME)
+            showDialog()
         }
     }
 
@@ -126,4 +143,20 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
         addView(binding.root)
         initControls()
     }
+
+    private fun showDialog() {
+        val customDialog = Dialog(context)
+        customDialog.setContentView(R.layout.dialog_updating)
+        customDialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        customDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        val ivClose = customDialog.findViewById<ImageView>(R.id.iv_close)
+        ivClose.setOnClickListener {
+            customDialog.dismiss()
+        }
+        customDialog.show()
+    }
+
 }

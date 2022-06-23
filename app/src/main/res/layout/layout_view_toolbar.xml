@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="toolbar"
+            type="com.example.mykotlinapp.common.listener.ToolbarOnClickListenner" />
+    </data>
+
     <LinearLayout
         android:id="@+id/layout_Toolbar_Container"
         android:orientation="vertical"
@@ -43,6 +49,8 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:clickable="true"
+                    android:onClick="@{()->toolbar.UserOnClick()}"
                     android:id="@+id/imgUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,6 +83,8 @@
                 app:layout_constraintVertical_bias="0.5"/>
 
             <ImageView
+                android:clickable="true"
+                android:onClick="@{()->toolbar.CodeQROnClick()}"
                 android:id="@+id/codeqr"
                 android:layout_width="@dimen/_23sdp"
                 android:layout_height="@dimen/_23sdp"
@@ -89,6 +99,8 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <ImageView
+                android:clickable="true"
+                android:onClick="@{()->toolbar.NotiOnClick()}"
                 android:id="@+id/notifi"
                 android:layout_width="@dimen/_22sdp"
                 android:layout_height="@dimen/_25sdp"

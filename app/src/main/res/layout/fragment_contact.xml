@@ -1,228 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/grac_green_bg"
-    tools:context=".features.support.ContactFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+        <variable
+            name="contact"
+            type="com.example.mykotlinapp.features.support.ContactItemClick" />
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@color/grac_background"
+        tools:context=".features.support.ContactFragment">
 
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="23dp"
-            android:background="@color/grac_green"></View>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_contact"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:background="@color/grac_green">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:background="@color/grac_green" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_contact"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@color/grac_green">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_15sdp">
+
+                    <ImageView
+                        android:id="@+id/back_contact"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_back" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="LIÊN HỆ"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_22sdp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_question" />
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/_15sdp">
-
-                <ImageView
-                    android:id="@+id/back_contact"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/ic_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="LIÊN HỆ"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_22sdp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_centerVertical="true"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_question" />
-            </RelativeLayout>
-        </androidx.appcompat.widget.Toolbar>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_15sdp"
-            android:background="@drawable/custom_layout_support"
-            android:padding="@dimen/_20sdp">
-
-            <RelativeLayout
-                android:id="@+id/layout_contact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/img_contact_1"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:src="@drawable/ic_phone" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/img_contact_1"
-                    android:text="1900 0340"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <ImageView
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_next" />
-            </RelativeLayout>
-
-            <View
-                android:id="@+id/view_contact"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:layout_below="@+id/layout_contact"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:background="#4F777777" />
+                android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/custom_layout_support"
+                android:padding="@dimen/_20sdp">
 
-            <RelativeLayout
-                android:layout_below="@id/view_contact"
-                android:id="@+id/layout_contact2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:onClick="@{()->contact.Contact1onClick()}"
+                    android:id="@+id/layout_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/img_contact_2"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:src="@drawable/ic_zalo" />
+                    <ImageView
+                        android:id="@+id/img_contact_1"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:src="@drawable/ic_phone" />
 
-                <TextView
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/img_contact_1"
+                        android:text="1900 0340"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_next" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_below="@+id/layout_contact"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="#4F777777" />
+
+                <RelativeLayout
+                    android:onClick="@{()->contact.Contact2onClick()}"
+                    android:id="@+id/layout_contact2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/img_contact_2"
-                    android:text="Zalo"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_18sdp" />
+                    android:layout_below="@id/view_contact">
 
-                <ImageView
-                    android:layout_centerVertical="true"
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_next" />
-            </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/img_contact_2"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:src="@drawable/ic_zalo" />
 
-            <View
-                android:id="@+id/view_contact2"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:layout_below="@+id/layout_contact2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:background="#4F777777" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/img_contact_2"
+                        android:text="Zalo"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_18sdp" />
 
-            <RelativeLayout
-                android:id="@+id/layout_contact3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/view_contact2">
+                    <ImageView
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_next" />
+                </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/img_contact_3"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:src="@drawable/ic_gmail" />
+                <View
+                    android:id="@+id/view_contact2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_below="@+id/layout_contact2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="#4F777777" />
 
-                <TextView
+                <RelativeLayout
+                    android:onClick="@{()->contact.Contact3onClick()}"
+                    android:id="@+id/layout_contact3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/img_contact_3"
-                    android:text="Gmail"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_18sdp" />
+                    android:layout_below="@id/view_contact2">
 
-                <ImageView
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_next" />
-            </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/img_contact_3"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:src="@drawable/ic_gmail" />
 
-            <View
-                android:id="@+id/view_contact3"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:layout_below="@+id/layout_contact3"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:background="#4F777777" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/img_contact_3"
+                        android:text="Gmail"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_18sdp" />
 
-            <RelativeLayout
-                android:layout_below="@id/view_contact3"
-                android:id="@+id/layout_contact4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_next" />
+                </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/img_contact_4"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:src="@drawable/ic_link" />
+                <View
+                    android:id="@+id/view_contact3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_below="@+id/layout_contact3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="#4F777777" />
 
-                <TextView
-                    android:layout_toRightOf="@+id/img_contact_4"
+                <RelativeLayout
+                    android:onClick="@{()->contact.Contact4onClick()}"
+                    android:id="@+id/layout_contact4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Link web grac.vn"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_18sdp" />
+                    android:layout_below="@id/view_contact3">
 
-                <ImageView
-                    android:layout_centerVertical="true"
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_next" />
+                    <ImageView
+                        android:id="@+id/img_contact_4"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:src="@drawable/ic_link" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/img_contact_4"
+                        android:text="Link web grac.vn"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_next" />
+                </RelativeLayout>
+
             </RelativeLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-    </LinearLayout>
-
-</FrameLayout>
+    </FrameLayout>
+</layout>

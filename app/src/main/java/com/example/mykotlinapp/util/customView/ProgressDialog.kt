@@ -28,7 +28,7 @@ class ProgressDialog(private val context: Context) {
         view.cardView.setCardBackgroundColor(Color.parseColor("#26000000"))
         setColorFilter(
             view.progressBar.indeterminateDrawable,
-            ResourcesCompat.getColor(context.resources, R.color.color_FD6003, null)
+            ResourcesCompat.getColor(context.resources, R.color.grac_green, null)
         )
 
         dialog = CustomDialog(context).apply {

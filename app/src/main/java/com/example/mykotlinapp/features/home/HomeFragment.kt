@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,12 +22,17 @@ import com.example.mykotlinapp.features.news.NewsActivity
 import com.example.mykotlinapp.features.schedule.AdapterCollectionSchedule
 import com.example.mykotlinapp.features.schedule.Schedule
 import com.example.mykotlinapp.features.slide.ViewPageAdapter
+import com.example.mykotlinapp.util.base.BaseFragment
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : Fragment(), ItemButonRecyclerviewListener {
+class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
 
     //recyclerview
+    val viewModel: HomeViewModel by viewModel()
+
     private lateinit var newRecyclerView: RecyclerView
     private lateinit var newArrayList: ArrayList<Schedule>
     lateinit var imageWork: Array<Int>
@@ -47,6 +51,28 @@ class HomeFragment : Fragment(), ItemButonRecyclerviewListener {
             FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
         )
 
+
+
+    }
+
+    private fun registerLiveData() = with(viewModel) {
+//        movies.observe(viewLifecycleOwner) {
+//            progressDialog.dismiss()
+//            Log.d("data", " - " + it.toString() )
+//        }
+        error.observe(viewLifecycleOwner) {
+            progressDialog.dismiss()
+            Snackbar.make(binding.tvRcview, it.toString(), Snackbar.LENGTH_SHORT).show()
+        }
+        lichgonrac.observe(viewLifecycleOwner) {
+            progressDialog.dismiss()
+//            hFilmAdapter?.setData(it)
+            Log.d("data", " - " + it.toString() )
+        }
+//        viewModel.error.observe(viewLifecycleOwner) {
+//            progressDialog.dismiss()
+////            Snackbar.make(binding.appToolbar, it.toString(), Snackbar.LENGTH_SHORT).show()
+//        }
     }
 
     override fun onCreateView(
@@ -62,6 +88,9 @@ class HomeFragment : Fragment(), ItemButonRecyclerviewListener {
             parentFragmentManager!!,
             FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
         )
+
+        progressDialog.show()
+        registerLiveData()
 
         binding.viewPager.setAdapter(viewPageAdapter)
         binding.circleIndicartor.setViewPager(binding.viewPager)
@@ -124,12 +153,17 @@ class HomeFragment : Fragment(), ItemButonRecyclerviewListener {
         return binding.root
     }
 
+
+
+
     private fun initRefresh() {
         //swipeRefreshLayout
         binding.swipeRefreshLayout.setOnRefreshListener {
 //            Log.d("aaa","bbb")
             Handler().postDelayed(Runnable {
                 swipeRefreshLayout.isRefreshing = false
+                progressDialog.show()
+                registerLiveData()
             }, 3000)
         }
         //swipeRefreshLayout custom color

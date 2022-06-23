@@ -23,7 +23,15 @@ class InformationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentInformationBinding.inflate(inflater)
+        binding = FragmentInformationBinding.inflate(layoutInflater)
+
+        binding!!.btnYeuCauCapNhat.setOnClickListener {
+            val frament: Fragment = RequestUpdateFragment()
+            val transaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container, frament)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         binding.backInformation.setOnClickListener {
             requireActivity().onBackPressed()

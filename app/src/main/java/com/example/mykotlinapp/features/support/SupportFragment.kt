@@ -14,7 +14,7 @@ import com.example.mykotlinapp.features.book.BookFragment
 import com.example.mykotlinapp.features.book.BookNextPageFragment
 
 
-class SupportFragment : Fragment() {
+class SupportFragment : Fragment() , SupportItemClick{
 
     private var mBottomItemChangedListener: BottomItemChangedListener? = null
 
@@ -36,19 +36,35 @@ class SupportFragment : Fragment() {
     ): View? {
         binding = FragmentSupportBinding.inflate(inflater)
 
-        binding!!.btSupport.setOnClickListener{
-            val newFragment: Fragment = ContactFragment()
-            val transaction = requireFragmentManager().beginTransaction()
-            transaction.replace(R.id.container, newFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
+//        binding!!.btSupport.setOnClickListener{
+//            val newFragment: Fragment = ContactFragment()
+//            val transaction = requireFragmentManager().beginTransaction()
+//            transaction.replace(R.id.container, newFragment)
+//            transaction.addToBackStack(null)
+//            transaction.commit()
+//        }
 
         binding.ivBackSupport.setOnClickListener{
             mBottomItemChangedListener!!.onBottomItemClicked(BottomBar.HOME)
         }
 
+        binding.support = this
+
         return binding.root
+    }
+
+    override fun Support1onClick() {
+        val newFragment: Fragment = ContactFragment()
+        val transaction = requireFragmentManager().beginTransaction()
+        transaction.replace(R.id.container, newFragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    override fun Support2onClick() {
+    }
+
+    override fun Support3onClick() {
     }
 
 
