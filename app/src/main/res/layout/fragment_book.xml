@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="book"
             type="com.example.mykotlinapp.features.book.BookOnclickListenner" />
@@ -36,12 +37,12 @@
                     android:layout_marginRight="@dimen/_15sdp">
 
                     <ImageView
-                        android:clickable="true"
-                        android:onClick="@{()->book.bookBackOnClick()}"
                         android:layout_width="@dimen/_25sdp"
                         android:layout_height="@dimen/_25sdp"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
+                        android:clickable="true"
+                        android:onClick="@{()->book.bookBackOnClick()}"
                         android:src="@drawable/ic_back" />
 
                     <TextView
@@ -54,203 +55,212 @@
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:clickable="true"
-                        android:onClick="@{()->book.bookQuestionOnClick()}"
                         android:layout_width="@dimen/_25sdp"
                         android:layout_height="@dimen/_25sdp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
+                        android:clickable="true"
+                        android:onClick="@{()->book.bookQuestionOnClick()}"
                         android:src="@drawable/ic_question" />
                 </RelativeLayout>
             </androidx.appcompat.widget.Toolbar>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:text="Sau khi người dân đặt lịch thu gom rác\nthải, dữ liệu sẽ được gửi về các cá nhân,\ntổ chức được phép thu gom trên địa bàn,\nthông tin này cũng được gửi tới UBND\nPhường và UBND Quận theo dõi."
-                android:textColor="@color/grac_grey"
-                android:textSize="@dimen/_17sdp" />
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_15sdp"
-                    android:background="@drawable/custom_layout_support">
+                    android:orientation="vertical">
 
-                    <RadioGroup
-                        android:id="@+id/radioGroup"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Sau khi người dân đặt lịch thu gom rác\nthải, dữ liệu sẽ được gửi về các cá nhân,\ntổ chức được phép thu gom trên địa bàn,\nthông tin này cũng được gửi tới UBND\nPhường và UBND Quận theo dõi."
+                        android:textColor="@color/grac_grey"
+                        android:textSize="@dimen/_17sdp" />
+
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:layout_marginEnd="@dimen/_15sdp"
-                        android:layout_marginBottom="@dimen/_15sdp"
-                        android:orientation="vertical">
+                        android:layout_margin="@dimen/_15sdp"
+                        android:background="@drawable/custom_layout_support">
 
-                        <LinearLayout
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_15sdp"
+                            android:layout_marginBottom="@dimen/_15sdp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="@dimen/_5sdp"
+                                    android:text="ĐẶT LỊCH THU GOM RÁC THẢI SINH HOẠT"
+                                    android:textColor="@color/grac_green"
+                                    android:textSize="@dimen/_15sdp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="@dimen/_15sdp"
+                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_gravity="center_vertical"
+                                    android:clickable="true"
+                                    android:onClick="@{()->book.bookRacThaiSinhHoatOnClick()}"
+                                    android:src="@drawable/ic_question_yellow" />
+                            </LinearLayout>
+
+
+                            <RadioButton
+                                android:id="@+id/radioButton1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_35sdp"
+                                android:button="@drawable/custom_radiobutton"
+                                android:checked="true"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:text="Ký hợp đồng thu rác mới" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_35sdp"
+                                android:button="@drawable/custom_radiobutton"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:text="Rác cồng kềnh" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_35sdp"
+                                android:button="@drawable/custom_radiobutton"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:text="Rác xây dựng" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_35sdp"
+                                android:button="@drawable/custom_radiobutton"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:text="Rác phát sinh thêm" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:button="@drawable/custom_radiobutton"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:text="Rác ve chai, đồng nát" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="@dimen/_5sdp"
+                                    android:text="ĐẶT LỊCH THU GOM RÁC THẢI ĐẶC BIỆT\n- NGUY HẠI"
+                                    android:textColor="@color/grac_green"
+                                    android:textSize="@dimen/_15sdp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="@dimen/_15sdp"
+                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_gravity="center_vertical"
+                                    android:clickable="true"
+                                    android:onClick="@{()->book.bookRacThaiDacBietOnClick()}"
+                                    android:src="@drawable/ic_question_yellow" />
+                            </LinearLayout>
+
+                            <RadioButton
+                                android:id="@+id/radioButton6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_35sdp"
+                                android:button="@drawable/custom_radiobutton"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:text="Pin thải" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_35sdp"
+                                android:button="@drawable/custom_radiobutton"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:text="Thiết bị điện tử" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_35sdp"
+                                android:button="@drawable/custom_radiobutton"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:text="Vỏ hộp sữa" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_35sdp"
+                                android:button="@drawable/custom_radiobutton"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:text="Nhớt thải" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_35sdp"
+                                android:button="@drawable/custom_radiobutton"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:text="Dầu ăn thải" />
+
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/btn_book"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_below="@+id/radioGroup"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginHorizontal="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:background="@drawable/custom_button_green_radius"
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:onClick="@{()->book.bookNextPageOnClick()}">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/_5sdp"
-                                android:text="ĐẶT LỊCH THU GOM RÁC THẢI SINH HOẠT"
-                                android:textColor="@color/grac_green"
-                                android:textSize="@dimen/_16sdp"
-                                android:textStyle="bold" />
-
-                            <ImageView
-                                android:clickable="true"
-                                android:onClick="@{()->book.bookRacThaiSinhHoatOnClick()}"
-                                android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/ic_question_yellow" />
+                                android:text="KẾ TIẾP"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_18sdp" />
                         </LinearLayout>
+                    </RelativeLayout>
 
-
-                        <RadioButton
-                            android:id="@+id/radioButton1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_35sdp"
-                            android:button="@drawable/custom_radiobutton"
-                            android:checked="true"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:text="Ký hợp đồng thu rác mới" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_35sdp"
-                            android:button="@drawable/custom_radiobutton"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:text="Rác cồng kềnh" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_35sdp"
-                            android:button="@drawable/custom_radiobutton"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:text="Rác xây dựng" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_35sdp"
-                            android:button="@drawable/custom_radiobutton"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:text="Rác phát sinh thêm" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_35sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:button="@drawable/custom_radiobutton"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:text="Rác ve chai, đồng nát" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/_5sdp"
-                                android:text="ĐẶT LỊCH THU GOM RÁC THẢI ĐẶC BIỆT\n- NGUY HẠI"
-                                android:textColor="@color/grac_green"
-                                android:textSize="@dimen/_16sdp"
-                                android:textStyle="bold" />
-
-                            <ImageView
-                                android:clickable="true"
-                                android:onClick="@{()->book.bookRacThaiDacBietOnClick()}"
-                                android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/ic_question_yellow" />
-                        </LinearLayout>
-
-                        <RadioButton
-                            android:id="@+id/radioButton6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_35sdp"
-                            android:button="@drawable/custom_radiobutton"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:text="Pin thải" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_35sdp"
-                            android:button="@drawable/custom_radiobutton"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:text="Thiết bị điện tử" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_35sdp"
-                            android:button="@drawable/custom_radiobutton"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:text="Vỏ hộp sữa" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_35sdp"
-                            android:button="@drawable/custom_radiobutton"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:text="Nhớt thải" />
-
-                        <RadioButton
-                            android:id="@+id/radioButton10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_35sdp"
-                            android:button="@drawable/custom_radiobutton"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:text="Dầu ăn thải" />
-
-                    </RadioGroup>
-
-                    <LinearLayout
-                        android:id="@+id/btn_book"
-                        android:layout_marginHorizontal="@dimen/_20sdp"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_below="@+id/radioGroup"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="@dimen/_20sdp"
-                        android:background="@drawable/custom_button_green_radius"
-                        android:clickable="true"
-                        android:gravity="center"
-                        android:onClick="@{()->book.bookNextPageOnClick()}">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="KẾ TIẾP"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_18sdp" />
-                    </LinearLayout>
-                </RelativeLayout>
+                </LinearLayout>
             </androidx.core.widget.NestedScrollView>
+
         </LinearLayout>
     </FrameLayout>
 </layout>

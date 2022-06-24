@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/grac_green_bg">
+    android:background="@color/grac_green_bg"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_contact"
@@ -36,55 +34,50 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:layout_centerVertical="true"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:src="@drawable/ic_question" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:textColor="#AE000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:text="Cập nhật giá tiền rác ở Tp.HCM theo quyết\nđịnh mới nhất"
-        android:textSize="@dimen/_17sdp"/>
-
-    <RelativeLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_news"
-        android:layout_centerHorizontal="true"
-        android:gravity="center">
+        android:layout_below="@+id/toolbar_news"
+        android:overScrollMode="ifContentScrolls"
+        android:scrollbars="none">
 
-        <ImageView
-            android:id="@+id/img_hinh1"
-            android:layout_width="@dimen/_180sdp"
-            android:layout_height="@dimen/_252sdp"
-            android:layout_margin="@dimen/_10sdp"
-            android:src="@drawable/news_hinh1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/img_hinh2"
-            android:layout_width="@dimen/_180sdp"
-            android:layout_height="@dimen/_252sdp"
-            android:layout_margin="@dimen/_10sdp"
-            android:layout_toRightOf="@id/img_hinh1"
-            android:src="@drawable/news_hinh2" />
+            <TextView
+                android:id="@+id/tv_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Cập nhật giá tiền rác ở Tp.HCM theo quyết\nđịnh mới nhất"
+                android:textSize="@dimen/_17sdp" />
 
-        <ImageView
-            android:id="@+id/img_hinh3"
-            android:layout_width="@dimen/_180sdp"
-            android:layout_height="@dimen/_265sdp"
-            android:layout_below="@+id/img_hinh1"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:src="@drawable/news_hinh3" />
-    </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_news"
+                android:layout_centerHorizontal="true"
+                android:gravity="center">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_15sdp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

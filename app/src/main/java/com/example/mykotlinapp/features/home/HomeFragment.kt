@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
+import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,8 +20,8 @@ import com.example.mykotlinapp.features.dumptrash.DumpTrashActivity
 import com.example.mykotlinapp.features.games.GamesActivity
 import com.example.mykotlinapp.features.garbagePrice.GarbagePriceActivity
 import com.example.mykotlinapp.features.news.NewsActivity
-import com.example.mykotlinapp.features.schedule.AdapterCollectionSchedule
-import com.example.mykotlinapp.features.schedule.Schedule
+import com.example.mykotlinapp.features.home.schedule.AdapterListCollectionSchedule
+import com.example.mykotlinapp.features.home.schedule.Schedule
 import com.example.mykotlinapp.features.slide.ViewPageAdapter
 import com.example.mykotlinapp.util.base.BaseFragment
 import com.google.android.material.snackbar.Snackbar
@@ -139,7 +140,7 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
 
         newRecyclerView = binding.recyclerview
         newRecyclerView.layoutManager = GridLayoutManager(context, 1)
-        newRecyclerView.isNestedScrollingEnabled = false
+        newRecyclerView.isNestedScrollingEnabled = true
         newRecyclerView.setHasFixedSize(true)
         newArrayList = arrayListOf<Schedule>()
         getUserData()
@@ -287,7 +288,7 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
             val work = Schedule(imageWork[i], nameWork[i], addressWork[i], dateWork[i])
             newArrayList.add(work)
         }
-        newRecyclerView.adapter = AdapterCollectionSchedule(newArrayList)
+        newRecyclerView.adapter = AdapterListCollectionSchedule(newArrayList)
     }
 
     override fun onListClicked() {
@@ -295,6 +296,7 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
         changeWhiteButon()
         binding.ivList.setImageResource(R.drawable.ic_list_green)
 //        binding.llList.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+        newRecyclerView.layoutManager = GridLayoutManager(context, 1)
     }
 
     override fun onMapClicked() {
@@ -315,6 +317,7 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
         changeWhiteButon()
         binding.ivGrid.setImageResource(R.drawable.ic_them_green)
 //        binding.llGrid.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
+        newRecyclerView.layoutManager = GridLayoutManager(context, 2)
     }
 
     fun changeWhiteButon() {
@@ -329,6 +332,13 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
 
         binding.ivGrid.setImageResource(R.drawable.ic_them_gray)
 //        binding.llGrid.setBackgroundResource(R.drawable.bg_radius_white)
+    }
+
+
+    companion object {
+        fun newInstance() = HomeFragment().apply {
+            arguments = bundleOf()
+        }
     }
 
 }

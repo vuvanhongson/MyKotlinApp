@@ -4,14 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.BottomBar
 import com.example.mykotlinapp.common.listener.BottomItemChangedListener
 import com.example.mykotlinapp.databinding.FragmentHomeBinding
 import com.example.mykotlinapp.databinding.FragmentSupportBinding
+import com.example.mykotlinapp.features.CurrentTabActive
 import com.example.mykotlinapp.features.book.BookFragment
 import com.example.mykotlinapp.features.book.BookNextPageFragment
+import com.example.mykotlinapp.features.home.HomeFragment
+import com.example.mykotlinapp.util.ext.addFragment
+import com.example.mykotlinapp.util.ext.replaceChildFragment
 
 
 class SupportFragment : Fragment() , SupportItemClick{
@@ -46,6 +51,7 @@ class SupportFragment : Fragment() , SupportItemClick{
 
         binding.ivBackSupport.setOnClickListener{
             mBottomItemChangedListener!!.onBottomItemClicked(BottomBar.HOME)
+//            replaceChildFragment(R.id.container, HomeFragment.newInstance())
         }
 
         binding.support = this
@@ -54,11 +60,13 @@ class SupportFragment : Fragment() , SupportItemClick{
     }
 
     override fun Support1onClick() {
-        val newFragment: Fragment = ContactFragment()
-        val transaction = requireFragmentManager().beginTransaction()
-        transaction.replace(R.id.container, newFragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
+//        val newFragment: Fragment = ContactFragment()
+//        val transaction = CurrentTabActive.FRAM!!.beginTransaction()
+//        transaction.replace(R.id.container, newFragment)
+//        transaction.addToBackStack(null)
+//        transaction.commit()
+        addFragment(R.id.container, ContactFragment.newInstance())
+        CurrentTabActive.CURRENTTAB = ContactFragment.newInstance()
     }
 
     override fun Support2onClick() {
@@ -67,5 +75,11 @@ class SupportFragment : Fragment() , SupportItemClick{
     override fun Support3onClick() {
     }
 
+
+    companion object {
+        fun newInstance() = SupportFragment().apply {
+            arguments = bundleOf()
+        }
+    }
 
 }

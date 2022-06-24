@@ -1,4 +1,4 @@
-package com.example.mykotlinapp.features.schedule
+package com.example.mykotlinapp.features.home.schedule
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mykotlinapp.R
 
-class AdapterCollectionSchedule(private val workList: ArrayList<Schedule>) :
-    RecyclerView.Adapter<AdapterCollectionSchedule.MyViewHolder>()
+class AdapterListCollectionSchedule(private val workList: ArrayList<Schedule>) :
+    RecyclerView.Adapter<AdapterListCollectionSchedule.MyViewHolder>()
 {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

@@ -11,6 +11,8 @@ import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.ActivityComplainBinding
 import com.example.mykotlinapp.databinding.FragmentBookBinding
 import com.example.mykotlinapp.features.search.InformationFragment
+import com.example.mykotlinapp.features.search.SearchFragment
+import com.example.mykotlinapp.util.ext.addFragment
 
 class BookFragment : Fragment() , BookOnclickListenner {
 
@@ -55,11 +57,12 @@ class BookFragment : Fragment() , BookOnclickListenner {
     }
 
     override fun bookNextPageOnClick() {
-        val frament: Fragment = BookNextPageFragment()
-        val transaction = requireFragmentManager().beginTransaction()
-        transaction.replace(R.id.container, frament)
-        transaction.addToBackStack(null)
-        transaction.commit()
+//        val frament: Fragment = BookNextPageFragment()
+//        val transaction = requireFragmentManager().beginTransaction()
+//        transaction.replace(R.id.container, frament)
+//        transaction.addToBackStack(null)
+//        transaction.commit()
+        addFragment(R.id.container, BookNextPageFragment.newInstance())
     }
 
     override fun bookRacThaiSinhHoatOnClick() {

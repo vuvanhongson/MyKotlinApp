@@ -9,7 +9,7 @@ object EnvironmentManager {
 
     var env : ENV = ENV.DEV;
 
-    const val DEV_URL : String = "http://192.168.10.51:82"
+    const val DEV_URL : String = "http://dev.bsp.vn:88"
     const val PRODUCTION_URL = "https://"
     const val BASE_URL = "http://training-movie.bsp.vn:82"
     const val IMAGE_URL = "/upload/movie/ben-hur.jpg"

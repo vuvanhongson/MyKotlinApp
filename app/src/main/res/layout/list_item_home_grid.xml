@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_marginBottom="@dimen/_5sdp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_2sdp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -19,41 +17,48 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="@dimen/_5sdp">
 
             <ImageView
+                android:scaleType="fitXY"
                 android:id="@+id/img_item_recycler"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:padding="@dimen/_10sdp"
                 android:src="@drawable/avata_user" />
 
             <TextView
                 android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/img_item_recycler"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="10dp"
-                android:layout_toRightOf="@+id/img_item_recycler"
+                android:maxLines="1"
                 android:text="Tên"
-                android:textSize="16dp"
+                android:textSize="13dp"
                 android:textStyle="bold" />
 
             <TextView
+                android:textSize="@dimen/_10sdp"
                 android:id="@+id/tv_address"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_name"
                 android:layout_marginBottom="10dp"
-                android:layout_toRightOf="@+id/img_item_recycler"
+                android:drawableStart="@drawable/ic_pin"
+                android:drawablePadding="@dimen/_10sdp"
                 android:text="Địa chỉ" />
 
             <TextView
+                android:textSize="@dimen/_10sdp"
                 android:id="@+id/tv_date"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_address"
-                android:layout_toRightOf="@+id/img_item_recycler"
+                android:drawableStart="@drawable/ic_clock"
+                android:drawablePadding="@dimen/_10sdp"
                 android:text="Ngày" />
         </RelativeLayout>
 

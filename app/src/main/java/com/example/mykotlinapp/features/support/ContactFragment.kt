@@ -10,8 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.FragmentContactBinding
+import com.example.mykotlinapp.features.home.HomeFragment
+import com.example.mykotlinapp.util.ext.addFragment
+import com.example.mykotlinapp.util.ext.replaceChildFragment
 
 
 class ContactFragment : Fragment(), ContactItemClick {
@@ -35,6 +40,7 @@ class ContactFragment : Fragment(), ContactItemClick {
 
         binding.backContact.setOnClickListener {
             requireActivity().onBackPressed()
+//            replaceChildFragment(R.id.container, SupportFragment.newInstance())
         }
 
         binding.contact = this
@@ -99,6 +105,12 @@ class ContactFragment : Fragment(), ContactItemClick {
             "https://grac.vn"
         )
         startActivity(intent)
+    }
+
+    companion object {
+        fun newInstance() = ContactFragment().apply {
+            arguments = bundleOf()
+        }
     }
 
 

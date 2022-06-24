@@ -20,7 +20,7 @@
         <View
             android:id="@+id/view2"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="340dp"
             android:layout_marginTop="-0dp"
             android:background="@drawable/bg_banner"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="340dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/bg_banner"
                 android:scaleType="centerCrop" />
@@ -249,7 +249,7 @@
                                 android:layout_height="@dimen/_30sdp"
                                 android:layout_marginEnd="@dimen/_3sdp"
                                 android:layout_weight="1"
-                                android:background="@drawable/ic_list_gray"
+                                android:background="@drawable/ic_list_green"
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:onClick="@{h->handler.onListClicked()}"/>
@@ -305,6 +305,7 @@
                         android:background="#00000000">
 
                         <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginHorizontal="@dimen/_10sdp"
                             android:id="@+id/recyclerview"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />

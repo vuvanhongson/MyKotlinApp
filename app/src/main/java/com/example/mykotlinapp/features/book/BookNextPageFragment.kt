@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.FragmentBookNextPageBinding
@@ -29,6 +30,11 @@ class BookNextPageFragment : Fragment() {
         }
 
         return binding.root
+    }
+    companion object {
+        fun newInstance() = BookNextPageFragment().apply {
+            arguments = bundleOf()
+        }
     }
 
 }

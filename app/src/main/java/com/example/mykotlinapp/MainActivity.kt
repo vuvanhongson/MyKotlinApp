@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager
 import com.example.mykotlinapp.common.BottomBar
 import com.example.mykotlinapp.common.listener.BottomItemChangedListener
 import com.example.mykotlinapp.databinding.ActivityMainBinding
+import com.example.mykotlinapp.features.CurrentTabActive
 import com.example.mykotlinapp.features.book.BookFragment
 import com.example.mykotlinapp.features.home.HomeFragment
 import com.example.mykotlinapp.features.question.QuestionFragment
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
 
     private fun initControls() {
         mFragmentManager = supportFragmentManager
+        CurrentTabActive.FRAM = mFragmentManager
         binding!!.bottomBar.setOnBottomItemChangedListener(this)
         mSupport.setOnBottomItemChangedListener(this)
     }
@@ -90,6 +92,7 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
     private fun navigateFragment(fragment: Fragment) {
         mFragmentManager!!.beginTransaction().hide(mCurrentTabActive!!).show(fragment).commit()
         mCurrentTabActive = fragment
+        CurrentTabActive.CURRENTTAB = fragment
     }
 
 
@@ -99,6 +102,7 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
                 mFragmentManager!!.beginTransaction().hide(mCurrentTabActive!!).show(mHomeFragment)
                     .commit()
                 mCurrentTabActive = mHomeFragment
+                CurrentTabActive.CURRENTTAB = mHomeFragment
             }
             BottomBar.SUPPORT -> {
                 navigateFragment(mSupport)

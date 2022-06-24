@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.FragmentOnboarding1Binding
 import com.example.mykotlinapp.features.search.SearchFragment
+import com.example.mykotlinapp.features.support.ContactFragment
+import com.example.mykotlinapp.util.ext.addFragment
 
 class OnBoardingFragment1 : Fragment() {
 
@@ -19,11 +21,12 @@ class OnBoardingFragment1 : Fragment() {
     ): View? {
         binding = FragmentOnboarding1Binding.inflate(inflater)
         binding!!.btnSearch.setOnClickListener{
-            val frament: Fragment = SearchFragment()
-            val transaction = requireFragmentManager().beginTransaction()
-            transaction.replace(R.id.container, frament)
-            transaction.addToBackStack(null)
-            transaction.commit()
+//            val frament: Fragment = SearchFragment()
+//            val transaction = requireFragmentManager().beginTransaction()
+//            transaction.replace(R.id.container, frament)
+//            transaction.addToBackStack(null)
+//            transaction.commit()
+            addFragment(R.id.container, SearchFragment.newInstance())
         }
         return binding.root
     }
