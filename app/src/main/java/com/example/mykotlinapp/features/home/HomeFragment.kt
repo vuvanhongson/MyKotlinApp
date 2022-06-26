@@ -19,6 +19,7 @@ import com.example.mykotlinapp.features.complain.ComplainActivity
 import com.example.mykotlinapp.features.dumptrash.DumpTrashActivity
 import com.example.mykotlinapp.features.games.GamesActivity
 import com.example.mykotlinapp.features.garbagePrice.GarbagePriceActivity
+import com.example.mykotlinapp.features.home.schedule.AdapterGridCollectionSchedule
 import com.example.mykotlinapp.features.news.NewsActivity
 import com.example.mykotlinapp.features.home.schedule.AdapterListCollectionSchedule
 import com.example.mykotlinapp.features.home.schedule.Schedule
@@ -75,7 +76,7 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
 ////            Snackbar.make(binding.appToolbar, it.toString(), Snackbar.LENGTH_SHORT).show()
 //        }
     }
-
+m
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -297,6 +298,7 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
         binding.ivList.setImageResource(R.drawable.ic_list_green)
 //        binding.llList.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
         newRecyclerView.layoutManager = GridLayoutManager(context, 1)
+        newRecyclerView.adapter = AdapterListCollectionSchedule(newArrayList)
     }
 
     override fun onMapClicked() {
@@ -318,6 +320,7 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
         binding.ivGrid.setImageResource(R.drawable.ic_them_green)
 //        binding.llGrid.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
         newRecyclerView.layoutManager = GridLayoutManager(context, 2)
+        newRecyclerView.adapter = AdapterGridCollectionSchedule(newArrayList)
     }
 
     fun changeWhiteButon() {
