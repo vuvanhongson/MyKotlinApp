@@ -28,6 +28,8 @@
                 android:layout_marginRight="@dimen/_15sdp">
 
                 <ImageView
+                    android:onClick="@{()->handler.back()}"
+                    android:clickable="true"
                     android:id="@+id/iv_back_game"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
@@ -45,6 +47,8 @@
                     android:textStyle="bold" />
 
                 <ImageView
+                    android:onClick="@{()->handler.question()}"
+                    android:clickable="true"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_alignParentEnd="true"

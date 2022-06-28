@@ -39,6 +39,9 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
 
         super.onCreate(savedInstanceState)
 
+        supportFragmentManager.beginTransaction().replace(R.id.container, BookFragment()).commit()
+
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.BottomBar
+import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.ActivityGamesBinding
 import com.example.mykotlinapp.features.garbagePrice.GarbagePriceActivity
 
@@ -59,6 +60,14 @@ class GamesActivity : AppCompatActivity() , GameItemHandler {
         val intent = Intent(this, GameWebViewVerticalActivity::class.java)
         intent.putExtra("url", "https://grac.vn/20-cau-hoi-trac-nghiem-ve-quan-ly-va-phan-loai-chat-thai/")
         startActivity(intent)
+    }
+
+    override fun back() {
+        onBackPressed()
+    }
+
+    override fun question() {
+        ShowDialog().showDialog(this)
     }
 
 }

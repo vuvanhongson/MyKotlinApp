@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
+import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
@@ -26,6 +27,10 @@ class SearchFragment : Fragment() {
 
         binding.backSearch.setOnClickListener {
             requireActivity().onBackPressed()
+        }
+
+        binding.question.setOnClickListener {
+            ShowDialog().showDialog(requireContext())
         }
 
         val items =

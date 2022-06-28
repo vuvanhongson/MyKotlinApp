@@ -26,6 +26,7 @@
                 android:src="@drawable/ic_back" />
 
             <TextView
+                android:id="@+id/tv_toolbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -35,6 +36,7 @@
                 android:textStyle="bold" />
 
             <ImageView
+                android:id="@+id/question"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_alignParentEnd="true"

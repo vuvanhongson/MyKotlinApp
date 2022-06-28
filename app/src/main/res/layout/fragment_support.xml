@@ -38,10 +38,11 @@
 
                     <ImageView
                         android:id="@+id/iv_back_support"
-                        android:layout_width="@dimen/_25sdp"
-                        android:layout_height="@dimen/_25sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
+                        android:onClick="@{()->support.back()}"
                         android:src="@drawable/ic_back" />
 
                     <TextView
@@ -54,6 +55,7 @@
                         android:textStyle="bold" />
 
                     <ImageView
+                        android:onClick="@{()->support.question()}"
                         android:layout_width="@dimen/_25sdp"
                         android:layout_height="@dimen/_25sdp"
                         android:layout_alignParentEnd="true"

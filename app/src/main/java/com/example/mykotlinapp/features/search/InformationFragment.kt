@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
+import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.FragmentInformationBinding
 import com.example.mykotlinapp.databinding.FragmentSearchBinding
 
@@ -33,6 +34,9 @@ class InformationFragment : Fragment() {
             transaction.commit()
         }
 
+        binding.question.setOnClickListener {
+            ShowDialog().showDialog(requireContext())
+        }
         binding.backInformation.setOnClickListener {
             requireActivity().onBackPressed()
         }

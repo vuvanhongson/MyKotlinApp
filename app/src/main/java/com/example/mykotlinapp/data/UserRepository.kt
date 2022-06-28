@@ -3,7 +3,7 @@ package com.example.mykotlinapp.data
 import com.example.mykotlinapp.data.source.UserRemoteDataSource
 
 class UserRepository (
-    private val remote: UserRemoteDataSource
+    private var remote: UserRemoteDataSource
         ) {
 
     suspend fun getMovie(page: Int, per_page: Int) = remote.getMovie(page, per_page)

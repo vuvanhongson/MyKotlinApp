@@ -44,6 +44,7 @@
                     android:textStyle="bold" />
 
                 <ImageView
+                    android:id="@+id/question"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_alignParentEnd="true"

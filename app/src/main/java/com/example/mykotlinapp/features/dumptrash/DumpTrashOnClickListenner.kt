@@ -6,4 +6,6 @@ interface DumpTrashOnClickListenner {
     fun trashItemClick3()
     fun trashItemClick4()
     fun trashItemClick5()
+    fun back()
+    fun question()
 }

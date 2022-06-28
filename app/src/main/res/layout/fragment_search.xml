@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".features.search.SearchFragment"
-    android:background="@color/grac_background">
+    android:background="@color/grac_background"
+    tools:context=".features.search.SearchFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="23dp"
-            android:background="@color/grac_green"></View>
+            android:background="@color/grac_green" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_contact"
@@ -46,10 +46,11 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:layout_centerVertical="true"
+                    android:id="@+id/question"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_question" />
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
@@ -60,32 +61,39 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_15sdp"
+            android:background="@drawable/custom_layout_support"
             android:padding="@dimen/_20sdp">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginBottom="@dimen/_10sdp"
-                app:endIconDrawable="@drawable/ic_next"
                 android:id="@+id/input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_10sdp"
                 android:hint="Chọn tỉnh"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                android:textColorHint="@color/black"
+                app:boxBackgroundColor="@color/white"
+                app:endIconDrawable="@drawable/ic_next">
+
                 <AutoCompleteTextView
-                    android:dropDownSelector="@color/grac_green"
-                    android:background="@drawable/custom_dropdown"
                     android:id="@+id/dropdown_menu"
-                    android:inputType="none"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:dropDownSelector="@color/grac_green"
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <!--            @style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu-->
 
 
             <TextView
-                android:layout_marginLeft="@dimen/_5sdp"
                 android:id="@+id/tv_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/input_layout"
+                android:layout_marginVertical="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
                 android:text="ĐIỀN MÃ KHÁCH HÀNG HOẶC ĐỊA CHỈ NHÀ"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16sdp"
@@ -93,51 +101,53 @@
 
             <RadioGroup
                 android:id="@+id/radioGroup_search"
-                android:paddingTop="@dimen/_10sdp"
-                android:gravity="left"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_below="@+id/tv_search"
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_search"
+                android:layout_centerHorizontal="true"
+                android:gravity="left"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/_10sdp">
+
                 <RadioButton
-                    android:checked="true"
-                    android:textSize="@dimen/_16sdp"
-                    android:layout_marginRight="@dimen/_50sdp"
                     android:id="@+id/radioButton_MaKH"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_35sdp"
+                    android:layout_marginRight="@dimen/_50sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
+                    android:checked="true"
                     android:paddingLeft="@dimen/_10sdp"
-                    android:text="Mã khách hàng" />
+                    android:text="Mã khách hàng"
+                    android:textSize="@dimen/_16sdp" />
+
                 <RadioButton
-                    android:textSize="@dimen/_16sdp"
                     android:id="@+id/radioButton_Diachi"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_35sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:paddingLeft="@dimen/_10sdp"
-                    android:text="Địa chỉ" />
+                    android:text="Địa chỉ"
+                    android:textSize="@dimen/_16sdp" />
             </RadioGroup>
 
             <EditText
-                android:gravity="center_vertical"
                 android:id="@+id/edt_search"
+                style="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_below="@+id/radioGroup_search"
-                android:background="@drawable/custom_radius_layout_bg_greenlight_search"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/custom_search_edt"
                 android:drawableLeft="@drawable/ic_search"
                 android:drawablePadding="@dimen/_10sdp"
+                android:gravity="center_vertical"
                 android:hint="Mã khách hàng"
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingLeft="14dp"
-                android:paddingBottom="7dp"
                 android:textColor="@color/grac_grey"
                 android:textColorHint="@color/grac_grey"
-                android:textSize="@dimen/_14sdp"></EditText>
+                android:textSize="@dimen/_16sdp" />
 
             <LinearLayout
                 android:id="@+id/btn_kq_search"

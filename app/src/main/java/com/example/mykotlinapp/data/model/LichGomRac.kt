@@ -12,8 +12,8 @@ data class LichGomRac (
     @Expose
     var id: Int = 0,
 
-    @SerializedName("ten_khach_hang")
     @Expose
+    @SerializedName("ten_khach_hang")
     var tenKhachHang: String = "",
 
     @SerializedName("dia_chi")

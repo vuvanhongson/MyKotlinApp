@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.mykotlinapp.R
+import com.example.mykotlinapp.data.model.LichGomRac
 import com.example.mykotlinapp.databinding.FragmentHomeBinding
 import com.example.mykotlinapp.features.complain.ComplainActivity
 import com.example.mykotlinapp.features.dumptrash.DumpTrashActivity
@@ -46,6 +47,9 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewPageAdapter: ViewPageAdapter
 
+    //adapter
+    private var adapterGird: AdapterGridCollectionSchedule? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewPageAdapter = ViewPageAdapter(
@@ -58,31 +62,23 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
     }
 
     private fun registerLiveData() = with(viewModel) {
-//        movies.observe(viewLifecycleOwner) {
-//            progressDialog.dismiss()
-//            Log.d("data", " - " + it.toString() )
-//        }
+        viewModel.getLich("ASC", 1 , 10)
         error.observe(viewLifecycleOwner) {
             progressDialog.dismiss()
             Snackbar.make(binding.tvRcview, it.toString(), Snackbar.LENGTH_SHORT).show()
         }
         lichgonrac.observe(viewLifecycleOwner) {
             progressDialog.dismiss()
-//            hFilmAdapter?.setData(it)
+            adapterGird?.setData(it)
             Log.d("data", " - " + it.toString() )
         }
-//        viewModel.error.observe(viewLifecycleOwner) {
-//            progressDialog.dismiss()
-////            Snackbar.make(binding.appToolbar, it.toString(), Snackbar.LENGTH_SHORT).show()
-//        }
     }
-m
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_home, container, false)
         binding = FragmentHomeBinding.inflate(inflater)
 
 
@@ -122,16 +118,11 @@ m
             val scrollY = binding!!.scrollView.scrollY * 2 / 1000.toFloat() // For ScrollView
             val scrollX = binding!!.scrollView.scrollX / 1000.toFloat()// For HorizontalScrollView
             // DO SOMETHING WITH THE SCROLL COORDINATES
-            Log.d("scroll", "x top = $scrollX y = $scrollY")
+//            Log.d("scroll", "x top = $scrollX y = $scrollY")
 
             if (binding.scrollView.scrollY < 600) {
-//            binding.view2.animate().alphaBy(1.0.toFloat())
-//                .alpha(1.toFloat() - scrollY).duration = 100
                 binding.view2.alpha = 1.toFloat() - scrollY
                 binding.view2.translationY = -scrollY * 300
-
-//            binding.view3.animate().alphaBy(0.0.toFloat())
-//                .alpha(scrollY).duration = 100
                 binding.view3.alpha = scrollY
             }
         })
@@ -149,6 +140,7 @@ m
 
         binding.handler = this
 
+        adapterGird = AdapterGridCollectionSchedule()
         initCtrl()
         initRefresh()
 
@@ -161,19 +153,18 @@ m
     private fun initRefresh() {
         //swipeRefreshLayout
         binding.swipeRefreshLayout.setOnRefreshListener {
-//            Log.d("aaa","bbb")
             Handler().postDelayed(Runnable {
                 swipeRefreshLayout.isRefreshing = false
                 progressDialog.show()
                 registerLiveData()
-            }, 3000)
+            }, 1000)
         }
         //swipeRefreshLayout custom color
         binding.swipeRefreshLayout.setColorSchemeResources(
             R.color.grac_green,
             R.color.grac_orange,
             R.color.purple_200
-        );
+        )
     }
 
     private fun initCtrl() {
@@ -293,48 +284,37 @@ m
     }
 
     override fun onListClicked() {
-        Log.d("buton", "Clicked")
         changeWhiteButon()
         binding.ivList.setImageResource(R.drawable.ic_list_green)
-//        binding.llList.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
         newRecyclerView.layoutManager = GridLayoutManager(context, 1)
         newRecyclerView.adapter = AdapterListCollectionSchedule(newArrayList)
     }
 
     override fun onMapClicked() {
-        Log.d("buton", "Clicked")
         changeWhiteButon()
         binding.ivMap.setImageResource(R.drawable.ic_map_green)
-//        binding.llMap.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
     }
 
     override fun onSortClicked() {
-        Log.d("buton", "Clicked")
         changeWhiteButon()
         binding.ivSort.setImageResource(R.drawable.ic_sort_green)
-//        binding.llSort.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
     }
 
     override fun onGridClicked() {
         changeWhiteButon()
         binding.ivGrid.setImageResource(R.drawable.ic_them_green)
-//        binding.llGrid.setBackgroundResource(R.drawable.bg_green_radius_bottom_s)
         newRecyclerView.layoutManager = GridLayoutManager(context, 2)
-        newRecyclerView.adapter = AdapterGridCollectionSchedule(newArrayList)
+        newRecyclerView.adapter = adapterGird
     }
 
     fun changeWhiteButon() {
         binding.ivList.setImageResource(R.drawable.ic_list_gray)
-//        binding.llList.setBackgroundResource(R.drawable.bg_radius_white)
 
         binding.ivMap.setImageResource(R.drawable.ic_map_gray)
-//        binding.llMap.setBackgroundResource(R.drawable.bg_radius_white)
 
         binding.ivSort.setImageResource(R.drawable.ic_sort_gray)
-//        binding.llSort.setBackgroundResource(R.drawable.bg_radius_white)
 
         binding.ivGrid.setImageResource(R.drawable.ic_them_gray)
-//        binding.llGrid.setBackgroundResource(R.drawable.bg_radius_white)
     }
 
 

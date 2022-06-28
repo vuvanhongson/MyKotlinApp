@@ -22,7 +22,7 @@
             <View
                 android:background="@color/grac_green"
                 android:layout_width="match_parent"
-                android:layout_height="23dp"></View>
+                android:layout_height="23dp" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_support"
@@ -36,6 +36,7 @@
                     android:layout_marginRight="@dimen/_15sdp">
 
                     <ImageView
+                        android:onClick="@{()->question.back()}"
                         android:id="@+id/iv_back_question"
                         android:layout_width="@dimen/_25sdp"
                         android:layout_height="@dimen/_25sdp"
@@ -53,10 +54,11 @@
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:layout_centerVertical="true"
+                        android:onClick="@{()->question.question()}"
                         android:layout_width="@dimen/_25sdp"
                         android:layout_height="@dimen/_25sdp"
                         android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
                         android:src="@drawable/ic_question" />
                 </RelativeLayout>
             </androidx.appcompat.widget.Toolbar>

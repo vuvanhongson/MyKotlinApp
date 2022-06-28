@@ -5,5 +5,6 @@ interface GameItemHandler {
     fun Game2Clicked()
     fun Game3Clicked()
     fun Game4Clicked()
-
+    fun back()
+    fun question()
 }

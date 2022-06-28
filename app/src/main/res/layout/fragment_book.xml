@@ -10,6 +10,7 @@
     </data>
 
     <FrameLayout
+        android:id="@+id/fmctn"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/grac_background"
@@ -23,7 +24,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="23dp"
-                android:background="@color/grac_green"></View>
+                android:background="@color/grac_green" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_support"
@@ -112,7 +113,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="@dimen/_5sdp"
-                                    android:text="ĐẶT LỊCH THU GOM RÁC THẢI SINH HOẠT"
+                                    android:text="@string/book_title_2"
                                     android:textColor="@color/grac_green"
                                     android:textSize="@dimen/_15sdp"
                                     android:textStyle="bold" />

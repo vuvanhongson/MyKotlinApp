@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mykotlinapp.R
+import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.ActivityDumpTrashBinding
 import com.example.mykotlinapp.databinding.ActivityGarbagePriceBinding
 import com.example.mykotlinapp.features.news.News
@@ -39,6 +40,9 @@ class GarbagePriceActivity : AppCompatActivity() {
 
         binding.ivBackPrice.setOnClickListener {
             onBackPressed()
+        }
+        binding.question.setOnClickListener {
+            ShowDialog().showDialog(this)
         }
     }
 

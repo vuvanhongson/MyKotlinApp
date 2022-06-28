@@ -8,61 +8,52 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
-import com.example.mykotlinapp.databinding.ActivityComplainBinding
+import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.FragmentBookBinding
-import com.example.mykotlinapp.features.search.InformationFragment
-import com.example.mykotlinapp.features.search.SearchFragment
 import com.example.mykotlinapp.util.ext.addFragment
+import kotlinx.android.synthetic.main.fragment_book.*
 
-class BookFragment : Fragment() , BookOnclickListenner {
-
-
+class BookFragment : Fragment(), BookOnclickListenner {
     private lateinit var binding: FragmentBookBinding
-
-
+    var nametoolbar: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentBookBinding.inflate(inflater)
-
         binding.book = this
-
         return binding.root
     }
 
     override fun bookBackOnClick() {
-
     }
 
     override fun bookQuestionOnClick() {
-        val customDialog = Dialog(requireContext())
-        customDialog.setContentView(R.layout.dialog_updating)
-        customDialog.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        customDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        val ivClose = customDialog.findViewById<ImageView>(R.id.iv_close)
-        ivClose.setOnClickListener {
-            customDialog.dismiss()
-        }
-        customDialog.show()
+        ShowDialog().showDialog(requireContext())
     }
 
     override fun bookNextPageOnClick() {
-//        val frament: Fragment = BookNextPageFragment()
-//        val transaction = requireFragmentManager().beginTransaction()
-//        transaction.replace(R.id.container, frament)
-//        transaction.addToBackStack(null)
-//        transaction.commit()
-        addFragment(R.id.container, BookNextPageFragment.newInstance())
+        when {
+            radioButton1.isChecked -> nametoolbar = binding.radioButton1.text.toString()
+            radioButton2.isChecked -> nametoolbar = binding.radioButton2.text.toString()
+            radioButton3.isChecked -> nametoolbar = binding.radioButton3.text.toString()
+            radioButton4.isChecked -> nametoolbar = binding.radioButton4.text.toString()
+            radioButton5.isChecked -> nametoolbar = binding.radioButton5.text.toString()
+            radioButton6.isChecked -> nametoolbar = binding.radioButton6.text.toString()
+            radioButton7.isChecked -> nametoolbar = binding.radioButton7.text.toString()
+            radioButton8.isChecked -> nametoolbar = binding.radioButton8.text.toString()
+            radioButton9.isChecked -> nametoolbar = binding.radioButton9.text.toString()
+            radioButton10.isChecked -> nametoolbar = binding.radioButton10.text.toString()
+        }
+        val bundle = Bundle()
+        bundle.putString("data", nametoolbar)
+        val fragment = BookNextPageFragment()
+        fragment.arguments = bundle
+        addFragment(R.id.container, fragment)
     }
 
     override fun bookRacThaiSinhHoatOnClick() {
@@ -94,6 +85,4 @@ class BookFragment : Fragment() , BookOnclickListenner {
         }
         customDialog.show()
     }
-
-
 }

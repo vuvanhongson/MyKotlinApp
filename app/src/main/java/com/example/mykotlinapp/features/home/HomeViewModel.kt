@@ -1,5 +1,6 @@
 package com.example.mykotlinapp.features.home
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.mykotlinapp.data.UserRepository
@@ -10,23 +11,25 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel (private val userRepository: UserRepository) : BaseViewModel() {
 
-    val lichgonrac = MutableLiveData<MutableList<LichGomRac>>()
+    var lichgonrac = MutableLiveData<MutableList<LichGomRac>>()
 //val movies = MutableLiveData<MutableList<Movie>>()
 
     init {
-        getMovie()
+        getLich("DESC", 1 , 10 )
     }
 
-    private fun getMovie() {
+    fun getLich(oderby: String, current: Int, number: Int) {
         viewModelScope.launch {
             try {
-                val data = userRepository.getLichGomRac("DESC",1, 10)
-                lichgonrac.value = data.dataLich
+                var data = userRepository.getLichGomRac(oderby, current, number)
+                lichgonrac.value = data.dataLich!!
+                Log.d("api", oderby + current + number + " - " + data.toString())
             } catch (e: Exception) {
                 error.value = getErrorResponse(e)
             }
         }
     }
+
 
 //    private fun getMovie() {
 //        viewModelScope.launch {

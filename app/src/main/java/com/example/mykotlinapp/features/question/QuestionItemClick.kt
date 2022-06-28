@@ -4,4 +4,6 @@ interface QuestionItemClick {
     fun Question1onClick()
     fun Question2onClick()
     fun Question3onClick()
+    fun back()
+    fun question()
 }

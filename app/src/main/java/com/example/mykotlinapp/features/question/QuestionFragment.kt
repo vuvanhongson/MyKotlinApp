@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
+import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.ActivityDumpTrashBinding
 import com.example.mykotlinapp.databinding.FragmentQuestionBinding
 import com.example.mykotlinapp.features.games.GameWebViewVerticalActivity
@@ -57,6 +58,14 @@ class QuestionFragment : Fragment() , QuestionItemClick {
             "https://grac.vn/cau-hoi-thuong-gap/"
         )
         startActivity(intent)
+    }
+
+    override fun back() {
+
+    }
+
+    override fun question() {
+        ShowDialog().showDialog(requireActivity())
     }
 
 }

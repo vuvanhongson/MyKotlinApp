@@ -1,13 +1,16 @@
 package com.example.mykotlinapp.features.support
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.BottomBar
+import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.common.listener.BottomItemChangedListener
 import com.example.mykotlinapp.databinding.FragmentHomeBinding
 import com.example.mykotlinapp.databinding.FragmentSupportBinding
@@ -70,11 +73,20 @@ class SupportFragment : Fragment() , SupportItemClick{
     }
 
     override fun Support2onClick() {
+        ShowDialog().showDialog(requireContext())
     }
 
     override fun Support3onClick() {
+        ShowDialog().showDialog(requireContext())
     }
 
+    override fun back() {
+
+    }
+
+    override fun question() {
+        ShowDialog().showDialog(requireContext())
+    }
 
     companion object {
         fun newInstance() = SupportFragment().apply {

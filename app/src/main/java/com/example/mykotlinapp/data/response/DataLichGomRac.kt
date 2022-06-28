@@ -15,7 +15,7 @@ data class DataLichGomRac (
     @Expose
     var message: String = "",
 
-    @SerializedName("data")
     @Expose
-    var dataLich: MutableList<LichGomRac>
+    @SerializedName("data")
+    var dataLich: MutableList<LichGomRac>? = null
 )
