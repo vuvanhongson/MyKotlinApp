@@ -35,6 +35,7 @@ class SupportFragment : Fragment() , SupportItemClick{
 
     fun setOnBottomItemChangedListener(bottomItemChangedListener: BottomItemChangedListener?) {
         mBottomItemChangedListener = bottomItemChangedListener
+
     }
 
 
@@ -52,10 +53,10 @@ class SupportFragment : Fragment() , SupportItemClick{
 //            transaction.commit()
 //        }
 
-        binding.ivBackSupport.setOnClickListener{
-            mBottomItemChangedListener!!.onBottomItemClicked(BottomBar.HOME)
-//            replaceChildFragment(R.id.container, HomeFragment.newInstance())
-        }
+//        binding.ivBackSupport.setOnClickListener{
+//            mBottomItemChangedListener!!.onBottomItemClicked(BottomBar.HOME)
+////            replaceChildFragment(R.id.container, HomeFragment.newInstance())
+//        }
 
         binding.support = this
 
@@ -81,7 +82,7 @@ class SupportFragment : Fragment() , SupportItemClick{
     }
 
     override fun back() {
-
+        mBottomItemChangedListener!!.onBottomItemClicked(BottomBar.HOME)
     }
 
     override fun question() {

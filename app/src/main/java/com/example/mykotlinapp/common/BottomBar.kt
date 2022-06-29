@@ -123,7 +123,7 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             binding.itemQuestion.setCheck(false)
             binding.itemWallet.setCheck(false)
             mBottomItemChangedListener!!.onBottomItemClicked(HOME)
-            showDialog()
+            ShowDialog().showDialog(context)
         }
     }
 
@@ -142,21 +142,6 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
         binding.handler = this
         addView(binding.root)
         initControls()
-    }
-
-    private fun showDialog() {
-        val customDialog = Dialog(context)
-        customDialog.setContentView(R.layout.dialog_updating)
-        customDialog.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        customDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        val ivClose = customDialog.findViewById<ImageView>(R.id.iv_close)
-        ivClose.setOnClickListener {
-            customDialog.dismiss()
-        }
-        customDialog.show()
     }
 
 }

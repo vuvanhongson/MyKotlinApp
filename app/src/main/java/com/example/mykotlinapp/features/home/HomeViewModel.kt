@@ -9,20 +9,22 @@ import com.example.mykotlinapp.data.model.Movie
 import com.example.mykotlinapp.util.base.BaseViewModel
 import kotlinx.coroutines.launch
 
-class HomeViewModel (private val userRepository: UserRepository) : BaseViewModel() {
+class HomeViewModel (private var userRepository: UserRepository) : BaseViewModel() {
 
-    var lichgonrac = MutableLiveData<MutableList<LichGomRac>>()
-//val movies = MutableLiveData<MutableList<Movie>>()
+    var lichgonracDESC = MutableLiveData<MutableList<LichGomRac>>()
+    var lichgonracASC = MutableLiveData<MutableList<LichGomRac>>()
 
-    init {
-        getLich("DESC", 1 , 10 )
-    }
+
+//    init {
+////        getLich("DESC", 1 , 10 )
+//    }
 
     fun getLich(oderby: String, current: Int, number: Int) {
+        lichgonracDESC = MutableLiveData<MutableList<LichGomRac>>()
         viewModelScope.launch {
             try {
                 var data = userRepository.getLichGomRac(oderby, current, number)
-                lichgonrac.value = data.dataLich!!
+                lichgonracDESC.value = data.dataLich!!
                 Log.d("api", oderby + current + number + " - " + data.toString())
             } catch (e: Exception) {
                 error.value = getErrorResponse(e)
@@ -30,16 +32,5 @@ class HomeViewModel (private val userRepository: UserRepository) : BaseViewModel
         }
     }
 
-
-//    private fun getMovie() {
-//        viewModelScope.launch {
-//            try {
-//                val data = userRepository.getMovie(1, 10)
-//                movies.value = data.dataMovie
-//            } catch (e: Exception) {
-//                error.value = getErrorResponse(e)
-//            }
-//        }
-//    }
 
 }

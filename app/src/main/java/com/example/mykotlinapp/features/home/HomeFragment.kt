@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.mykotlinapp.R
-import com.example.mykotlinapp.data.model.LichGomRac
 import com.example.mykotlinapp.databinding.FragmentHomeBinding
 import com.example.mykotlinapp.features.complain.ComplainActivity
 import com.example.mykotlinapp.features.dumptrash.DumpTrashActivity
@@ -23,7 +22,6 @@ import com.example.mykotlinapp.features.garbagePrice.GarbagePriceActivity
 import com.example.mykotlinapp.features.home.schedule.AdapterGridCollectionSchedule
 import com.example.mykotlinapp.features.news.NewsActivity
 import com.example.mykotlinapp.features.home.schedule.AdapterListCollectionSchedule
-import com.example.mykotlinapp.features.home.schedule.Schedule
 import com.example.mykotlinapp.features.slide.ViewPageAdapter
 import com.example.mykotlinapp.util.base.BaseFragment
 import com.google.android.material.snackbar.Snackbar
@@ -32,23 +30,17 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
-
-    //recyclerview
     val viewModel: HomeViewModel by viewModel()
 
     private lateinit var newRecyclerView: RecyclerView
-    private lateinit var newArrayList: ArrayList<Schedule>
-    lateinit var imageWork: Array<Int>
-    lateinit var nameWork: Array<String>
-    lateinit var addressWork: Array<String>
-    lateinit var dateWork: Array<String>
-
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewPageAdapter: ViewPageAdapter
 
     //adapter
     private var adapterGird: AdapterGridCollectionSchedule? = null
+    private var adapterList: AdapterListCollectionSchedule? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,8 +59,9 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
             progressDialog.dismiss()
             Snackbar.make(binding.tvRcview, it.toString(), Snackbar.LENGTH_SHORT).show()
         }
-        lichgonrac.observe(viewLifecycleOwner) {
+        lichgonracDESC.observe(viewLifecycleOwner) {
             progressDialog.dismiss()
+            adapterList?.setData(it)
             adapterGird?.setData(it)
             Log.d("data", " - " + it.toString() )
         }
@@ -78,7 +71,7 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+// Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater)
 
 
@@ -127,20 +120,20 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
             }
         })
 
+        adapterList = AdapterListCollectionSchedule()
+        adapterGird = AdapterGridCollectionSchedule()
         //recyclerView
-        initWork()
 
         newRecyclerView = binding.recyclerview
         newRecyclerView.layoutManager = GridLayoutManager(context, 1)
         newRecyclerView.isNestedScrollingEnabled = true
-        newRecyclerView.setHasFixedSize(true)
-        newArrayList = arrayListOf<Schedule>()
-        getUserData()
+        newRecyclerView.adapter = adapterList
 
+
+        newRecyclerView.setHasFixedSize(true)
 
         binding.handler = this
 
-        adapterGird = AdapterGridCollectionSchedule()
         initCtrl()
         initRefresh()
 
@@ -156,7 +149,13 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
             Handler().postDelayed(Runnable {
                 swipeRefreshLayout.isRefreshing = false
                 progressDialog.show()
-                registerLiveData()
+                viewModel.getLich("DESC", 1 , 10)
+                viewModel.lichgonracDESC.observe(viewLifecycleOwner) {
+                    progressDialog.dismiss()
+                    adapterList?.setData(it)
+                    adapterGird?.setData(it)
+                    Log.d("data", " - " + it.toString() )
+                }
             }, 1000)
         }
         //swipeRefreshLayout custom color
@@ -166,7 +165,6 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
             R.color.purple_200
         )
     }
-
     private fun initCtrl() {
         binding.root.bt_price.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
@@ -199,95 +197,13 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
         })
     }
 
-    private fun initWork() {
-        imageWork = arrayOf(
-            R.drawable.item_ban,
-            R.drawable.item_ban2,
-            R.drawable.item_ban3,
-            R.drawable.item_ban4,
-            R.drawable.item_ban,
-            R.drawable.item_ban2,
-            R.drawable.item_ban3,
-            R.drawable.item_ban4,
-            R.drawable.item_ban,
-            R.drawable.item_ban2,
-            R.drawable.item_ban3,
-            R.drawable.item_ban4,
-            R.drawable.item_ban,
-            R.drawable.item_ban2,
-            R.drawable.item_ban3,
-            R.drawable.item_ban4,
-        )
-        nameWork = arrayOf(
-            "recyclerView 1",
-            "recyclerView 2",
-            "recyclerView 3",
-            "recyclerView 4",
-            "recyclerView 5",
-            "recyclerView 6",
-            "recyclerView 7",
-            "recyclerView 8",
-            "recyclerView 1",
-            "recyclerView 2",
-            "recyclerView 3",
-            "recyclerView 4",
-            "recyclerView 5",
-            "recyclerView 6",
-            "recyclerView 7",
-            "recyclerView 8",
-        )
-        addressWork = arrayOf(
-            "address 1",
-            "address 2",
-            "address 3",
-            "address 4",
-            "address 5",
-            "address 6",
-            "address 7",
-            "address 8",
-            "address 1",
-            "address 2",
-            "address 3",
-            "address 4",
-            "address 5",
-            "address 6",
-            "address 7",
-            "address 8",
-        )
-        dateWork = arrayOf(
-            "11/11/2021",
-            "12/12/2021",
-            "10/10/2021",
-            "10/6/2022",
-            "11/11/2021",
-            "12/12/2021",
-            "10/10/2021",
-            "10/6/2022",
-            "11/11/2021",
-            "12/12/2021",
-            "10/10/2021",
-            "10/6/2022",
-            "11/11/2021",
-            "12/12/2021",
-            "10/10/2021",
-            "10/6/2022",
-        )
 
-    }
-
-    private fun getUserData() {
-        for (i in imageWork.indices) {
-            val work = Schedule(imageWork[i], nameWork[i], addressWork[i], dateWork[i])
-            newArrayList.add(work)
-        }
-        newRecyclerView.adapter = AdapterListCollectionSchedule(newArrayList)
-    }
 
     override fun onListClicked() {
         changeWhiteButon()
         binding.ivList.setImageResource(R.drawable.ic_list_green)
         newRecyclerView.layoutManager = GridLayoutManager(context, 1)
-        newRecyclerView.adapter = AdapterListCollectionSchedule(newArrayList)
+        newRecyclerView.adapter = adapterList
     }
 
     override fun onMapClicked() {
@@ -323,5 +239,4 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
             arguments = bundleOf()
         }
     }
-
 }

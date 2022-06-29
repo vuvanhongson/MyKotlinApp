@@ -1,18 +1,13 @@
 package com.example.mykotlinapp.features.complain
 
-import android.app.Dialog
+
 import android.content.Intent
 import android.os.Bundle
-import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.ActivityComplainBinding
-import com.example.mykotlinapp.databinding.ActivityDumpTrashBinding
-import com.example.mykotlinapp.features.search.InformationFragment
 import kotlinx.android.synthetic.main.activity_complain.*
 
 

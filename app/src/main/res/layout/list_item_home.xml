@@ -22,39 +22,47 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/img_item_recycler"
+                android:scaleType="fitXY"
+                android:id="@+id/img_item_list"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginRight="10dp"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
                 android:src="@drawable/avata_user" />
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/tv_name_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginBottom="10dp"
-                android:layout_toRightOf="@+id/img_item_recycler"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@+id/img_item_list"
                 android:text="Tên"
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_address"
+                android:drawableLeft="@drawable/ic_pin"
+                android:drawablePadding="@dimen/_5sdp"
+                android:id="@+id/tv_address_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_name"
-                android:layout_marginBottom="10dp"
-                android:layout_toRightOf="@+id/img_item_recycler"
+                android:layout_below="@+id/tv_name_list"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@+id/img_item_list"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:paddingRight="@dimen/_10sdp"
                 android:text="Địa chỉ" />
 
             <TextView
-                android:id="@+id/tv_date"
+                android:drawableLeft="@drawable/ic_clock"
+                android:drawablePadding="@dimen/_5sdp"
+                android:id="@+id/tv_date_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_address"
-                android:layout_toRightOf="@+id/img_item_recycler"
+                android:layout_below="@+id/tv_address_list"
+                android:layout_toRightOf="@+id/img_item_list"
                 android:text="Ngày" />
         </RelativeLayout>
 

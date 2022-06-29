@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.R
+import com.example.mykotlinapp.common.BottomBar
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.FragmentBookBinding
+import com.example.mykotlinapp.features.CurrentTabActive
 import com.example.mykotlinapp.util.ext.addFragment
 import kotlinx.android.synthetic.main.fragment_book.*
 
@@ -30,6 +33,7 @@ class BookFragment : Fragment(), BookOnclickListenner {
     }
 
     override fun bookBackOnClick() {
+        BottomBar.HOME
     }
 
     override fun bookQuestionOnClick() {

@@ -6,5 +6,6 @@ import com.example.mykotlinapp.features.home.HomeFragment
 
 object CurrentTabActive {
     var CURRENTTAB : Fragment? = HomeFragment()
+    var seconttab :  Fragment? = HomeFragment()
     var FRAM: FragmentManager? = null
 }

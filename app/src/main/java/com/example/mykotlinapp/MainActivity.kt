@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.mykotlinapp.common.BottomBar
@@ -25,8 +26,6 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
     private val mBook = BookFragment()
     private val mWallet= WalletFragment()
 
-    private var mCurrentTabActive: Fragment? = null
-    private var mFragmentManager: FragmentManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -119,6 +118,18 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
             BottomBar.WALLET -> {
                 navigateFragment(mWallet)
             }
+        }
+    }
+
+    companion object {
+        private var mCurrentTabActive: Fragment? = null
+        private var mFragmentManager: FragmentManager? = null
+
+        fun backFragment(current: Fragment, new : Fragment){
+            mFragmentManager!!.beginTransaction().hide(current!!).show(new)
+                .commit()
+            mCurrentTabActive = new
+            CurrentTabActive.CURRENTTAB = new
         }
     }
 }

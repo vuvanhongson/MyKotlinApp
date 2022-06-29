@@ -21,7 +21,7 @@
             android:padding="@dimen/_5sdp">
 
             <ImageView
-                android:id="@+id/img_item_recycler"
+                android:id="@+id/img_item_grid"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
                 android:padding="0dp"
@@ -29,10 +29,10 @@
                 android:src="@drawable/avata_user" />
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/tv_name_grid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/img_item_recycler"
+                android:layout_below="@id/img_item_grid"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginBottom="5dp"
                 android:maxLines="1"
@@ -41,21 +41,24 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_address"
+                android:id="@+id/tv_address_grid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_name"
+                android:layout_below="@+id/tv_name_grid"
                 android:layout_marginBottom="5dp"
                 android:drawableStart="@drawable/ic_pin"
                 android:drawablePadding="@dimen/_10sdp"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:text="Địa chỉ"
                 android:textSize="@dimen/_10sdp" />
 
             <TextView
-                android:id="@+id/tv_date"
+                android:maxLines="1"
+                android:id="@+id/tv_date_grid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_address"
+                android:layout_below="@+id/tv_address_grid"
                 android:drawableStart="@drawable/ic_clock"
                 android:drawablePadding="@dimen/_10sdp"
                 android:text="Ngày"

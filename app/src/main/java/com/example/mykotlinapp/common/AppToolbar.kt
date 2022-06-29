@@ -51,20 +51,6 @@ class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, 
 //    }
 
 
-    private fun showDialog() {
-        val customDialog = Dialog(context)
-        customDialog.setContentView(R.layout.dialog_updating)
-        customDialog.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        customDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        val ivClose = customDialog.findViewById<ImageView>(R.id.iv_close)
-        ivClose.setOnClickListener {
-            customDialog.dismiss()
-        }
-        customDialog.show()
-    }
 
 
     init {
@@ -76,15 +62,15 @@ class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, 
     }
 
     override fun UserOnClick() {
-        showDialog()
+        ShowDialog().showDialog(context)
     }
 
     override fun CodeQROnClick() {
-        showDialog()
+        ShowDialog().showDialog(context)
     }
 
     override fun NotiOnClick() {
-        showDialog()
+        ShowDialog().showDialog(context)
     }
 
 }
