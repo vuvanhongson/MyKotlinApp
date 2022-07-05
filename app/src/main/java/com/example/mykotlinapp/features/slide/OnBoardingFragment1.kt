@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.FragmentOnboarding1Binding
 import com.example.mykotlinapp.features.search.SearchFragment
-import com.example.mykotlinapp.features.support.ContactFragment
 import com.example.mykotlinapp.util.ext.addFragment
 
 class OnBoardingFragment1 : Fragment() {

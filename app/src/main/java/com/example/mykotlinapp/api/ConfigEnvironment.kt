@@ -8,16 +8,14 @@ class ConfigEnvironment {
             {
                 return EnvironmentManager.DEV_URL
             }
-            return EnvironmentManager.BASE_URL
+            return EnvironmentManager.PRODUCTION_URL
         }
 
         fun getToken(): String {
             if (EnvironmentManager.env == EnvironmentManager.ENV.DEV) {
-                return EnvironmentManager.APP_TOKEN
+                return EnvironmentManager.DEV_TOKEN
             }
-            return EnvironmentManager.APP_TOKEN_f
+            return EnvironmentManager.PRODUCTION_TOKEN
         }
     }
-
-
 }

@@ -8,7 +8,5 @@ fun ImageView.loadImage(url: String)
 {
     Glide.with(this)
         .load(url)
-        .placeholder(R.drawable.ic_chonhinhanh)
-        .error(R.drawable.ic_chonhinhanh)
         .into(this)
 }

@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/_30sdp"
     android:layout_marginEnd="@dimen/_30sdp"
+    android:paddingHorizontal="@dimen/_15sdp"
     android:paddingBottom="@dimen/_35sdp"
     android:background="@drawable/custom_layout_support">
 
@@ -28,7 +29,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:text="RÁC THẢI ĐẶC BIỆT"

@@ -21,11 +21,6 @@ class OnBoardingFragment3 : Fragment() {
     ): View? {
         binding = FragmentOnboarding3Binding.inflate(inflater)
         binding!!.btnSearch.setOnClickListener {
-//            val frament: Fragment = SearchFragment()
-//            val transaction = requireFragmentManager().beginTransaction()
-//            transaction.replace(R.id.container, frament)
-//            transaction.addToBackStack(null)
-//            transaction.commit()
             addFragment(R.id.container, SearchFragment.newInstance())
         }
         return binding.root

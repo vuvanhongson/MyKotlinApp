@@ -35,7 +35,6 @@ class SupportFragment : Fragment() , SupportItemClick{
 
     fun setOnBottomItemChangedListener(bottomItemChangedListener: BottomItemChangedListener?) {
         mBottomItemChangedListener = bottomItemChangedListener
-
     }
 
 
@@ -45,18 +44,9 @@ class SupportFragment : Fragment() , SupportItemClick{
     ): View? {
         binding = FragmentSupportBinding.inflate(inflater)
 
-//        binding!!.btSupport.setOnClickListener{
-//            val newFragment: Fragment = ContactFragment()
-//            val transaction = requireFragmentManager().beginTransaction()
-//            transaction.replace(R.id.container, newFragment)
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
-
-//        binding.ivBackSupport.setOnClickListener{
-//            mBottomItemChangedListener!!.onBottomItemClicked(BottomBar.HOME)
-////            replaceChildFragment(R.id.container, HomeFragment.newInstance())
-//        }
+        binding.ivBackSupport.setOnClickListener{
+            mBottomItemChangedListener!!.onBottomItemClicked(BottomBar.HOME)
+        }
 
         binding.support = this
 
@@ -82,7 +72,7 @@ class SupportFragment : Fragment() , SupportItemClick{
     }
 
     override fun back() {
-        mBottomItemChangedListener!!.onBottomItemClicked(BottomBar.HOME)
+
     }
 
     override fun question() {

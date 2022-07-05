@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
     android:background="@color/grac_background"
     tools:context=".features.search.SearchFragment">
 
@@ -96,7 +97,7 @@
                 android:layout_marginLeft="@dimen/_5sdp"
                 android:text="ĐIỀN MÃ KHÁCH HÀNG HOẶC ĐỊA CHỈ NHÀ"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_16sdp"
+                android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -113,12 +114,12 @@
                     android:id="@+id/radioButton_MaKH"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_35sdp"
-                    android:layout_marginRight="@dimen/_50sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:checked="true"
                     android:paddingLeft="@dimen/_10sdp"
                     android:text="Mã khách hàng"
-                    android:textSize="@dimen/_16sdp" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <RadioButton
                     android:id="@+id/radioButton_Diachi"
@@ -127,14 +128,14 @@
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:paddingLeft="@dimen/_10sdp"
                     android:text="Địa chỉ"
-                    android:textSize="@dimen/_16sdp" />
+                    android:textSize="@dimen/_14sdp" />
             </RadioGroup>
 
             <EditText
                 android:id="@+id/edt_search"
                 style="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:layout_below="@+id/radioGroup_search"
                 android:layout_marginVertical="@dimen/_10sdp"
                 android:background="@drawable/custom_search_edt"
@@ -147,7 +148,7 @@
                 android:paddingLeft="14dp"
                 android:textColor="@color/grac_grey"
                 android:textColorHint="@color/grac_grey"
-                android:textSize="@dimen/_16sdp" />
+                android:textSize="@dimen/_14sdp" />
 
             <LinearLayout
                 android:id="@+id/btn_kq_search"

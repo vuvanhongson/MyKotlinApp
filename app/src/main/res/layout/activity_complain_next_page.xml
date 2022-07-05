@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/grac_green_bg">
+    android:background="@color/grac_green_bg"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_support"
@@ -97,31 +96,70 @@
             android:layout_below="@+id/edt_content_complain"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_30sdp"
-            android:background="@drawable/custom_layout_support"
-            android:paddingStart="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_10sdp">
+            android:background="@drawable/custom_layout_support">
 
             <TextView
                 android:id="@+id/tv_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:text="Chọn hình ảnh"
                 android:textSize="@dimen/_16sdp" />
 
             <ImageView
-                android:id="@+id/img_camera_select"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
+                android:id="@+id/img_add_img_1"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_below="@+id/tv_img"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_toLeftOf="@id/img_add_img_2"
+                android:src="@drawable/ic_add"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/img_add_img_2"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_below="@+id/tv_img"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:src="@drawable/ic_add"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/img_add_img_3"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_below="@+id/tv_img"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toRightOf="@id/img_add_img_2"
+                android:src="@drawable/ic_add"
+                android:visibility="invisible" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_below="@+id/tv_img"
+                android:nestedScrollingEnabled="false"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp" />
+
+            <ImageView
+                android:id="@+id/img_camera_select"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_below="@+id/tv_img"
+                android:layout_centerHorizontal="true"
                 android:src="@drawable/ic_chonhinhanh" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/img_camera_select"
+                android:layout_below="@id/tv_img"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_105sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:gravity="center"
                 android:text="@string/addimages"
                 android:textSize="@dimen/_14sdp" />

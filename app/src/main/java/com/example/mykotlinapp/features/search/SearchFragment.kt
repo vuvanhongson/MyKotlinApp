@@ -1,30 +1,53 @@
 package com.example.mykotlinapp.features.search
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
+import com.example.mykotlinapp.data.model.AddressProvince
 import com.example.mykotlinapp.databinding.FragmentSearchBinding
+import com.example.mykotlinapp.features.search.Adapter.SearchAdapter
+import com.example.mykotlinapp.util.base.BaseFragment
+import com.google.android.material.snackbar.Snackbar
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SearchFragment : Fragment() {
-
+class SearchFragment : BaseFragment() {
+    val viewModel: SearchViewModel by viewModel()
+    private var adapterTinh: SearchAdapter? = null
     private lateinit var binding: FragmentSearchBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private fun registerLiveData() = with(viewModel) {
+        error.observe(viewLifecycleOwner) {
+            Snackbar.make(binding.toolbarContact, it.toString(), Snackbar.LENGTH_SHORT).show()
+            Log.d("data", " error ")
+        }
+        tinhtp.observe(viewLifecycleOwner) {
+            adapterTinh = SearchAdapter(requireContext(), R.layout.list_item_dropdown, it)
+//            it.add(AddressProvince())
+            adapterTinh?.itemTinhClick = {
+                binding.dropdownMenu.setText(it.ten)
+            }
+            Log.d("datatinh", " - " + it.toString())
+            binding.dropdownMenu.setAdapter(adapterTinh)
+        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSearchBinding.inflate(inflater)
+        event()
+        registerLiveData()
+        return binding.root
+    }
 
+    fun event() {
         binding.backSearch.setOnClickListener {
             requireActivity().onBackPressed()
         }
@@ -33,19 +56,14 @@ class SearchFragment : Fragment() {
             ShowDialog().showDialog(requireContext())
         }
 
-        val items =
-            listOf("An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Cạn", "Bạc Liêu", "Bắc Ninh")
-        val adapter = ArrayAdapter(requireContext(), R.layout.list_item_dropdown, items)
-        binding.dropdownMenu.setAdapter(adapter)
-
-        binding!!.btnKqSearch.setOnClickListener{
+        binding.btnKqSearch.setOnClickListener {
+            onHideSoftKeyBoard()
             val frament: Fragment = InformationFragment()
             val transaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.container, frament)
             transaction.addToBackStack(null)
             transaction.commit()
         }
-        return binding.root
     }
 
     companion object {

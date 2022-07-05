@@ -13,14 +13,21 @@ import kotlinx.android.synthetic.main.list_item_home_grid.view.*
 class AdapterGridCollectionSchedule() :
     RecyclerView.Adapter<AdapterGridCollectionSchedule.MyViewHolder>() {
 
-    private var lichGom = mutableListOf<LichGomRac>()
+    private var lichGomGird = mutableListOf<LichGomRac>()
 
     fun setData(lichGom: MutableList<LichGomRac>) {
-        this.lichGom.clear()
-        this.lichGom = lichGom
-        lichGom.addAll(lichGom)
+        this.lichGomGird.clear()
+        this.lichGomGird = lichGom
+//        lichGom.addAll(lichGom)
         notifyDataSetChanged()
         Log.d("lichGom", " x - " + lichGom)
+    }
+
+    fun addData(lichGom2: MutableList<LichGomRac>) {
+        lichGomGird.addAll(lichGom2)
+//        notifyItemInserted(lichGomGird.size)
+        Log.d("lichGomlIST", " x - " + lichGomGird)
+        Log.d("lichGomlISTsize", " x 2- " + lichGomGird.size)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -30,11 +37,11 @@ class AdapterGridCollectionSchedule() :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bindView(lichGom[position])
+        holder.bindView(lichGomGird[position])
     }
 
     override fun getItemCount(): Int {
-        return lichGom.size
+        return lichGomGird.size
     }
 
 
@@ -44,7 +51,7 @@ class AdapterGridCollectionSchedule() :
                 itemView.img_item_grid.loadImage(lichGom?.picture1)
             }catch (e : Exception)
             {
-                itemView.img_item_grid.setImageResource(R.drawable.ic_chonhinhanh)
+                itemView.img_item_grid.setImageResource(R.drawable.ic_khonghinhanh)
             }
             itemView.tv_name_grid.text = lichGom.tenKhachHang
             itemView.tv_address_grid.text = lichGom.diaChi

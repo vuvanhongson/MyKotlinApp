@@ -16,14 +16,21 @@ import kotlinx.android.synthetic.main.list_item_home_grid.view.*
 class AdapterListCollectionSchedule() :
     RecyclerView.Adapter<AdapterListCollectionSchedule.MyViewHolder>() {
 
-    private var lichGom = mutableListOf<LichGomRac>()
+    private var lichGomList = mutableListOf<LichGomRac>()
 
     fun setData(lichGom: MutableList<LichGomRac>) {
-        this.lichGom.clear()
-        this.lichGom = lichGom
-        lichGom.addAll(lichGom)
+        this.lichGomList.clear()
+        this.lichGomList = lichGom
+//        lichGom.addAll(lichGom)
         notifyDataSetChanged()
-        Log.d("lichGom", " x - " + lichGom)
+        Log.d("lichGomlIST", " x - " + lichGom)
+        Log.d("lichGomlISTsize", " x - " + lichGom.size)
+    }
+    fun addDatalist(lichGom2: MutableList<LichGomRac>) {
+//        lichGomList.addAll(lichGom2)
+//        notifyItemInserted(lichGomList.size)
+        Log.d("lichGomlIST", " x - " + lichGomList)
+        Log.d("lichGomlISTsize", " x 1- " + lichGomList.size)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -33,24 +40,26 @@ class AdapterListCollectionSchedule() :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bindView(lichGom[position])
-
+        holder.bindView(lichGomList[position])
+        Log.d("lichGomposition", " position - " + lichGomList[position].id)
     }
 
     override fun getItemCount(): Int {
-        return lichGom.size
+        Log.d("lichGomsize", " x - " + lichGomList.size)
+        return lichGomList.size
     }
 
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(lichGom: LichGomRac) {
+            Log.d("lichGomid", " ID - " + lichGom.id)
             try{
                 itemView.img_item_list.loadImage(lichGom?.picture1)
             }catch (e : Exception)
             {
-                itemView.img_item_list.setImageResource(R.drawable.ic_chonhinhanh)
+                itemView.img_item_list.setImageResource(R.drawable.ic_khonghinhanh)
             }
-            itemView.tv_name_list.text = lichGom.tenKhachHang
+            itemView.tv_name_list.text = lichGom.id.toString() + " - " + lichGom.tenKhachHang
             itemView.tv_address_list.text = lichGom.diaChi
             itemView.tv_date_list.text = lichGom.ngayDang
         }

@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.mykotlinapp.common.BottomBar
@@ -19,40 +18,29 @@ import com.example.mykotlinapp.features.wallet.WalletFragment
 
 class MainActivity : AppCompatActivity(), BottomItemChangedListener {
     private lateinit var binding: ActivityMainBinding
-
     private val mHomeFragment = HomeFragment()
     private val mSupport = SupportFragment()
     private val mQuestion = QuestionFragment()
     private val mBook = BookFragment()
-    private val mWallet= WalletFragment()
-
-
+    private val mWallet = WalletFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
-
         window.statusBarColor = Color.TRANSPARENT
-
         getWindow().getDecorView().setSystemUiVisibility(
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);//  set status text dark
-
-
+                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        )//  set status text dark
         super.onCreate(savedInstanceState)
-
         supportFragmentManager.beginTransaction().replace(R.id.container, BookFragment()).commit()
-
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         initControls()
-//        initListeners()
         initBottomBar()
     }
 
     private fun initListeners() {
-            mFragmentManager!!.beginTransaction().hide(mCurrentTabActive!!).show(mHomeFragment)
-            mCurrentTabActive = mHomeFragment
-            binding!!.bottomBar.onHomeClicked()
+        mFragmentManager!!.beginTransaction().hide(mCurrentTabActive!!).show(mHomeFragment)
+        mCurrentTabActive = mHomeFragment
+        binding!!.bottomBar.onHomeClicked()
     }
 
     private fun initControls() {
@@ -67,27 +55,22 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
             binding!!.container.id,
             mSupport, BottomBar.SUPPORT
         ).hide(mSupport).commit()
-
         mFragmentManager!!.beginTransaction().add(
             binding!!.container.id,
             mBook, BottomBar.BOOKING
         ).hide(mBook).commit()
-
         mFragmentManager!!.beginTransaction().add(
             binding!!.container.id,
             mQuestion, BottomBar.QUESTION
         ).hide(mQuestion).commit()
-
         mFragmentManager!!.beginTransaction().add(
             binding!!.container.id,
             mWallet, BottomBar.WALLET
         ).hide(mWallet).commit()
-
         mFragmentManager!!.beginTransaction().add(
             binding!!.container.id,
             mHomeFragment, BottomBar.HOME
         ).commit()
-
         mCurrentTabActive = mHomeFragment
     }
 
@@ -96,7 +79,6 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
         mCurrentTabActive = fragment
         CurrentTabActive.CURRENTTAB = fragment
     }
-
 
     override fun onBottomItemClicked(type: String?) {
         when (type) {
@@ -124,8 +106,7 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
     companion object {
         private var mCurrentTabActive: Fragment? = null
         private var mFragmentManager: FragmentManager? = null
-
-        fun backFragment(current: Fragment, new : Fragment){
+        fun backFragment(current: Fragment, new: Fragment) {
             mFragmentManager!!.beginTransaction().hide(current!!).show(new)
                 .commit()
             mCurrentTabActive = new

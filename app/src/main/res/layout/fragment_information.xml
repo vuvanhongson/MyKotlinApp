@@ -415,9 +415,9 @@
                     <ImageView
                         android:id="@+id/btn_DiaDiemPhanLoai"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_information" />
+                        android:layout_height="@dimen/_155sdp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_dadangky" />
                 </LinearLayout>
 
                 <LinearLayout
