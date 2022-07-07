@@ -1,530 +1,555 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".features.search.InformationFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        tools:context=".features.search.InformationFragment">
 
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="23dp"
-            android:background="@color/grac_green"></View>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_contact"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:background="@color/grac_green">
-
-            <RelativeLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/_15sdp">
+                android:layout_height="23dp"
+                android:background="@color/grac_green"></View>
 
-                <ImageView
-                    android:id="@+id/back_information"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/ic_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="THÔNG TIN KHÁCH HÀNG"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_22sdp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/question"
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_question" />
-            </RelativeLayout>
-        </androidx.appcompat.widget.Toolbar>
-
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/scroll_view_information"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:overScrollMode="ifContentScrolls"
-            android:scrollbars="none">
-
-            <LinearLayout
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_contact"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_15sdp"
-                android:layout_marginBottom="@dimen/_30sdp"
-                android:background="@drawable/custom_layout_support"
-                android:orientation="vertical"
-                android:padding="@dimen/_20sdp">
+                android:layout_height="@dimen/_50sdp"
+                android:background="@color/grac_green">
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Mã khách hàng"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="KHQ3024350"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Tên khách hàng"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="Tăng Đức Hòa"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Địa chỉ"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="664/75 Nguyễn Đình Chiểu, Phường 03,\nQuận 3, Thành phố Hồ Chí Minh"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Mã hợp đồng"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="HDQ300036093"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Dịch vụ đăng ký"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="TGGDQ3"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Nhân viên thu gom"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="Nhân viên thu gom 3"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="SĐT nhân viên TG"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="0394562310"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Kỳ thanh toán"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="05/2022, 06/2022"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Số tiền vận chuyển"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="0"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Số tiền thu gom"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="100.000"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Số tiền xử lý"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="0"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Thuế"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="8%"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Phí giao dịch Momo"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="2200"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:text="Tổng tiền"
-                    android:textColor="@color/grac_black"
-                    android:textSize="@dimen/_18sdp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:text="110.200"
-                    android:textSize="@dimen/_18sdp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="#60777777" />
-
-                <!--==========================================-->
-
-                <LinearLayout
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center">
+                    android:layout_marginRight="@dimen/_15sdp">
 
                     <ImageView
-                        android:id="@+id/btn_DiaDiemPhanLoai"
+                        android:id="@+id/back_information"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_back" />
+
+                    <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_155sdp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/ic_dadangky" />
-                </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="THÔNG TIN KHÁCH HÀNG"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_22sdp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/question"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_question" />
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scroll_view_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="ifContentScrolls"
+                android:scrollbars="none">
 
                 <LinearLayout
-                    android:weightSum="100"
-                    android:layout_marginTop="@dimen/_20sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_weight="45"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/_10sdp"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:background="#E91E63"
-                            android:paddingStart="@dimen/_10sdp"
-                            android:paddingEnd="@dimen/_10sdp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="THANH TOÁN MOMO"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/_12sdp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:background="#03A9F4"
-                            android:paddingStart="@dimen/_10sdp"
-                            android:paddingEnd="@dimen/_10sdp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="GIẤY BÁO TIỀN RÁC"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/_12sdp" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_weight="55"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:background="#F44336"
-                            android:paddingStart="@dimen/_10sdp"
-                            android:paddingEnd="@dimen/_10sdp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="THANH TOÁN VIETEL MONEY"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/_12sdp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/btn_YeuCauCapNhat"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_below="@+id/edt_search"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:background="#F20"
-                            android:paddingStart="@dimen/_10sdp"
-                            android:paddingEnd="@dimen/_10sdp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="YÊU CẦU CẬP NHẬT"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/_12sdp" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
                     android:layout_marginBottom="@dimen/_30sdp"
-                    android:text="@string/textinfor"
-                    android:textSize="@dimen/_18sdp" />
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-    </LinearLayout>
+                    android:background="@drawable/custom_layout_support"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_20sdp">
 
-</FrameLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Mã khách hàng"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_makh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="KHQ3024350"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Tên khách hàng"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_tenkh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="Tăng Đức Hòa"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Địa chỉ"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_diachi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="664/75 Nguyễn Đình Chiểu, Phường 03,\nQuận 3, Thành phố Hồ Chí Minh"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Mã hợp đồng"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_mahd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="HDQ300036093"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Dịch vụ đăng ký"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_dvdangky"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="TGGDQ3"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Nhân viên thu gom"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_vnthugom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="Nhân viên thu gom 3"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="SĐT nhân viên TG"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_sdt_vnthugom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="0394562310"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Kỳ thanh toán"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_kythanhtoan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="05/2022, 06/2022"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Số tiền vận chuyển"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_tienvanchuyen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="0"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Số tiền thu gom"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_tienthugom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="100.000"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Số tiền xử lý"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_tienxuly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="0"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Thuế"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_thue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="8%"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Phí giao dịch Momo"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_gdmomo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="2200"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Tổng tiền"
+                        android:textColor="@color/grac_black"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_tongtien"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:text="110.200"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="#60777777" />
+
+                    <!--==========================================-->
+
+                    <LinearLayout
+                        android:id="@+id/layout_btn_diaDiemPhanLoai"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/btn_DiaDiemPhanLoai"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_155sdp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_dadangky" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:weightSum="100"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_weight="45"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/tb_thanhtoam_momo"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:background="#E91E63"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingEnd="@dimen/_10sdp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="THANH TOÁN MOMO"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/bt_gb_tienrac"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:background="#03A9F4"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingEnd="@dimen/_10sdp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="GIẤY BÁO TIỀN RÁC"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12sdp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="55"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/tb_thanhtoan_viettel"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:background="#F44336"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingEnd="@dimen/_10sdp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="THANH TOÁN VIETTEL MONEY"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/btn_YeuCauCapNhat"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
+                                android:layout_below="@+id/edt_search"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:background="#F20"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingEnd="@dimen/_10sdp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="YÊU CẦU CẬP NHẬT"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12sdp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_30sdp"
+                        android:text="@string/textinfor"
+                        android:textSize="@dimen/_18sdp" />
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

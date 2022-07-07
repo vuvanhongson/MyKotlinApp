@@ -1,20 +1,18 @@
 package com.example.mykotlinapp.common
 
-
-import android.app.Dialog
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.ImageView
 import com.example.mykotlinapp.R
+import com.example.mykotlinapp.common.listener.SearchOnClickListener
 import com.example.mykotlinapp.common.listener.ToolbarOnClickListenner
 import com.example.mykotlinapp.databinding.LayoutViewToolbarBinding
 
 class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) , ToolbarOnClickListenner {
 
     private val binding: LayoutViewToolbarBinding
+    private var mSearchOnClickListener: SearchOnClickListener? = null
     private var showInfoButton = false
     private var showQRcodeButton = false
     private var showNotifiButton = false
@@ -51,14 +49,16 @@ class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, 
 //    }
 
 
-
-
     init {
         val inflater = LayoutInflater.from(context)
         binding = LayoutViewToolbarBinding.inflate(inflater)
         binding.toolbar = this
         addView(binding.root)
         init(attrs)
+    }
+
+    fun setOnSearchListener(searchOnClickListener: SearchOnClickListener?) {
+        mSearchOnClickListener = searchOnClickListener
     }
 
     override fun UserOnClick() {

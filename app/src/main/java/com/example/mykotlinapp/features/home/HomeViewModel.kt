@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.mykotlinapp.data.UserRepository
 import com.example.mykotlinapp.data.model.LichGomRac
+import com.example.mykotlinapp.data.model.SearchByLoginID
 import com.example.mykotlinapp.util.base.BaseViewModel
 import kotlinx.coroutines.launch
 
@@ -12,6 +13,8 @@ class HomeViewModel(private val userRepository: UserRepository) : BaseViewModel(
 
     var lichgonracDESC = MutableLiveData<MutableList<LichGomRac>>()
     var lichgonracASC = MutableLiveData<MutableList<LichGomRac>>()
+    var loginID = MutableLiveData<MutableList<SearchByLoginID>>()
+    var isSuccess = MutableLiveData<Boolean>()
 
 
 //    init {
@@ -44,5 +47,27 @@ class HomeViewModel(private val userRepository: UserRepository) : BaseViewModel(
         }
     }
 
+    fun getLoginID(maKhachHang: String) {
+        viewModelScope.launch {
+            try {
+                loginID = MutableLiveData<MutableList<SearchByLoginID>>()
+                val data = userRepository.getDataLoginID(maKhachHang)
+                if(data.code == 0)
+                {
+                    loginID.value = data.dataSearchLoginID!!
+                    isSuccess.value = true
+                    Log.d("api_loginid", "$maKhachHang - $data")
+                }
+                else
+                {
+                    isSuccess.value = false
+                }
+
+            } catch (e: Exception) {
+                isSuccess.value = false
+                error.value = getErrorResponse(e)
+            }
+        }
+    }
 
 }

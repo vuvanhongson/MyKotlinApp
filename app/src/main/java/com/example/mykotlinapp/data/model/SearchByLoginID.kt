@@ -94,4 +94,8 @@ data class SearchByLoginID (
     @SerializedName("khach_hang_id")
     @Expose
     var khach_hang_id: String = "",
+
+    @SerializedName("fee_momo")
+    @Expose
+    var fee_momo: Int = 0,
 ): Parcelable

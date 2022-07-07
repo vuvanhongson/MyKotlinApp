@@ -7,23 +7,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.data.model.AddressProvince
 import com.example.mykotlinapp.databinding.FragmentSearchBinding
 import com.example.mykotlinapp.features.search.Adapter.SearchAdapter
+import com.example.mykotlinapp.features.support.ContactFragment
 import com.example.mykotlinapp.util.base.BaseFragment
+import com.example.mykotlinapp.util.ext.addFragment
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : BaseFragment() {
     val viewModel: SearchViewModel by viewModel()
+    val inforViewModel : InformationViewModel by activityViewModels()
     private var adapterTinh: SearchAdapter? = null
     private lateinit var binding: FragmentSearchBinding
 
+
     private fun registerLiveData() = with(viewModel) {
         error.observe(viewLifecycleOwner) {
-            Snackbar.make(binding.toolbarContact, it.toString(), Snackbar.LENGTH_SHORT).show()
+            progressDialog.dismiss()
             Log.d("data", " error ")
         }
         tinhtp.observe(viewLifecycleOwner) {
@@ -35,6 +40,22 @@ class SearchFragment : BaseFragment() {
             Log.d("datatinh", " - " + it.toString())
             binding.dropdownMenu.setAdapter(adapterTinh)
         }
+
+        isSuccess.observe(viewLifecycleOwner)
+        {
+            progressDialog.dismiss()
+            if(it){
+                loginID.observe(viewLifecycleOwner){
+                    inforViewModel.getLoginID(it)
+                    addFragment(R.id.container, InformationFragment.newInstance())
+
+                }
+            }
+            else
+            {
+                ShowDialog().showDialogSearch(requireActivity())
+            }
+        }
     }
 
     override fun onCreateView(
@@ -42,6 +63,9 @@ class SearchFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSearchBinding.inflate(inflater)
+
+        binding.edtSearch.setText("KH-CIQ300004143")
+
         event()
         registerLiveData()
         return binding.root
@@ -49,6 +73,7 @@ class SearchFragment : BaseFragment() {
 
     fun event() {
         binding.backSearch.setOnClickListener {
+            onHideSoftKeyBoard()
             requireActivity().onBackPressed()
         }
 
@@ -58,11 +83,9 @@ class SearchFragment : BaseFragment() {
 
         binding.btnKqSearch.setOnClickListener {
             onHideSoftKeyBoard()
-            val frament: Fragment = InformationFragment()
-            val transaction = requireFragmentManager().beginTransaction()
-            transaction.replace(R.id.container, frament)
-            transaction.addToBackStack(null)
-            transaction.commit()
+//            addFragment(R.id.container, InformationFragment.newInstance())
+            progressDialog.show()
+            viewModel.getLoginID(binding.edtSearch.text.toString())
         }
     }
 

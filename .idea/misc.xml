@@ -63,6 +63,7 @@
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_maps.xml" value="0.3087719298245614" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_news.xml" value="0.3047619047619048" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_question_web_view.xml" value="0.23508771929824562" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/dialog_not_found_search.xml" value="0.25394736842105264" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/dialog_rac_dacbiet.xml" value="0.2469298245614035" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/dialog_rac_sinhhoat.xml" value="0.2469298245614035" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/dialog_updating.xml" value="0.23508771929824562" />
@@ -72,7 +73,7 @@
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_game_menu.xml" value="0.3047619047619048" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_game_webview.xml" value="0.1021021021021021" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_home.xml" value="0.2994858611825193" />
-        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_information.xml" value="0.24605263157894736" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_information.xml" value="0.2" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_onboarding_1.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_onboarding_2.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_onboarding_3.xml" value="0.2469298245614035" />

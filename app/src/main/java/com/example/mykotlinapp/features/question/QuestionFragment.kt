@@ -14,11 +14,6 @@ import com.example.mykotlinapp.features.games.GameWebViewVerticalActivity
 
 class QuestionFragment : Fragment() , QuestionItemClick {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     private lateinit var binding: FragmentQuestionBinding
 
     override fun onCreateView(

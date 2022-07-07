@@ -21,4 +21,18 @@ class ShowDialog{
         }
         customDialog.show()
     }
+    fun showDialogSearch(context : Context) {
+        val customDialog = Dialog(context)
+        customDialog.setContentView(R.layout.dialog_not_found_search)
+        customDialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        customDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        val ivClose = customDialog.findViewById<ImageView>(R.id.iv_close)
+        ivClose.setOnClickListener {
+            customDialog.dismiss()
+        }
+        customDialog.show()
+    }
 }

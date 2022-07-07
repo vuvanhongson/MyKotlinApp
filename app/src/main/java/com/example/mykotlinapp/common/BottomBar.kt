@@ -1,13 +1,9 @@
 package com.example.mykotlinapp.common
 
-import android.app.Dialog
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.ImageView
-import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.listener.BottomBarItemHandler
 import com.example.mykotlinapp.common.listener.BottomItemChangedListener
 import com.example.mykotlinapp.databinding.LayoutViewBottomBarBinding
@@ -133,7 +129,6 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
         const val BOOKING = "BOOKING"
         const val QUESTION = "QUESTION"
         const val WALLET = "WALLET"
-
     }
 
     init {

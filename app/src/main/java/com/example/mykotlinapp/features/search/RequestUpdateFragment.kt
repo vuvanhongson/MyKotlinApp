@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.FragmentRequestUpdateBinding
 import com.example.mykotlinapp.databinding.FragmentSearchBinding
+import com.example.mykotlinapp.features.support.SupportFragment
 
 class RequestUpdateFragment : Fragment() {
 
@@ -29,5 +31,11 @@ class RequestUpdateFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    companion object {
+        fun newInstance() = RequestUpdateFragment().apply {
+            arguments = bundleOf()
+        }
     }
 }

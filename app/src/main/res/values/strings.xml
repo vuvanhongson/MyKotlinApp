@@ -34,5 +34,6 @@
     <string name="book_title_2">ĐẶT LỊCH THU GOM RÁC THẢI SINH HOẠT</string>
     <string name="thanks">Cảm ơn bạn.</string>
     <string name="textdialog">Chức năng đang được xây dựng và cập nhật trong thời gian tới. Mời bạn quay lại sau để cùng trải nghiệm nhé.</string>
+    <string name="notfoundsearch">Rất tiếc!, thông tin khách hàng không trùng khớp, vui lòng kiểm tra lại.</string>
 
 </resources>

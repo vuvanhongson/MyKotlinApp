@@ -13,6 +13,6 @@ val viewModelModule = module {
     viewModel { HomeViewModel(userRepository = get()) }
     viewModel { SearchViewModel(userRepository = get()) }
     viewModel { MapViewModel(userRepository = get()) }
-    viewModel { InformationViewModel(userRepository = get()) }
+    viewModel { InformationViewModel() }
 
 }
