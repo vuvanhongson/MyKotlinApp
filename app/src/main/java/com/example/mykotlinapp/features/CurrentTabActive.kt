@@ -8,4 +8,5 @@ object CurrentTabActive {
     var CURRENTTAB : Fragment? = HomeFragment()
     var seconttab :  Fragment? = HomeFragment()
     var FRAM: FragmentManager? = null
+
 }

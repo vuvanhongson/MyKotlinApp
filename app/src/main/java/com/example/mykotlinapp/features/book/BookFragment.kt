@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.FragmentBookBinding
+import com.example.mykotlinapp.features.search.SearchFragment
 import com.example.mykotlinapp.util.ext.addFragment
 import kotlinx.android.synthetic.main.fragment_book.*
 
@@ -38,16 +40,16 @@ class BookFragment : Fragment(), BookOnclickListenner {
 
     override fun bookNextPageOnClick() {
         when {
-            radioButton1.isChecked -> nametoolbar = binding.radioButton1.text.toString()
-            radioButton2.isChecked -> nametoolbar = binding.radioButton2.text.toString()
-            radioButton3.isChecked -> nametoolbar = binding.radioButton3.text.toString()
-            radioButton4.isChecked -> nametoolbar = binding.radioButton4.text.toString()
-            radioButton5.isChecked -> nametoolbar = binding.radioButton5.text.toString()
-            radioButton6.isChecked -> nametoolbar = binding.radioButton6.text.toString()
-            radioButton7.isChecked -> nametoolbar = binding.radioButton7.text.toString()
-            radioButton8.isChecked -> nametoolbar = binding.radioButton8.text.toString()
-            radioButton9.isChecked -> nametoolbar = binding.radioButton9.text.toString()
-            radioButton10.isChecked -> nametoolbar = binding.radioButton10.text.toString()
+            radioButton1.isChecked -> nametoolbar = binding.radioButton1.text.toString() // id = 1 "title": "Ký hợp đồng thu rác mới"
+            radioButton2.isChecked -> nametoolbar = binding.radioButton2.text.toString() // id = 2 "title": "Rác cồng kềnh"
+            radioButton3.isChecked -> nametoolbar = binding.radioButton3.text.toString() // id = 3 "title": "Rác xây dựng"
+            radioButton4.isChecked -> nametoolbar = binding.radioButton4.text.toString() // id = 4 "title": "Rác phát sinh thêm"
+            radioButton5.isChecked -> nametoolbar = binding.radioButton5.text.toString() // id = 5 "title": "Rác ve chai, đồng nát"
+            radioButton6.isChecked -> nametoolbar = binding.radioButton6.text.toString() // id = 1 "title": "Pin thải"
+            radioButton7.isChecked -> nametoolbar = binding.radioButton7.text.toString() // id = 2 "title": "Thiết bị điện tử"
+            radioButton8.isChecked -> nametoolbar = binding.radioButton8.text.toString() // id = 3 "title": "Vỏ hộp sữa"
+            radioButton9.isChecked -> nametoolbar = binding.radioButton9.text.toString() // id = 4 "title": "Nhớt thải"
+            radioButton10.isChecked -> nametoolbar = binding.radioButton10.text.toString()//id = 5 "title": "Dầu ăn thải"
         }
         val bundle = Bundle()
         bundle.putString("data", nametoolbar)
@@ -84,5 +86,12 @@ class BookFragment : Fragment(), BookOnclickListenner {
             customDialog.dismiss()
         }
         customDialog.show()
+    }
+
+
+    companion object {
+        fun newInstance() = BookFragment().apply {
+            arguments = bundleOf()
+        }
     }
 }

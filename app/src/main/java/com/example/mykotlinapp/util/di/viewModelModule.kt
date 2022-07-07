@@ -1,5 +1,6 @@
 package com.example.mykotlinapp.util.di
 
+import com.example.mykotlinapp.features.book.BookNextPageViewModel
 import com.example.mykotlinapp.features.home.HomeViewModel
 import com.example.mykotlinapp.features.map.MapViewModel
 import com.example.mykotlinapp.features.search.InformationViewModel
@@ -14,5 +15,6 @@ val viewModelModule = module {
     viewModel { SearchViewModel(userRepository = get()) }
     viewModel { MapViewModel(userRepository = get()) }
     viewModel { InformationViewModel() }
+    viewModel { BookNextPageViewModel(userRepository = get()) }
 
 }

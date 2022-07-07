@@ -83,21 +83,26 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
     override fun onBottomItemClicked(type: String?) {
         when (type) {
             BottomBar.HOME -> {
+//                onBackPressed()
                 mFragmentManager!!.beginTransaction().hide(mCurrentTabActive!!).show(mHomeFragment)
                     .commit()
                 mCurrentTabActive = mHomeFragment
                 CurrentTabActive.CURRENTTAB = mHomeFragment
             }
             BottomBar.SUPPORT -> {
+//                onBackPressed()
                 navigateFragment(mSupport)
             }
             BottomBar.BOOKING -> {
+//                onBackPressed()
                 navigateFragment(mBook)
             }
             BottomBar.QUESTION -> {
+                onBackPressed()
                 navigateFragment(mQuestion)
             }
             BottomBar.WALLET -> {
+//                onBackPressed()
                 navigateFragment(mWallet)
             }
         }

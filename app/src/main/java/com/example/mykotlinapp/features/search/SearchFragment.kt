@@ -6,17 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
-import com.example.mykotlinapp.data.model.AddressProvince
 import com.example.mykotlinapp.databinding.FragmentSearchBinding
 import com.example.mykotlinapp.features.search.Adapter.SearchAdapter
-import com.example.mykotlinapp.features.support.ContactFragment
 import com.example.mykotlinapp.util.base.BaseFragment
 import com.example.mykotlinapp.util.ext.addFragment
-import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : BaseFragment() {

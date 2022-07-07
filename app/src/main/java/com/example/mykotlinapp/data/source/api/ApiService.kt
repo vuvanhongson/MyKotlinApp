@@ -32,5 +32,24 @@ interface ApiService {
     @POST("/api/grac-mobile-app/traCuuTienRacByLoginID")
     suspend fun getLoginID(@Field("maKhachHang") maKhachHang: String): DataSearchLoginID
 
+    @FormUrlEncoded
+    @POST("/api/grac-mobile-app/addNewLichThuGomRac")
+    suspend fun addNewLichThuGomRac(
+        @Part("customerUserNane") customerUserNane: String,
+        @Part("tinhThanhPhoId") tinhThanhPhoId: Int,
+        @Part("tinhThanhPhoId") quanHuyenId: Int,
+        @Part("tinhThanhPhoId") xaPhuongId: Int,
+        @Part("tinhThanhPhoId") shortAddress: String,
+        @Part("khoiLuongThuGom") khoiLuongThuGom: Int,
+        @Part("categoryRacThaiDacBietId") categoryRacThaiDacBietId: Int,
+        @Part("categoryDangKyThuRacId") categoryDangKyThuRacId: Int,
+        @Part("thoiGianThuGom") thoiGianThuGom: String,
+        @Part("customerPhone") customerPhone: String,
+        @Part("description") description: String,
+        @Part("picture_1") picture_1: Part?,
+        @Part("picture_1") picture_2: Part?,
+        @Part("picture_1") picture_3: Part?
+    ): DataNewLichThu
+
 
 }

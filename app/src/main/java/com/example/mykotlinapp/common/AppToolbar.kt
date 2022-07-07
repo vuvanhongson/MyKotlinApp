@@ -2,14 +2,19 @@ package com.example.mykotlinapp.common
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
+import android.view.KeyEvent
 import android.view.LayoutInflater
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
 import android.widget.FrameLayout
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.listener.SearchOnClickListener
 import com.example.mykotlinapp.common.listener.ToolbarOnClickListenner
 import com.example.mykotlinapp.databinding.LayoutViewToolbarBinding
 
-class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) , ToolbarOnClickListenner {
+class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs),
+    ToolbarOnClickListenner {
 
     private val binding: LayoutViewToolbarBinding
     private var mSearchOnClickListener: SearchOnClickListener? = null
@@ -55,6 +60,31 @@ class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, 
         binding.toolbar = this
         addView(binding.root)
         init(attrs)
+
+//        binding.textView .setText("KH-CIQ300004143")
+
+        binding.textView.setOnEditorActionListener() { v, actionId, event ->
+            when (actionId) {
+                EditorInfo.IME_ACTION_DONE -> {
+                    doSomething()
+                    true
+                }
+                EditorInfo.IME_ACTION_NEXT -> {
+                    doSomething()
+                    true
+                }
+                KeyEvent.ACTION_DOWN -> {
+                    doSomething()
+                    true
+                }
+                KeyEvent.KEYCODE_ENTER -> {
+                    doSomething()
+                    true
+                }
+                else -> false
+            }
+
+        }
     }
 
     fun setOnSearchListener(searchOnClickListener: SearchOnClickListener?) {
@@ -71,6 +101,11 @@ class AppToolbar(context: Context, attrs: AttributeSet?) : FrameLayout(context, 
 
     override fun NotiOnClick() {
         ShowDialog().showDialog(context)
+    }
+
+    fun doSomething() {
+        Log.d("search", " " + binding.textView.text)
+        mSearchOnClickListener!!.onSearchClicked(binding.textView.text.toString())
     }
 
 }

@@ -58,13 +58,13 @@ class InformationFragment : BaseFragment() {
             {
                 binding.tbThanhtoamMomo.visibility = View.VISIBLE
                 binding.tbThanhtoanViettel.visibility = View.VISIBLE
-                binding.btGbTienrac.visibility = View.GONE
+                binding.btGbTienrac.visibility = View.VISIBLE
             }
             else
             {
                 binding.tbThanhtoamMomo.visibility = View.GONE
                 binding.tbThanhtoanViettel.visibility = View.GONE
-                binding.btGbTienrac.visibility = View.VISIBLE
+                binding.btGbTienrac.visibility = View.GONE
             }
 
             makh = khachhang.ma_khach_hang.replace("-", "")

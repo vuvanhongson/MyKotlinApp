@@ -194,6 +194,7 @@
                 </RelativeLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_addThuGomRac"
                     android:layout_width="@dimen/_330sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_below="@+id/edt_img"

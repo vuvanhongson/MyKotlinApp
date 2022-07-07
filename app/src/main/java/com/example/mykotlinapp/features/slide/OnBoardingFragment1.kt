@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.FragmentOnboarding1Binding
+import com.example.mykotlinapp.features.book.BookFragment
 import com.example.mykotlinapp.features.search.SearchFragment
 import com.example.mykotlinapp.util.ext.addFragment
 
@@ -26,6 +27,9 @@ class OnBoardingFragment1 : Fragment() {
 //            transaction.addToBackStack(null)
 //            transaction.commit()
             addFragment(R.id.container, SearchFragment.newInstance())
+        }
+        binding.book.setOnClickListener {
+            addFragment(R.id.container, BookFragment.newInstance())
         }
         return binding.root
     }

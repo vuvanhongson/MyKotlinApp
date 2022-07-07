@@ -13,10 +13,13 @@ import android.widget.AbsListView
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.mykotlinapp.R
+import com.example.mykotlinapp.common.ShowDialog
+import com.example.mykotlinapp.common.listener.SearchOnClickListener
 import com.example.mykotlinapp.databinding.FragmentHomeBinding
 import com.example.mykotlinapp.features.complain.ComplainActivity
 import com.example.mykotlinapp.features.dumptrash.DumpTrashActivity
@@ -26,15 +29,19 @@ import com.example.mykotlinapp.features.home.schedule.AdapterGridCollectionSched
 import com.example.mykotlinapp.features.home.schedule.AdapterListCollectionSchedule
 import com.example.mykotlinapp.features.map.MapsActivity
 import com.example.mykotlinapp.features.news.NewsActivity
+import com.example.mykotlinapp.features.search.InformationFragment
+import com.example.mykotlinapp.features.search.InformationViewModel
 import com.example.mykotlinapp.features.slide.ViewPageAdapter
 import com.example.mykotlinapp.util.base.BaseFragment
+import com.example.mykotlinapp.util.ext.addFragment
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
+class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener, SearchOnClickListener {
     val viewModel: HomeViewModel by viewModel()
+    val inforViewModel : InformationViewModel by activityViewModels()
 
     var sortDesc = true
     var SortClick = false
@@ -70,7 +77,7 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
 //        viewModel.getLichASC(1, 10)
         error.observe(viewLifecycleOwner) {
             progressDialog.dismiss()
-            Snackbar.make(binding.tvRcview, it.toString(), Snackbar.LENGTH_SHORT).show()
+//            Snackbar.make(binding.tvRcview, it.toString(), Snackbar.LENGTH_SHORT).show()
         }
         lichgonracDESC.observe(viewLifecycleOwner) {
             progressDialog.dismiss()
@@ -79,6 +86,24 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
             page++
 
         }
+
+
+        isSuccess.observe(viewLifecycleOwner)
+        {
+            progressDialog.dismiss()
+            if(it){
+                loginID.observe(viewLifecycleOwner){
+                    inforViewModel.getLoginID(it)
+                    addFragment(R.id.container, InformationFragment.newInstance())
+
+                }
+            }
+            else
+            {
+                ShowDialog().showDialogSearch(requireActivity())
+            }
+        }
+
     }
 
     override fun onCreateView(
@@ -230,6 +255,9 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
     }
 
     private fun initCtrl() {
+
+        binding.appToolbar.setOnSearchListener(this)
+
         binding.root.bt_price.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 startActivity(Intent(activity, GarbagePriceActivity::class.java))
@@ -380,6 +408,14 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener {
     companion object {
         fun newInstance() = HomeFragment().apply {
             arguments = bundleOf()
+        }
+    }
+
+    override fun onSearchClicked(text: String?) {
+        onHideSoftKeyBoard()
+        progressDialog.show()
+        if (text != null) {
+            viewModel.getLoginID(text)
         }
     }
 }

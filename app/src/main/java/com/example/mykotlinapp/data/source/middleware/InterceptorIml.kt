@@ -19,7 +19,7 @@ class InterceptorIml() : Interceptor{
 
         val headerRequest = originRequest.newBuilder()
             .url(headers)
-            .addHeader("Content-Type", "application/json")
+            .addHeader("Content-Type", "multipart/form-data")
             .method(originRequest.method, originRequest.body)
         return chain.proceed(headerRequest.build())
 

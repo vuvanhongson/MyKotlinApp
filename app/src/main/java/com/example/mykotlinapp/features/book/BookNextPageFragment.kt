@@ -11,17 +11,22 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.FragmentBookNextPageBinding
 import com.example.mykotlinapp.features.book.adapter.PhotoBookAdapter
+import com.example.mykotlinapp.util.base.BaseFragment
+import com.google.android.material.snackbar.Snackbar
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import gun0912.tedbottompicker.TedBottomPicker
+import kotlinx.android.synthetic.main.fragment_home.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class BookNextPageFragment : Fragment() {
+class BookNextPageFragment : BaseFragment() {
+
+    val viewModel: BookNextPageViewModel by viewModel()
 
     private lateinit var binding: FragmentBookNextPageBinding
     var name: String? = ""
@@ -54,9 +59,21 @@ class BookNextPageFragment : Fragment() {
         binding.recyclerviewPhotoBook.isNestedScrollingEnabled = false
         binding.recyclerviewPhotoBook.adapter = photoBookAdapter
 
+        registerLiveData()
         event()
 
         return binding.root
+    }
+
+    private fun registerLiveData() = with(viewModel) {
+        NewLich.observe(viewLifecycleOwner) {
+            progressDialog.dismiss()
+
+        }
+        error.observe(viewLifecycleOwner) {
+            progressDialog.dismiss()
+            Snackbar.make(binding.toolbarSupport, it.toString(), Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     private fun event() {
@@ -88,6 +105,27 @@ class BookNextPageFragment : Fragment() {
 //            binding.imgAddImg2.visibility = View.VISIBLE
 //            binding.imgAddImg3.visibility = View.VISIBLE
             checkPermissionForImage()
+        }
+
+        binding.btnAddThuGomRac.setOnClickListener {
+            onHideSoftKeyBoard()
+            progressDialog.show()
+            viewModel.addNewLichThu(
+                "KH-CIQ300004143",
+                3,
+                3,
+                3,
+                "1080 Quang Trung",
+                100,
+                3,
+                3,
+                "07-07-2022",
+                "0909123456",
+                "Mo ta chi tiết đặt lịch thu gom rác",
+                null,
+                null,
+                null
+            )
         }
     }
 
