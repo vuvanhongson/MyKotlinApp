@@ -1,6 +1,8 @@
 package com.example.mykotlinapp.data.source.api
 
 import com.example.mykotlinapp.data.response.*
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface ApiService {
@@ -22,33 +24,31 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("api/grac-mobile-app/getQuanHuyenByTinhId")
-    suspend fun getQuanHuyen(@Field("tinh_id") tinh_id: Int): DataDistrict
+    suspend fun getQuanHuyen(@Field("tinh_id") tinh_id: Int): DataProvince
 
     @FormUrlEncoded
     @POST("api/grac-mobile-app/getPhuongXaByQuanId")
-    suspend fun getXaPhuong(@Field("quan_id") quan_id: Int): DataCommune
+    suspend fun getXaPhuong(@Field("quan_id") quan_id: Int): DataProvince
 
     @FormUrlEncoded
     @POST("/api/grac-mobile-app/traCuuTienRacByLoginID")
     suspend fun getLoginID(@Field("maKhachHang") maKhachHang: String): DataSearchLoginID
 
-    @FormUrlEncoded
+    @Multipart
     @POST("/api/grac-mobile-app/addNewLichThuGomRac")
     suspend fun addNewLichThuGomRac(
-        @Part("customerUserNane") customerUserNane: String,
-        @Part("tinhThanhPhoId") tinhThanhPhoId: Int,
-        @Part("tinhThanhPhoId") quanHuyenId: Int,
-        @Part("tinhThanhPhoId") xaPhuongId: Int,
-        @Part("tinhThanhPhoId") shortAddress: String,
-        @Part("khoiLuongThuGom") khoiLuongThuGom: Int,
-        @Part("categoryRacThaiDacBietId") categoryRacThaiDacBietId: Int,
-        @Part("categoryDangKyThuRacId") categoryDangKyThuRacId: Int,
-        @Part("thoiGianThuGom") thoiGianThuGom: String,
-        @Part("customerPhone") customerPhone: String,
-        @Part("description") description: String,
-        @Part("picture_1") picture_1: Part?,
-        @Part("picture_1") picture_2: Part?,
-        @Part("picture_1") picture_3: Part?
+        @Part("customerUserNane") customerUserNane: RequestBody,
+        @Part("tinhThanhPhoId") tinhThanhPhoId: RequestBody,
+        @Part("quanHuyenId") quanHuyenId: RequestBody,
+        @Part("xaPhuongId") xaPhuongId: RequestBody,
+        @Part("shortAddress") shortAddress: RequestBody,
+        @Part("khoiLuongThuGom") khoiLuongThuGom: RequestBody,
+        @Part("categoryRacThaiDacBietId") categoryRacThaiDacBietId: RequestBody,
+        @Part("categoryDangKyThuRacId") categoryDangKyThuRacId: RequestBody,
+        @Part("thoiGianThuGom") thoiGianThuGom: RequestBody,
+        @Part("customerPhone") customerPhone: RequestBody,
+        @Part("description") description: RequestBody,
+        @Part picture_1: MultipartBody.Part?,
     ): DataNewLichThu
 
 

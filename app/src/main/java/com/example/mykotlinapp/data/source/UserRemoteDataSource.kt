@@ -1,6 +1,8 @@
 package com.example.mykotlinapp.data.source
 
 import com.example.mykotlinapp.data.source.api.ApiService
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.Field
 import retrofit2.http.Part
 
@@ -12,23 +14,25 @@ class UserRemoteDataSource (private val apiService: ApiService) {
 
     suspend fun getTinh(ten: String) = apiService.getTinhThanhPho(ten)
 
+    suspend fun getHuyen(tinh_id: Int) = apiService.getQuanHuyen(tinh_id)
+
+    suspend fun getXa(quan_id: Int) = apiService.getXaPhuong(quan_id)
+
     suspend fun getDataLoginID(maKhachHang: String) = apiService.getLoginID(maKhachHang)
 
     suspend fun addNewLichThuGomRac(
-        customerUserNane: String,
-        tinhThanhPhoId: Int,
-        quanHuyenId: Int,
-        xaPhuongId: Int,
-        shortAddress: String,
-        khoiLuongThuGom: Int,
-        categoryRacThaiDacBietId: Int,
-        categoryDangKyThuRacId: Int,
-        thoiGianThuGom: String,
-        customerPhone: String,
-        description: String,
-        picture_1: Part?,
-        picture_2: Part?,
-        picture_3: Part?
+        customerUserNane: RequestBody,
+        tinhThanhPhoId: RequestBody,
+        quanHuyenId: RequestBody,
+        xaPhuongId: RequestBody,
+        shortAddress: RequestBody,
+        khoiLuongThuGom: RequestBody,
+        categoryRacThaiDacBietId: RequestBody,
+        categoryDangKyThuRacId: RequestBody,
+        thoiGianThuGom: RequestBody,
+        customerPhone: RequestBody,
+        description: RequestBody,
+        picture_1: MultipartBody.Part?,
     ) = apiService.addNewLichThuGomRac(
         customerUserNane,
         tinhThanhPhoId,
@@ -41,8 +45,6 @@ class UserRemoteDataSource (private val apiService: ApiService) {
         thoiGianThuGom,
         customerPhone,
         description,
-        picture_1,
-        picture_2,
-        picture_3)
+        picture_1!!,)
 
 }

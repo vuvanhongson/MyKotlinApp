@@ -6,6 +6,10 @@ import com.example.mykotlinapp.data.UserRepository
 import com.example.mykotlinapp.data.model.NewLichThu
 import com.example.mykotlinapp.util.base.BaseViewModel
 import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.http.Part
 import java.lang.Exception
 
@@ -15,21 +19,31 @@ class BookNextPageViewModel(private val userRepository: UserRepository) : BaseVi
 
     fun addNewLichThu(
         customerUserNane: String,
-        tinhThanhPhoId: Int,
-        quanHuyenId: Int,
-        xaPhuongId: Int,
+        tinhThanhPhoId: String,
+        quanHuyenId: String,
+        xaPhuongId: String,
         shortAddress: String,
-        khoiLuongThuGom: Int,
-        categoryRacThaiDacBietId: Int,
-        categoryDangKyThuRacId: Int,
+        khoiLuongThuGom: String,
+        categoryRacThaiDacBietId: String,
+        categoryDangKyThuRacId: String,
         thoiGianThuGom: String,
         customerPhone: String,
         description: String,
-        picture_1: Part?,
-        picture_2: Part?,
-        picture_3: Part?
+        picture_1: MultipartBody.Part?,
     ) {
         viewModelScope.launch {
+            val customerUserNane: RequestBody = customerUserNane.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val tinhThanhPhoId: RequestBody = tinhThanhPhoId.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val quanHuyenId: RequestBody = quanHuyenId.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val xaPhuongId: RequestBody = xaPhuongId.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val shortAddress: RequestBody = shortAddress.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val khoiLuongThuGom: RequestBody = khoiLuongThuGom.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val categoryRacThaiDacBietId: RequestBody = categoryRacThaiDacBietId.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val categoryDangKyThuRacId: RequestBody = categoryDangKyThuRacId.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val thoiGianThuGom: RequestBody = thoiGianThuGom.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val customerPhone: RequestBody = customerPhone.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val description: RequestBody = description.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+
             try {
                 val dataAdd = userRepository.addNewLichThuGomRac(
                     customerUserNane,
@@ -43,9 +57,7 @@ class BookNextPageViewModel(private val userRepository: UserRepository) : BaseVi
                     thoiGianThuGom,
                     customerPhone,
                     description,
-                    picture_1,
-                    picture_2,
-                    picture_3
+                    picture_1!!,
                 )
                 NewLich.value = dataAdd.data!!
             } catch (e: Exception) {

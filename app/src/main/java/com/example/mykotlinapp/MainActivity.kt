@@ -3,6 +3,7 @@ package com.example.mykotlinapp
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -107,6 +108,18 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
             }
         }
     }
+
+//    override fun onBackPressed() {
+//        val dialog1 = AlertDialog.Builder(this)
+//        dialog1.setMessage("Bạn có muốn thoát ứng dụng?")
+//        dialog1.setPositiveButton(
+//            "Có"
+//        ) { _, _ -> super.onBackPressed() }
+//        dialog1.setNegativeButton(
+//            "Không"
+//        ) { _, _ -> }
+//        dialog1.show()
+//    }
 
     companion object {
         private var mCurrentTabActive: Fragment? = null

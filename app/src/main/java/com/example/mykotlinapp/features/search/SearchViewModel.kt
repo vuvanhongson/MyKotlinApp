@@ -12,6 +12,8 @@ import kotlinx.coroutines.launch
 class SearchViewModel(private val userRepository: UserRepository) : BaseViewModel(){
 
     val tinhtp = MutableLiveData<MutableList<AddressProvince>>()
+    val huyenquan = MutableLiveData<MutableList<AddressProvince>>()
+    val xaphuong = MutableLiveData<MutableList<AddressProvince>>()
     var loginID = MutableLiveData<MutableList<SearchByLoginID>>()
     var isSuccess = MutableLiveData<Boolean>()
 
@@ -28,6 +30,32 @@ class SearchViewModel(private val userRepository: UserRepository) : BaseViewMode
             }catch (e: Exception){
                 error.value = getErrorResponse(e)
                 Log.d("api", " errorapi ")
+            }
+        }
+    }
+
+    fun getHuyen(tinh_id: Int) {
+        viewModelScope.launch {
+            try {
+                val data = userRepository.getHuyen(tinh_id).dataTinhtp!!
+                huyenquan.value = data
+                Log.d("apihuyen", " - " + data.toString())
+            } catch (e: Exception) {
+                error.value = getErrorResponse(e)
+                Log.d("apihuyen", " errorapi ")
+            }
+        }
+    }
+
+    fun getXa(quan_id: Int) {
+        viewModelScope.launch {
+            try {
+                val data = userRepository.getXa(quan_id).dataTinhtp!!
+                xaphuong.value = data
+                Log.d("apixa", " - " + data.toString())
+            } catch (e: Exception) {
+                error.value = getErrorResponse(e)
+                Log.d("apixa", " errorapi ")
             }
         }
     }
