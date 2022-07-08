@@ -3,9 +3,12 @@ package com.example.mykotlinapp.features.book
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +22,7 @@ import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.FragmentBookNextPageBinding
 import com.example.mykotlinapp.features.book.adapter.PhotoBookAdapter
 import com.example.mykotlinapp.util.base.BaseFragment
+import com.example.mykotlinapp.util.ext.ImageResizer
 import com.example.mykotlinapp.util.ext.RealPathUtil
 import com.google.android.material.snackbar.Snackbar
 import com.gun0912.tedpermission.PermissionListener
@@ -28,7 +32,10 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
+import java.lang.Exception
 
 class BookNextPageFragment : BaseFragment() {
 
@@ -120,9 +127,16 @@ class BookNextPageFragment : BaseFragment() {
             val uri = mListPhotos!![0]
             var strRealPath: String? = RealPathUtil.getRealPath(requireContext(), uri)
             Log.e("urlReal", "---- " + strRealPath)
-            var file : File = File(strRealPath)
-            val image = file.asRequestBody("multipart/form-data".toMediaTypeOrNull())
-            val photo = MultipartBody.Part.createFormData("picture_1", file.name, image)
+//            var file : File = File(strRealPath)
+
+            var fullSizeBitmap = BitmapFactory.decodeFile(strRealPath)
+            var reduceBitmap = ImageResizer.reduceBitmapSize(fullSizeBitmap, 400000)
+
+            var reducedFile = getBitmapFile(reduceBitmap)
+
+
+            val image = reducedFile.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+            val photo = MultipartBody.Part.createFormData("picture_1", reducedFile.name, image)
 
             onHideSoftKeyBoard()
             progressDialog.show()
@@ -221,6 +235,25 @@ class BookNextPageFragment : BaseFragment() {
 //        }
 //    }
 //
+
+    private fun getBitmapFile(reduceBitmap: Bitmap): File {
+        val file: File = File(Environment.getExternalStorageDirectory().toString() + File.separator + "reduced_file.png")
+        val bos = ByteArrayOutputStream()
+        reduceBitmap.compress(Bitmap.CompressFormat.PNG, 0, bos)
+        val bitmapdata = bos.toByteArray()
+        try {
+            file.createNewFile()
+            val fos = FileOutputStream(file)
+            fos.write(bitmapdata)
+            fos.flush()
+            fos.close()
+            return file
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return file
+    }
+
     companion object {
         val IMAGE_REQUEST_CODE = 100
         fun newInstance() = BookNextPageFragment().apply {

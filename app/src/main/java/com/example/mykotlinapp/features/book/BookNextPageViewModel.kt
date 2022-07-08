@@ -1,5 +1,6 @@
 package com.example.mykotlinapp.features.book
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.mykotlinapp.data.UserRepository
@@ -24,8 +25,8 @@ class BookNextPageViewModel(private val userRepository: UserRepository) : BaseVi
         xaPhuongId: String,
         shortAddress: String,
         khoiLuongThuGom: String,
-        categoryRacThaiDacBietId: String,
-        categoryDangKyThuRacId: String,
+        loaiDanhMucRac: String,
+        idDanhMucRac: String,
         thoiGianThuGom: String,
         customerPhone: String,
         description: String,
@@ -38,8 +39,8 @@ class BookNextPageViewModel(private val userRepository: UserRepository) : BaseVi
             val xaPhuongId: RequestBody = xaPhuongId.toRequestBody("multipart/formdata".toMediaTypeOrNull())
             val shortAddress: RequestBody = shortAddress.toRequestBody("multipart/formdata".toMediaTypeOrNull())
             val khoiLuongThuGom: RequestBody = khoiLuongThuGom.toRequestBody("multipart/formdata".toMediaTypeOrNull())
-            val categoryRacThaiDacBietId: RequestBody = categoryRacThaiDacBietId.toRequestBody("multipart/formdata".toMediaTypeOrNull())
-            val categoryDangKyThuRacId: RequestBody = categoryDangKyThuRacId.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val loaiDanhMucRac: RequestBody = loaiDanhMucRac.toRequestBody("multipart/formdata".toMediaTypeOrNull())
+            val idDanhMucRac: RequestBody = idDanhMucRac.toRequestBody("multipart/formdata".toMediaTypeOrNull())
             val thoiGianThuGom: RequestBody = thoiGianThuGom.toRequestBody("multipart/formdata".toMediaTypeOrNull())
             val customerPhone: RequestBody = customerPhone.toRequestBody("multipart/formdata".toMediaTypeOrNull())
             val description: RequestBody = description.toRequestBody("multipart/formdata".toMediaTypeOrNull())
@@ -52,16 +53,18 @@ class BookNextPageViewModel(private val userRepository: UserRepository) : BaseVi
                     xaPhuongId,
                     shortAddress,
                     khoiLuongThuGom,
-                    categoryRacThaiDacBietId,
-                    categoryDangKyThuRacId,
+                    loaiDanhMucRac,
+                    idDanhMucRac,
                     thoiGianThuGom,
                     customerPhone,
                     description,
                     picture_1!!,
                 )
                 NewLich.value = dataAdd.data!!
+                Log.e("urlReal", "--- " + dataAdd.toString())
             } catch (e: Exception) {
                 error.value = getErrorResponse(e)
+                Log.e("urlReal", "lỗi trời quá đất ")
             }
         }
     }
