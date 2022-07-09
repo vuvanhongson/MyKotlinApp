@@ -124,19 +124,46 @@ class BookNextPageFragment : BaseFragment() {
 
         binding.btnAddThuGomRac.setOnClickListener {
 
+            var photo1: MultipartBody.Part? = null
+            var photo2: MultipartBody.Part? = null
+            var photo3: MultipartBody.Part? = null
+
+            if (mListPhotos!!.size > 0)
+                for (i in 0..mListPhotos!!.size - 1) {
+                    val uri = mListPhotos!![i]
+                    var strRealPath: String? = RealPathUtil.getRealPath(requireContext(), uri)
+                    Log.e("urlReal", "---- " + strRealPath)
+//            var file : File = File(strRealPath)
+                    var fullSizeBitmap = BitmapFactory.decodeFile(strRealPath)
+                    var reduceBitmap = ImageResizer.reduceBitmapSize(fullSizeBitmap, 250000)
+                    var reducedFile = getBitmapFile(reduceBitmap)
+
+                    val image = reducedFile.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+
+                    if (i == 0) {
+                        photo1 =
+                            MultipartBody.Part.createFormData("picture_1", reducedFile.name, image)
+                    }
+                    if (i == 1) {
+                        photo1 =
+                            MultipartBody.Part.createFormData("picture_2", reducedFile.name, image)
+                    }
+                    if (i == 2) {
+                        photo1 =
+                            MultipartBody.Part.createFormData("picture_3", reducedFile.name, image)
+                    }
+                }
+
             val uri = mListPhotos!![0]
             var strRealPath: String? = RealPathUtil.getRealPath(requireContext(), uri)
             Log.e("urlReal", "---- " + strRealPath)
 //            var file : File = File(strRealPath)
-
             var fullSizeBitmap = BitmapFactory.decodeFile(strRealPath)
             var reduceBitmap = ImageResizer.reduceBitmapSize(fullSizeBitmap, 400000)
-
             var reducedFile = getBitmapFile(reduceBitmap)
 
-
             val image = reducedFile.asRequestBody("multipart/form-data".toMediaTypeOrNull())
-            val photo = MultipartBody.Part.createFormData("picture_1", reducedFile.name, image)
+            photo1 = MultipartBody.Part.createFormData("picture_1", reducedFile.name, image)
 
             onHideSoftKeyBoard()
             progressDialog.show()
@@ -152,7 +179,7 @@ class BookNextPageFragment : BaseFragment() {
                 "07-07-2022",
                 "0909123456",
                 "Mo ta chi tiết đặt lịch thu gom rác",
-                photo!!
+                photo1!!,
             )
         }
     }
@@ -237,9 +264,12 @@ class BookNextPageFragment : BaseFragment() {
 //
 
     private fun getBitmapFile(reduceBitmap: Bitmap): File {
-        val file: File = File(Environment.getExternalStorageDirectory().toString() + File.separator + "reduced_file.png")
+        val file: File = File(
+            Environment.getExternalStorageDirectory()
+                .toString() + File.separator + "reduced_file.png"
+        )
         val bos = ByteArrayOutputStream()
-        reduceBitmap.compress(Bitmap.CompressFormat.PNG, 0, bos)
+        reduceBitmap.compress(Bitmap.CompressFormat.PNG, 3, bos)
         val bitmapdata = bos.toByteArray()
         try {
             file.createNewFile()

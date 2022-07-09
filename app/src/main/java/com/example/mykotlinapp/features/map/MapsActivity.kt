@@ -91,16 +91,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapOnClickListenne
 
                 var user = lichGom[i]
 
-                val pointLoc = LatLng(lat, long)
-                mMap!!.addMarker(
-                    MarkerOptions()
-                        .position(pointLoc)
-                        .title("tên: " + user.tenKhachHang)
-                        .snippet(user.ngayDang!! + " newPoint!!.diaChi")
-                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_green_png))
-                )
-                lat += 0.001
-                long += 0.001
+                if(user.mapLat != null)
+                {
+                    val pointLoc = LatLng(user.mapLat.toDouble(), user.mapLng.toDouble())
+                    mMap!!.addMarker(
+                        MarkerOptions()
+                            .position(pointLoc)
+                            .title("tên: " + user.tenKhachHang)
+                            .snippet(user.ngayDang!! + " newPoint!!.diaChi")
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_green_png))
+                    )
+                }
+
+//                lat += 0.001
+//                long += 0.001
             }
         }, 2000)
 
