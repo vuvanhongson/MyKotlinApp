@@ -33,6 +33,8 @@ class UserRemoteDataSource (private val apiService: ApiService) {
         customerPhone: RequestBody,
         description: RequestBody,
         picture_1: MultipartBody.Part?,
+        picture_2: MultipartBody.Part?,
+        picture_3: MultipartBody.Part?,
     ) = apiService.addNewLichThuGomRac(
         customerUserNane,
         tinhThanhPhoId,
@@ -45,6 +47,9 @@ class UserRemoteDataSource (private val apiService: ApiService) {
         thoiGianThuGom,
         customerPhone,
         description,
-        picture_1!!,)
+        picture_1!!,
+        picture_2!!,
+        picture_3!!,
+    )
 
 }

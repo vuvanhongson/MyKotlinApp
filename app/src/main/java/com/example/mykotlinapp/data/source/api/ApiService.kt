@@ -49,6 +49,8 @@ interface ApiService {
         @Part("customerPhone") customerPhone: RequestBody,
         @Part("description") description: RequestBody,
         @Part picture_1: MultipartBody.Part?,
+        @Part picture_2: MultipartBody.Part?,
+        @Part picture_3: MultipartBody.Part?,
     ): DataNewLichThu
 
 

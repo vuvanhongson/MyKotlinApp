@@ -31,6 +31,8 @@ class BookNextPageViewModel(private val userRepository: UserRepository) : BaseVi
         customerPhone: String,
         description: String,
         picture_1: MultipartBody.Part?,
+        picture_2: MultipartBody.Part?,
+        picture_3: MultipartBody.Part?,
     ) {
         viewModelScope.launch {
             val customerUserNane: RequestBody = customerUserNane.toRequestBody("multipart/formdata".toMediaTypeOrNull())
@@ -44,7 +46,6 @@ class BookNextPageViewModel(private val userRepository: UserRepository) : BaseVi
             val thoiGianThuGom: RequestBody = thoiGianThuGom.toRequestBody("multipart/formdata".toMediaTypeOrNull())
             val customerPhone: RequestBody = customerPhone.toRequestBody("multipart/formdata".toMediaTypeOrNull())
             val description: RequestBody = description.toRequestBody("multipart/formdata".toMediaTypeOrNull())
-
             try {
                 val dataAdd = userRepository.addNewLichThuGomRac(
                     customerUserNane,
@@ -59,6 +60,8 @@ class BookNextPageViewModel(private val userRepository: UserRepository) : BaseVi
                     customerPhone,
                     description,
                     picture_1!!,
+                    picture_2!!,
+                    picture_3!!,
                 )
                 NewLich.value = dataAdd.data!!
                 Log.e("urlReal", "--- " + dataAdd.toString())

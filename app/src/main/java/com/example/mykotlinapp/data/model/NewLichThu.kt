@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class NewLichThu (
-    @SerializedName("accept")
     @Expose
-    private val accept: Boolean? = null
+    @SerializedName("accept")
+    var accept: Boolean = true
 ): Parcelable

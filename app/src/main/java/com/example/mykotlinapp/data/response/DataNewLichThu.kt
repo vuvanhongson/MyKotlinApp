@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 data class DataNewLichThu (
     @SerializedName("data")
     @Expose
-    var data : MutableList<NewLichThu>? = null,
+    var data : MutableList<NewLichThu>,
     @SerializedName("error")
     @Expose
     var error : Boolean = true,

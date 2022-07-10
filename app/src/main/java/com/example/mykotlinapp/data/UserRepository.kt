@@ -35,6 +35,8 @@ class UserRepository(
         customerPhone: RequestBody,
         description: RequestBody,
         picture_1: MultipartBody.Part?,
+        picture_2: MultipartBody.Part?,
+        picture_3: MultipartBody.Part?,
     ) = remote.addNewLichThuGomRac(
         customerUserNane,
         tinhThanhPhoId,
@@ -48,6 +50,8 @@ class UserRepository(
         customerPhone,
         description,
         picture_1!!,
+        picture_2!!,
+        picture_3!!,
     )
 
 //    suspend fun login(email: String, password: String) = remote.login(email, password)
