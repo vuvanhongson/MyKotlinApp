@@ -35,5 +35,8 @@
     <string name="thanks">Cảm ơn bạn.</string>
     <string name="textdialog">Chức năng đang được xây dựng và cập nhật trong thời gian tới. Mời bạn quay lại sau để cùng trải nghiệm nhé.</string>
     <string name="notfoundsearch">Rất tiếc!, thông tin khách hàng không trùng khớp, vui lòng kiểm tra lại.</string>
+    <string name="message_accept_error">Rất tiêc!, thông tin chưa được cập nhật, vui lòng quý khách thử lại sau.</string>
+    <string name="message_accept_true">Thông tin của quý khách đã được cập nhật thành công!</string>
+    <string name="message_accept_false">Thông tin chưa đầy đủ, vui lòng kiểm tra lại!</string>
 
 </resources>

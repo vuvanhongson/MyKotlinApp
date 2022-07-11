@@ -16,10 +16,8 @@ class SearchViewModel(private val userRepository: UserRepository) : BaseViewMode
     val xaphuong = MutableLiveData<MutableList<AddressProvince>>()
     var loginID = MutableLiveData<MutableList<SearchByLoginID>>()
     var isSuccess = MutableLiveData<Boolean>()
-
-    init {
-        getTinh("")
-    }
+    var address = MutableLiveData<MutableList<SearchByLoginID>>()
+    var isSuccessAddress = MutableLiveData<Boolean>()
 
     fun getTinh(ten: String){
         viewModelScope.launch {
@@ -78,6 +76,29 @@ class SearchViewModel(private val userRepository: UserRepository) : BaseViewMode
 
             } catch (e: Exception) {
                 isSuccess.value = false
+                error.value = getErrorResponse(e)
+            }
+        }
+    }
+
+    fun getAddress(customerAddress: String) {
+        viewModelScope.launch {
+            try {
+                address = MutableLiveData<MutableList<SearchByLoginID>>()
+                val data = userRepository.getAddress(customerAddress)
+                if(data.code == 0)
+                {
+                    address.value = data.dataSearchLoginID!!
+                    isSuccessAddress.value = true
+                    Log.d("api_address", "$customerAddress - $data")
+                }
+                else
+                {
+                    isSuccessAddress.value = false
+                }
+
+            } catch (e: Exception) {
+                isSuccessAddress.value = false
                 error.value = getErrorResponse(e)
             }
         }

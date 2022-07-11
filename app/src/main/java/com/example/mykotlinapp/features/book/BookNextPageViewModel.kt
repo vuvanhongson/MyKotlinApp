@@ -16,7 +16,7 @@ import java.lang.Exception
 
 class BookNextPageViewModel(private val userRepository: UserRepository) : BaseViewModel() {
 
-    val NewLich = MutableLiveData<MutableList<NewLichThu>>()
+    val NewLich = MutableLiveData<NewLichThu>()
 
     fun addNewLichThu(
         customerUserNane: String,
@@ -63,11 +63,11 @@ class BookNextPageViewModel(private val userRepository: UserRepository) : BaseVi
                     picture_2!!,
                     picture_3!!,
                 )
-                NewLich.value = dataAdd.data!!
-                Log.e("urlReal", "--- " + dataAdd.toString())
+                NewLich.value = dataAdd.data
+                Log.e("apiNew", "--- " + dataAdd.toString())
             } catch (e: Exception) {
                 error.value = getErrorResponse(e)
-                Log.e("urlReal", "lỗi trời quá đất ")
+                Log.e("apiNew", "lỗi trời quá đất ")
             }
         }
     }

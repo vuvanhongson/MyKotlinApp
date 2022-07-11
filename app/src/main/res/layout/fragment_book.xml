@@ -138,7 +138,7 @@
                                 android:button="@drawable/custom_radiobutton"
                                 android:checked="true"
                                 android:paddingLeft="@dimen/_10sdp"
-                                android:text="Ký hợp đồng thu rác mới" />
+                                android:text="Rác ve chai, đồng nát" />
 
                             <RadioButton
                                 android:id="@+id/radioButton2"
@@ -171,7 +171,7 @@
                                 android:layout_marginBottom="@dimen/_10sdp"
                                 android:button="@drawable/custom_radiobutton"
                                 android:paddingLeft="@dimen/_10sdp"
-                                android:text="Rác ve chai, đồng nát" />
+                                android:text="Ký hợp đồng thu rác mới" />
 
                             <LinearLayout
                                 android:weightSum="10"

@@ -18,12 +18,55 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : BaseFragment() {
     val viewModel: SearchViewModel by viewModel()
-    val inforViewModel : InformationViewModel by activityViewModels()
+    val inforViewModel: InformationViewModel by activityViewModels()
     private var adapterTinh: SearchAdapter? = null
     private lateinit var binding: FragmentSearchBinding
-    var idapiQuan : Int = 0
-    var idapiPhuong : Int = 0
+    var idapiQuan: Int = 0
+    var idapiPhuong: Int = 0
+    var tinh: String = ""
+    var huyen: String = ""
+    var xa: String = ""
+    var diachi: String = ""
 
+    private fun searchInformationByLoginId() = with(viewModel) {
+        error.observe(viewLifecycleOwner) {
+            progressDialog.dismiss()
+            Log.d("loginID", "- Không tìm thấy id")
+        }
+        isSuccess.observe(viewLifecycleOwner)
+        {
+            progressDialog.dismiss()
+            if (it) {
+                loginID.observe(viewLifecycleOwner) {
+                    inforViewModel.getLoginID(it)
+                    addFragment(R.id.container, InformationFragment.newInstance())
+                    Log.d("loginID", "- success ")
+                }
+            } else {
+                ShowDialog().showDialogSearch(requireActivity())
+            }
+        }
+    }
+
+    private fun searchInformationByAddress() = with(viewModel){
+        error.observe(viewLifecycleOwner) {
+            progressDialog.dismiss()
+            Log.d("address", "- không tìm thấy:" + diachi)
+        }
+        isSuccessAddress.observe(viewLifecycleOwner)
+        {
+            progressDialog.dismiss()
+            if (it) {
+                address.observe(viewLifecycleOwner) {
+                    inforViewModel.getAddress(it)
+                    addFragment(R.id.container, InformationFragment.newInstance())
+                    Log.d("address", diachi)
+                }
+            } else {
+                ShowDialog().showDialogSearch(requireActivity())
+            }
+        }
+    }
 
     private fun registerLiveData() = with(viewModel) {
         getTinh("") //init from viewModel
@@ -37,25 +80,10 @@ class SearchFragment : BaseFragment() {
                 binding.dropdownMenu.setText(it.ten)
                 registerLiveDataQuan(it.id)
                 idapiQuan = it.id
+                tinh = it.fullName
             }
             Log.d("datatinh", " - " + it.toString())
             binding.dropdownMenu.setAdapter(adapterTinh)
-        }
-
-        isSuccess.observe(viewLifecycleOwner)
-        {
-            progressDialog.dismiss()
-            if(it){
-                loginID.observe(viewLifecycleOwner){
-                    inforViewModel.getLoginID(it)
-                    addFragment(R.id.container, InformationFragment.newInstance())
-
-                }
-            }
-            else
-            {
-                ShowDialog().showDialogSearch(requireActivity())
-            }
         }
     }
 
@@ -67,9 +95,10 @@ class SearchFragment : BaseFragment() {
         huyenquan.observe(viewLifecycleOwner) {
             adapterTinh = SearchAdapter(requireContext(), R.layout.list_item_dropdown, it)
             adapterTinh?.itemTinhClick = {
-                binding.dropdownMenuQuan.setText(it.ten)
+                binding.dropdownMenuQuan.setText(it.fullName)
                 registerLiveDataPhuong(it.id)
                 idapiPhuong = it.id
+                huyen = it.fullName
             }
             Log.d("datahuyen", " - $it")
             binding.dropdownMenuQuan.setAdapter(adapterTinh)
@@ -84,7 +113,8 @@ class SearchFragment : BaseFragment() {
         xaphuong.observe(viewLifecycleOwner) {
             adapterTinh = SearchAdapter(requireContext(), R.layout.list_item_dropdown, it)
             adapterTinh?.itemTinhClick = {
-                binding.dropdownMenuPhuong.setText(it.ten)
+                binding.dropdownMenuPhuong.setText(it.fullName)
+                xa = it.fullName
             }
             Log.d("dataxa", " - $it")
             binding.dropdownMenuPhuong.setAdapter(adapterTinh)
@@ -96,33 +126,43 @@ class SearchFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSearchBinding.inflate(inflater)
-
-        binding.edtSearch.setText("KH-CIQ300004143")
-
         event()
         registerLiveData()
+//        registerLiveDataQuan(idapiQuan)
+//        registerLiveDataPhuong(idapiPhuong)
+        searchInformationByLoginId()
+        searchInformationByAddress()
         return binding.root
     }
 
     fun event() {
+
         binding.dropdownMenu.setOnClickListener {
             registerLiveData()
             binding.dropdownMenuQuan.setText("")
             binding.dropdownMenuPhuong.setText("")
         }
         binding.dropdownMenuQuan.setOnClickListener {
-            if(idapiQuan != 0){
+            if (idapiQuan != 0) {
                 registerLiveDataQuan(idapiQuan)
                 binding.dropdownMenuPhuong.setText("")
-            }else{
-                Snackbar.make(binding.btnKqSearch, "Vui lòng chọn Tỉnh/Thành phố!", Snackbar.LENGTH_SHORT).show()
+            } else {
+                Snackbar.make(
+                    binding.btnKqSearch,
+                    "Vui lòng chọn Tỉnh/Thành phố!",
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         }
         binding.dropdownMenuPhuong.setOnClickListener {
-            if(idapiPhuong != 0){
+            if (idapiPhuong != 0) {
                 registerLiveDataPhuong(idapiPhuong)
-            }else{
-                Snackbar.make(binding.btnKqSearch, "Vui lòng chọn Huyện/Quận", Snackbar.LENGTH_SHORT).show()
+            } else {
+                Snackbar.make(
+                    binding.btnKqSearch,
+                    "Vui lòng chọn Huyện/Quận",
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -133,13 +173,6 @@ class SearchFragment : BaseFragment() {
 
         binding.question.setOnClickListener {
             ShowDialog().showDialog(requireContext())
-        }
-
-        binding.btnKqSearch.setOnClickListener {
-            onHideSoftKeyBoard()
-//            addFragment(R.id.container, InformationFragment.newInstance())
-            progressDialog.show()
-            viewModel.getLoginID(binding.edtSearch.text.toString())
         }
 
         binding.radioButtonMaKH.setOnCheckedChangeListener { _, _ ->
@@ -155,6 +188,20 @@ class SearchFragment : BaseFragment() {
             binding.inputLayoutQuan.visibility = View.GONE
             binding.inputLayoutPhuong.visibility = View.GONE
             onHideSoftKeyBoard()
+        }
+
+        binding.btnKqSearch.setOnClickListener {
+            onHideSoftKeyBoard()
+            progressDialog.show()
+            if (binding.radioButtonMaKH.isChecked) {
+                viewModel.getLoginID(binding.edtSearch.text.toString().trim())
+                Log.d("checksearch","- code")
+            }
+            if (!binding.radioButtonMaKH.isChecked){
+                diachi = binding.edtSearch.text.toString().trim() + ", " + xa + ", "  + huyen + ", " + tinh
+                viewModel.getAddress(diachi.trim())
+                Log.d("checksearch","- diachi")
+            }
         }
     }
 

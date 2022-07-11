@@ -97,8 +97,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapOnClickListenne
                     mMap!!.addMarker(
                         MarkerOptions()
                             .position(pointLoc)
-                            .title("tên: " + user.tenKhachHang)
-                            .snippet(user.ngayDang!! + " newPoint!!.diaChi")
+                            .title(user.tenKhachHang)
+                            .snippet(user.ngayDang!! + " - " + user!!.diaChi)
                             .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_green_png))
                     )
                 }

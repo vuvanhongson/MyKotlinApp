@@ -20,6 +20,7 @@ class ComplainActivity : AppCompatActivity(), ComplainOnClickListenner {
 
     private lateinit var binding: ActivityComplainBinding
     var nameComplain : String = ""
+    var id : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -42,16 +43,37 @@ class ComplainActivity : AppCompatActivity(), ComplainOnClickListenner {
     }
 
     override fun nextPageOnclick() {
+
         val i = Intent(this@ComplainActivity, ComplainNextPageActivity::class.java)
         when{
-            radioButton1.isChecked -> nameComplain = radioButton1.text.toString()
-            radioButton2.isChecked -> nameComplain = radioButton2.text.toString()
-            radioButton3.isChecked -> nameComplain = radioButton3.text.toString()
-            radioButton4.isChecked -> nameComplain = radioButton4.text.toString()
-            radioButton5.isChecked -> nameComplain = radioButton5.text.toString()
+            radioButton1.isChecked -> {
+                nameComplain = radioButton1.text.toString()
+                id = "1"
+            }
+            radioButton2.isChecked -> {
+                nameComplain = radioButton2.text.toString()
+                id = "2"
+            }
+            radioButton3.isChecked -> {
+                nameComplain = radioButton3.text.toString()
+                id = "3"
+            }
+            radioButton4.isChecked -> {
+                nameComplain = radioButton4.text.toString()
+                id = "4"
+            }
+            radioButton5.isChecked -> {
+                nameComplain = radioButton5.text.toString()
+                id = "5"
+            }
+            radioButton6.isChecked -> {
+                nameComplain = radioButton6.text.toString()
+                id = "6"
+            }
 
         }
         i.putExtra("namecomplain", nameComplain)
+        i.putExtra("id", id)
         startActivity(i)
     }
 }

@@ -5,16 +5,19 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class DataNewLichThu (
-    @SerializedName("data")
-    @Expose
-    var data : MutableList<NewLichThu>,
     @SerializedName("error")
     @Expose
     var error : Boolean = true,
+
     @SerializedName("code")
     @Expose
-    var code: Int = 0,
+    var code: String = "",
+
     @SerializedName("message")
     @Expose
     var message: String = "",
+
+    @SerializedName("data")
+    @Expose
+    var data : NewLichThu
 )

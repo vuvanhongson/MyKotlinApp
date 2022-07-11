@@ -70,6 +70,9 @@
             android:name=".features.news.NewsActivity"
             android:exported="false" />
         <activity
+            android:name=".features.garbagePrice.PriceWebViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".features.games.GamesActivity"
             android:exported="false"/>
         <activity

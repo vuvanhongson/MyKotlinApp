@@ -122,10 +122,18 @@
                     android:id="@+id/radioButton5"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_35sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
                     android:button="@drawable/custom_radiobutton"
                     android:paddingLeft="@dimen/_10sdp"
                     android:text="Khác" />
+
+                <RadioButton
+                    android:id="@+id/radioButton6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:button="@drawable/custom_radiobutton"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:text="Test-InvalideDate-Eidt" />
 
             </RadioGroup>
 

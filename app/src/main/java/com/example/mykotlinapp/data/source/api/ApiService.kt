@@ -34,10 +34,14 @@ interface ApiService {
     @POST("/api/grac-mobile-app/traCuuTienRacByLoginID")
     suspend fun getLoginID(@Field("maKhachHang") maKhachHang: String): DataSearchLoginID
 
+    @FormUrlEncoded
+    @POST("/api/grac-mobile-app/traCuuTienRacByAddress")
+    suspend fun getAddress(@Field("customerAddress") customerAddress: String): DataSearchLoginID
+
     @Multipart
     @POST("/api/grac-mobile-app/addNewLichThuGomRac")
     suspend fun addNewLichThuGomRac(
-        @Part("customerUserNane") customerUserNane: RequestBody,
+        @Part("customerUserName") customerUserNane: RequestBody,
         @Part("tinhThanhPhoId") tinhThanhPhoId: RequestBody,
         @Part("quanHuyenId") quanHuyenId: RequestBody,
         @Part("xaPhuongId") xaPhuongId: RequestBody,
@@ -52,6 +56,19 @@ interface ApiService {
         @Part picture_2: MultipartBody.Part?,
         @Part picture_3: MultipartBody.Part?,
     ): DataNewLichThu
+
+    @Multipart
+    @POST("/api/grac-mobile-app/addNewKhieuNaiPhanAnh")
+    suspend fun addNewKhieuNaiPhanAnh(
+        @Part("customerUserName") customerUserNane: RequestBody,
+        @Part("customerPhone") customerPhone: RequestBody,
+        @Part("customerEmail") customerEmail: RequestBody,
+        @Part("description") description: RequestBody,
+        @Part("categoryPhanAnhKhieuNai") categoryPhanAnhKhieuNai: RequestBody,
+        @Part picture_1: MultipartBody.Part?,
+        @Part picture_2: MultipartBody.Part?,
+        @Part picture_3: MultipartBody.Part?,
+    ): DataComplain
 
 
 }

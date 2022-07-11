@@ -63,9 +63,9 @@ class NewsActivity : AppCompatActivity() {
         newsArrayList = arrayListOf<News>()
 
         imageBgHeader = arrayOf(
-            R.drawable.bg_item_news,
-            R.drawable.bg_item_news,
-            R.drawable.bg_item_news,
+            R.drawable.anhminhhoa,
+            R.drawable.anhminhhoa2,
+            R.drawable.anhminhhoa3,
         )
 
 //        imageTitleHeader = arrayOf(

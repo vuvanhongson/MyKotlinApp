@@ -23,7 +23,7 @@ class SearchAdapter(
         }
         val textView = convertView!!.findViewById<TextView>(R.id.tv_dropdown_tinhtp)
         val addressProvince = getItem(position)
-        textView.text = addressProvince!!.ten
+        textView.text = addressProvince!!.fullName
 
         textView.setOnClickListener {
             itemTinhClick!!.invoke(addressProvince)

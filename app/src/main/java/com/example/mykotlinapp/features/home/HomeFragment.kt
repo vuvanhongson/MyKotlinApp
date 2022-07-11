@@ -29,6 +29,7 @@ import com.example.mykotlinapp.features.home.schedule.AdapterGridCollectionSched
 import com.example.mykotlinapp.features.home.schedule.AdapterListCollectionSchedule
 import com.example.mykotlinapp.features.map.MapsActivity
 import com.example.mykotlinapp.features.news.NewsActivity
+import com.example.mykotlinapp.features.question.QuestionWebViewActivity
 import com.example.mykotlinapp.features.search.InformationFragment
 import com.example.mykotlinapp.features.search.InformationViewModel
 import com.example.mykotlinapp.features.slide.ViewPageAdapter
@@ -260,7 +261,12 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener, SearchOnClic
 
         binding.root.bt_price.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
-                startActivity(Intent(activity, GarbagePriceActivity::class.java))
+                val intent = Intent(activity, GarbagePriceActivity::class.java)
+//                intent.putExtra(
+//                    "urlprice",
+//                    "https://grac.vn/category/gia-tien-rac/"
+//                )
+                startActivity(intent)
             }
         })
 

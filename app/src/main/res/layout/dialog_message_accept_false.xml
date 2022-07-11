@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_35sdp"
+        android:background="@drawable/custom_layout_support">
+
+
+        <com.example.mykotlinapp.common.BaseTextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:paddingHorizontal="@dimen/_25sdp"
+            android:text="@string/message_accept_false"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp" />
+
+
+        <com.example.mykotlinapp.common.BaseTextView
+            android:id="@+id/tv_ok_false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_description"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="OK"
+            android:textAlignment="center"
+            android:textColor="@color/grac_orange"
+            android:textSize="@dimen/_19sdp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</layout>

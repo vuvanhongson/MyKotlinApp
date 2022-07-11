@@ -8,11 +8,12 @@ import android.webkit.WebViewClient
 import androidx.core.content.ContextCompat
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.ActivityGameWebviewVerticalBinding
+import com.example.mykotlinapp.databinding.ActivityPriceWebViewBinding
 import com.example.mykotlinapp.databinding.ActivityQuestionWebViewBinding
 
 class QuestionWebViewActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityQuestionWebViewBinding
+    private lateinit var binding: ActivityPriceWebViewBinding
 
     var urlQuestion : String = "https://grac.vn/cau-hoi-thuong-gap/"
 
@@ -24,7 +25,7 @@ class QuestionWebViewActivity : AppCompatActivity() {
         urlQuestion = intent.getStringExtra("urlquestion").toString()
 
         super.onCreate(savedInstanceState)
-        binding = ActivityQuestionWebViewBinding.inflate(layoutInflater)
+        binding = ActivityPriceWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initControls()

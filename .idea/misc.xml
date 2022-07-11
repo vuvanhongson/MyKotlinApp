@@ -62,12 +62,16 @@
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_maps.xml" value="0.3087719298245614" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_news.xml" value="0.3047619047619048" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_price_web_view.xml" value="0.3087719298245614" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/activity_question_web_view.xml" value="0.23508771929824562" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/dialog_message_accept_addnew.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/dialog_message_accept_error.xml" value="0.15921052631578947" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/dialog_message_accept_true.xml" value="0.2175925925925926" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/dialog_not_found_search.xml" value="0.25394736842105264" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/dialog_rac_dacbiet.xml" value="0.2469298245614035" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/dialog_rac_sinhhoat.xml" value="0.2469298245614035" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/dialog_updating.xml" value="0.23508771929824562" />
-        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_book.xml" value="0.2" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_book.xml" value="0.4" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_book_next_page.xml" value="0.2552552552552553" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_contact.xml" value="0.2972972972972973" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_game_menu.xml" value="0.3047619047619048" />
@@ -79,7 +83,7 @@
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_onboarding_3.xml" value="0.2469298245614035" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_question.xml" value="0.17478632478632478" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_request_update.xml" value="0.3087719298245614" />
-        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_search.xml" value="0.24605263157894736" />
+        <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_support.xml" value="0.17478632478632478" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/fragment_wallet.xml" value="0.21302083333333333" />
         <entry key="..\:/Users/Admin/Desktop/MyKotlinApp/app/src/main/res/layout/layout_item_film.xml" value="0.1" />
@@ -107,7 +111,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

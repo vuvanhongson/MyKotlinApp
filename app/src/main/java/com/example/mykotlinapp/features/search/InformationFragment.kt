@@ -54,7 +54,7 @@ class InformationFragment : BaseFragment() {
                 binding.btnYeuCauCapNhat.visibility = View.GONE
             }
 
-            if(khachhang.trang_thai_thanh_toan != 0)
+            if(khachhang.trang_thai_thanh_toan == 0)
             {
                 binding.tbThanhtoamMomo.visibility = View.VISIBLE
                 binding.tbThanhtoanViettel.visibility = View.VISIBLE

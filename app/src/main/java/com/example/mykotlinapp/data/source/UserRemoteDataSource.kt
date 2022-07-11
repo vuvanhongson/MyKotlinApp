@@ -20,6 +20,8 @@ class UserRemoteDataSource (private val apiService: ApiService) {
 
     suspend fun getDataLoginID(maKhachHang: String) = apiService.getLoginID(maKhachHang)
 
+    suspend fun getAddress(customerAddress: String) = apiService.getAddress(customerAddress)
+
     suspend fun addNewLichThuGomRac(
         customerUserNane: RequestBody,
         tinhThanhPhoId: RequestBody,
@@ -47,6 +49,26 @@ class UserRemoteDataSource (private val apiService: ApiService) {
         thoiGianThuGom,
         customerPhone,
         description,
+        picture_1!!,
+        picture_2!!,
+        picture_3!!,
+    )
+
+    suspend fun addNewKhieuNaiPhanAnh(
+        customerUserNane: RequestBody,
+        customerPhone: RequestBody,
+        customerEmail: RequestBody,
+        description: RequestBody,
+        categoryPhanAnhKhieuNai: RequestBody,
+        picture_1: MultipartBody.Part?,
+        picture_2: MultipartBody.Part?,
+        picture_3: MultipartBody.Part?,
+    ) = apiService.addNewKhieuNaiPhanAnh(
+        customerUserNane,
+        customerPhone,
+        customerEmail,
+        description,
+        categoryPhanAnhKhieuNai,
         picture_1!!,
         picture_2!!,
         picture_3!!,

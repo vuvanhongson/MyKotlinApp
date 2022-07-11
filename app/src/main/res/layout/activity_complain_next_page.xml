@@ -58,7 +58,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/custom_layout_support"
             android:hint="Mã khách hàng"
-            android:inputType="date"
+            android:inputType="text"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
             android:textSize="@dimen/_16sdp" />
@@ -166,6 +166,7 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/btn_addNewComplain"
             android:layout_width="@dimen/_330sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_below="@+id/edt_img"

@@ -99,7 +99,6 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
                 navigateFragment(mBook)
             }
             BottomBar.QUESTION -> {
-                onBackPressed()
                 navigateFragment(mQuestion)
             }
             BottomBar.WALLET -> {
