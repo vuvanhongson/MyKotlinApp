@@ -68,6 +68,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapOnClickListenne
             }
             progressDialog.dismiss()
         }
+        viewModel.error.observe(this) {
+            progressDialog.dismiss()
+        }
     }
 
 
@@ -98,7 +101,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapOnClickListenne
                         MarkerOptions()
                             .position(pointLoc)
                             .title(user.tenKhachHang)
-                            .snippet(user.ngayDang!! + " - " + user!!.diaChi)
+                            .snippet(user.ngayDang!! + " - " + user!!.diaChiThuGom)
                             .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker_green_png))
                     )
                 }

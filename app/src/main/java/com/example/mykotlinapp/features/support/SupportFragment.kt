@@ -1,40 +1,28 @@
 package com.example.mykotlinapp.features.support
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import com.example.mykotlinapp.R
+import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.common.BottomBar
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.common.listener.BottomItemChangedListener
-import com.example.mykotlinapp.databinding.FragmentHomeBinding
 import com.example.mykotlinapp.databinding.FragmentSupportBinding
 import com.example.mykotlinapp.features.CurrentTabActive
-import com.example.mykotlinapp.features.book.BookFragment
-import com.example.mykotlinapp.features.book.BookNextPageFragment
-import com.example.mykotlinapp.features.home.HomeFragment
-import com.example.mykotlinapp.util.ext.addFragment
 import com.example.mykotlinapp.util.ext.replaceChildFragment
 
 
 class SupportFragment : Fragment() , SupportItemClick{
 
-    private var mBottomItemChangedListener: BottomItemChangedListener? = null
 
     private lateinit var binding: FragmentSupportBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-    }
-
-    fun setOnBottomItemChangedListener(bottomItemChangedListener: BottomItemChangedListener?) {
-        mBottomItemChangedListener = bottomItemChangedListener
     }
 
 
@@ -45,7 +33,7 @@ class SupportFragment : Fragment() , SupportItemClick{
         binding = FragmentSupportBinding.inflate(inflater)
 
         binding.ivBackSupport.setOnClickListener{
-            mBottomItemChangedListener!!.onBottomItemClicked(BottomBar.HOME)
+//            mBottomItemChangedListener!!.onBottomItemClicked(BottomBar.HOME)
         }
 
         binding.support = this
@@ -59,8 +47,7 @@ class SupportFragment : Fragment() , SupportItemClick{
 //        transaction.replace(R.id.container, newFragment)
 //        transaction.addToBackStack(null)
 //        transaction.commit()
-        addFragment(R.id.container, ContactFragment.newInstance())
-        CurrentTabActive.CURRENTTAB = ContactFragment.newInstance()
+        MainActivity.navigateFragment(MainActivity.mContact)
     }
 
     override fun Support2onClick() {
@@ -72,7 +59,7 @@ class SupportFragment : Fragment() , SupportItemClick{
     }
 
     override fun back() {
-
+        MainActivity.navigateFragment(MainActivity.mHomeFragment)
     }
 
     override fun question() {

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.FragmentBookBinding
@@ -32,6 +33,7 @@ class BookFragment : Fragment(), BookOnclickListenner {
     }
 
     override fun bookBackOnClick() {
+        MainActivity.navigateFragment(MainActivity.mHomeFragment)
     }
 
     override fun bookQuestionOnClick() {
@@ -110,9 +112,10 @@ class BookFragment : Fragment(), BookOnclickListenner {
         bundle.putString("data", nametoolbar)
         bundle.putString("loai", loai)
         bundle.putString("id", id)
-        val fragment = BookNextPageFragment()
+        MainActivity.addNewFragment(MainActivity.mBookNextPageFragment)
+        val fragment = MainActivity.mBookNextPageFragment
         fragment.arguments = bundle
-        addFragment(R.id.container, fragment)
+        MainActivity.navigateFragment(fragment)
     }
 
     override fun bookRacThaiSinhHoatOnClick() {

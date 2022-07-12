@@ -26,7 +26,7 @@ class MapViewModel (private val userRepository: UserRepository) : BaseViewModel(
                 lichgonracDESC.value = data.dataLich!!
                 Log.d("apiMap", "DESC - " + current + number + " - " + data.toString())
             } catch (e: Exception) {
-                error("lỗi gọi api")
+                error.value = getErrorResponse(e)
             }
         }
     }

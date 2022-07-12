@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
+import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.FragmentInformationBinding
+import com.example.mykotlinapp.features.garbagePrice.PriceWebViewActivity
 import com.example.mykotlinapp.features.question.QuestionWebViewActivity
 import com.example.mykotlinapp.util.base.BaseFragment
 import com.example.mykotlinapp.util.ext.addFragment
@@ -89,7 +91,29 @@ class InformationFragment : BaseFragment() {
             ShowDialog().showDialog(requireContext())
         }
         binding.backInformation.setOnClickListener {
-            requireActivity().onBackPressed()
+            MainActivity.mInforfragment = InformationFragment()
+            MainActivity.addNewFragment(MainActivity.mSearch)
+            val fragment = MainActivity.mSearch
+            MainActivity.navigateFragment(fragment)
+
+        }
+
+        binding.tbThanhtoanViettel.setOnClickListener {
+            val intent = Intent(activity, PriceWebViewActivity::class.java)
+            intent.putExtra(
+                "urlprice",
+                "https://grac.vn/huong-dan-thanh-toan-tien-rac-qua-viettel-money/"
+            )
+            startActivity(intent)
+        }
+
+        binding.tbThanhtoamMomo.setOnClickListener {
+            val intent = Intent(activity, PriceWebViewActivity::class.java)
+            intent.putExtra(
+                "urlprice",
+                "https://grac.vn/huong-dan-thanh-toan-tien-rac-qua-vi-momo/"
+            )
+            startActivity(intent)
         }
 
         SearchByLoginID()

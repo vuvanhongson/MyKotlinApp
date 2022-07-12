@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
+import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
+import com.example.mykotlinapp.data.model.AddressProvince
 import com.example.mykotlinapp.databinding.FragmentSearchBinding
 import com.example.mykotlinapp.features.search.Adapter.SearchAdapter
 import com.example.mykotlinapp.util.base.BaseFragment
@@ -75,6 +77,8 @@ class SearchFragment : BaseFragment() {
             Log.d("data", " error ")
         }
         tinhtp.observe(viewLifecycleOwner) {
+            it.remove(AddressProvince(50, "Hồ Chí Minh", "Thành phố Hồ Chí Minh"))
+            it.add(0, AddressProvince(50, "Hồ Chí Minh", "Thành phố Hồ Chí Minh"))
             adapterTinh = SearchAdapter(requireContext(), R.layout.list_item_dropdown, it)
             adapterTinh?.itemTinhClick = {
                 binding.dropdownMenu.setText(it.ten)
@@ -168,7 +172,8 @@ class SearchFragment : BaseFragment() {
 
         binding.backSearch.setOnClickListener {
             onHideSoftKeyBoard()
-            requireActivity().onBackPressed()
+            MainActivity.mSearch = SearchFragment()
+            MainActivity.navigateFragment(MainActivity.mHomeFragment)
         }
 
         binding.question.setOnClickListener {

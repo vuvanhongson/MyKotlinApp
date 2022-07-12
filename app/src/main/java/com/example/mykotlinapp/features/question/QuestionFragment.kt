@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.ActivityDumpTrashBinding
@@ -56,7 +57,7 @@ class QuestionFragment : Fragment() , QuestionItemClick {
     }
 
     override fun back() {
-
+        MainActivity.navigateFragment(MainActivity.mHomeFragment)
     }
 
     override fun question() {

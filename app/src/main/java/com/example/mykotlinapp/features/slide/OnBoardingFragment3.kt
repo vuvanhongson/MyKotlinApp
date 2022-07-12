@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.FragmentOnboarding3Binding
 import com.example.mykotlinapp.features.book.BookFragment
@@ -22,10 +23,12 @@ class OnBoardingFragment3 : Fragment() {
     ): View? {
         binding = FragmentOnboarding3Binding.inflate(inflater)
         binding!!.btnSearch.setOnClickListener {
-            addFragment(R.id.container, SearchFragment.newInstance())
+            MainActivity.addNewFragment(MainActivity.mSearch)
+            val fragment = MainActivity.mSearch
+            MainActivity.navigateFragment(fragment)
         }
         binding.book.setOnClickListener {
-            addFragment(R.id.container, BookFragment.newInstance())
+            MainActivity.navigateFragment(MainActivity.mBook)
         }
         return binding.root
     }

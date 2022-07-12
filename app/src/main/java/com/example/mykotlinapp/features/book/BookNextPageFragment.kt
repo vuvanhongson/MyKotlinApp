@@ -20,13 +20,18 @@ import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mykotlinapp.MainActivity
+import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.common.listener.dialogAddNewListener
+import com.example.mykotlinapp.data.model.AddressProvince
 import com.example.mykotlinapp.databinding.FragmentBookNextPageBinding
 import com.example.mykotlinapp.features.book.adapter.PhotoBookAdapter
+import com.example.mykotlinapp.features.book.adapter.TinhHuyenXaAdapter
+import com.example.mykotlinapp.features.search.Adapter.SearchAdapter
 import com.example.mykotlinapp.util.base.BaseFragment
 import com.example.mykotlinapp.util.ext.ImageResizer
 import com.example.mykotlinapp.util.ext.RealPathUtil
+import com.google.android.material.snackbar.Snackbar
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import gun0912.tedbottompicker.TedBottomPicker
@@ -51,10 +56,64 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
     var name: String? = ""
     var maloai = ""
     var id = ""
+    var idtinh: Int = 0
+    var idhuyen: Int = 0
+    var idxa: Int = 0
+    private var adapterTinh: TinhHuyenXaAdapter? = null
     private var photoBookAdapter: PhotoBookAdapter? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private fun registerLiveData1() = with(viewModel) {
+        getTinh("") //init from viewModel
+        error.observe(viewLifecycleOwner) {
+            progressDialog.dismiss()
+            Log.d("data", " error ")
+        }
+        tinhtp.observe(viewLifecycleOwner) {
+
+            it.remove(AddressProvince(50, "Hồ Chí Minh", "Thành phố Hồ Chí Minh"))
+            it.add(0, AddressProvince(50, "Hồ Chí Minh", "Thành phố Hồ Chí Minh"))
+            adapterTinh = TinhHuyenXaAdapter(requireContext(), R.layout.list_item_dropdown, it)
+            adapterTinh?.itemTinhClick = {
+                binding.dropdownMenu.setText(it.ten)
+                registerLiveDataQuan(it.id)
+                idtinh = it.id
+            }
+            Log.d("datatinh", " - " + it.toString())
+            binding.dropdownMenu.setAdapter(adapterTinh)
+        }
+    }
+
+    private fun registerLiveDataQuan(id_tinh: Int) = with(viewModel) {
+        getHuyen(id_tinh) //init from viewModel
+        error.observe(viewLifecycleOwner) {
+            Log.d("datahuyen", " error ")
+        }
+        huyenquan.observe(viewLifecycleOwner) {
+            adapterTinh = TinhHuyenXaAdapter(requireContext(), R.layout.list_item_dropdown, it)
+            adapterTinh?.itemTinhClick = {
+                binding.dropdownMenuQuan.setText(it.fullName)
+                registerLiveDataPhuong(it.id)
+                idhuyen = it.id
+            }
+            Log.d("datahuyen", " - $it")
+            binding.dropdownMenuQuan.setAdapter(adapterTinh)
+        }
+    }
+
+    private fun registerLiveDataPhuong(id_quan: Int) = with(viewModel) {
+        getXa(id_quan) //init from viewModel
+        error.observe(viewLifecycleOwner) {
+            Log.d("dataxa", " error ")
+        }
+        xaphuong.observe(viewLifecycleOwner) {
+            adapterTinh = TinhHuyenXaAdapter(requireContext(), R.layout.list_item_dropdown, it)
+            adapterTinh?.itemTinhClick = {
+                binding.dropdownMenuPhuong.setText(it.fullName)
+                idxa = it.id
+            }
+            Log.d("dataxa", " - $it")
+            binding.dropdownMenuPhuong.setAdapter(adapterTinh)
+        }
     }
 
     override fun onCreateView(
@@ -70,6 +129,7 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
         maloai = args?.get("loai").toString()
         id = args?.get("id").toString()
         binding.tvToolbar.text = inputData.toString().toUpperCase()
+        binding.tvName.text = inputData.toString().toUpperCase()
 
         //set adapter
         photoBookAdapter = PhotoBookAdapter(requireActivity())
@@ -85,6 +145,7 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
 //        ShowDialog().setOndialogAddNewListener(this)
 
         registerLiveData()
+        registerLiveData1()
         event()
 
         return binding.root
@@ -96,8 +157,8 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
             Log.e("urlReal", " thanhf coong")
             if (it.accept == true) {
                 ShowDialog().showDialogAddNewTrue(requireActivity())
-                requireActivity().finish()
-                startActivity(Intent(activity, MainActivity::class.java))
+//                requireActivity().finish()
+//                startActivity(Intent(activity, MainActivity::class.java))
             } else
                 ShowDialog().showDialogAddNewFalse(requireActivity())
         }
@@ -109,8 +170,40 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
     }
 
     private fun event() {
+
+        binding.dropdownMenu.setOnClickListener {
+            registerLiveData1()
+            binding.dropdownMenuQuan.setText("")
+            binding.dropdownMenuPhuong.setText("")
+        }
+        binding.dropdownMenuQuan.setOnClickListener {
+            if (idtinh != 0) {
+                registerLiveDataQuan(idtinh)
+                binding.dropdownMenuPhuong.setText("")
+            } else {
+                Snackbar.make(
+                    binding.tvName,
+                    "Vui lòng chọn Tỉnh/Thành phố!",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+        }
+        binding.dropdownMenuPhuong.setOnClickListener {
+            if (idhuyen != 0) {
+                registerLiveDataPhuong(idhuyen)
+            } else {
+                Snackbar.make(
+                    binding.tvName,
+                    "Vui lòng chọn Huyện/Quận",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+        }
+
         binding.ivBackBookNextPage.setOnClickListener {
-            requireActivity().onBackPressed()
+            onHideSoftKeyBoard()
+            MainActivity.navigateFragment(MainActivity.mBook)
+            MainActivity.mBookNextPageFragment = BookNextPageFragment()
         }
         binding.question.setOnClickListener {
             ShowDialog().showDialog(requireActivity())
@@ -205,6 +298,8 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
             var diachi = binding.edtAddress.text.toString()
             var sdt = binding.edtPhoneNumber.text.toString()
             var chitiet = binding.edtContent.text.toString()
+            var khoiluong = binding.edtKhoiluong.text.toString()
+            var makhachhang = binding.edtCodeKHBook.text.toString()
 
             onHideSoftKeyBoard()
             if (thoigian == "" || diachi == "" || sdt == "" || chitiet == "") {
@@ -212,12 +307,12 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
             } else {
                 progressDialog.show()
                 viewModel.addNewLichThu(
-                    "KH-CIQ300004143",
-                    "50",
-                    "610",
-                    "9472",
+                    makhachhang,
+                    idtinh.toString(),
+                    idhuyen.toString(),
+                    idxa.toString(),
                     diachi,
-                    "100",
+                    khoiluong,
                     maloai,
                     id,
                     thoigian,

@@ -5,11 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.mykotlinapp.R
+import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.databinding.FragmentOnboarding2Binding
-import com.example.mykotlinapp.features.book.BookFragment
-import com.example.mykotlinapp.features.search.SearchFragment
-import com.example.mykotlinapp.util.ext.addFragment
 
 class OnBoardingFragment2 : Fragment() {
     private lateinit var binding: FragmentOnboarding2Binding
@@ -20,15 +17,12 @@ class OnBoardingFragment2 : Fragment() {
     ): View? {
         binding = FragmentOnboarding2Binding.inflate(inflater)
         binding!!.btnSearch.setOnClickListener {
-//            val frament: Fragment = SearchFragment()
-//            val transaction = requireFragmentManager().beginTransaction()
-//            transaction.replace(R.id.container, frament)
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-            addFragment(R.id.container, SearchFragment.newInstance())
+            MainActivity.addNewFragment(MainActivity.mSearch)
+            val fragment = MainActivity.mSearch
+            MainActivity.navigateFragment(fragment)
         }
         binding.book.setOnClickListener {
-            addFragment(R.id.container, BookFragment.newInstance())
+            MainActivity.navigateFragment(MainActivity.mBook)
         }
         return binding.root
     }

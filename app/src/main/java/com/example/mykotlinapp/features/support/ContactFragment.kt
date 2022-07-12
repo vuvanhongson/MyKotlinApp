@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.databinding.FragmentContactBinding
 import com.example.mykotlinapp.features.home.HomeFragment
@@ -39,7 +40,7 @@ class ContactFragment : Fragment(), ContactItemClick {
 
 
         binding.backContact.setOnClickListener {
-            requireActivity().onBackPressed()
+            MainActivity.navigateFragment(MainActivity.mSupport)
 //            replaceChildFragment(R.id.container, SupportFragment.newInstance())
         }
 

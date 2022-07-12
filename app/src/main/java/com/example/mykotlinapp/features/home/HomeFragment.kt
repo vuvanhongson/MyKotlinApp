@@ -17,6 +17,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.common.listener.SearchOnClickListener
@@ -95,7 +96,10 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener, SearchOnClic
             if(it){
                 loginID.observe(viewLifecycleOwner){
                     inforViewModel.getLoginID(it)
-                    addFragment(R.id.container, InformationFragment.newInstance())
+                    onHideSoftKeyBoard()
+                    MainActivity.addNewFragment(MainActivity.mInforfragment)
+                    val fragment = MainActivity.mInforfragment
+                    MainActivity.navigateFragment(fragment)
 
                 }
             }
@@ -307,6 +311,10 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener, SearchOnClic
                 super.onScrolled(recyclerView, dx, dy)
             }
         })
+
+        binding.scrollView.setOnClickListener {
+            onHideSoftKeyBoard()
+        }
 
     }
 

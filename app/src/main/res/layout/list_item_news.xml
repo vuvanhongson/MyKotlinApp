@@ -30,7 +30,7 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/ic_datlich_gray"
+            android:background="@drawable/lich1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

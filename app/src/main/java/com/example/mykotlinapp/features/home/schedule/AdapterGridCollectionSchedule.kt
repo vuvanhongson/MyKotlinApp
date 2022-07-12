@@ -26,8 +26,6 @@ class AdapterGridCollectionSchedule() :
     fun addData(lichGom2: MutableList<LichGomRac>) {
         lichGomGird.addAll(lichGom2)
 //        notifyItemInserted(lichGomGird.size)
-        Log.d("lichGomlIST", " x - " + lichGomGird)
-        Log.d("lichGomlISTsize", " x 2- " + lichGomGird.size)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -54,7 +52,7 @@ class AdapterGridCollectionSchedule() :
                 itemView.img_item_grid.setImageResource(R.drawable.ic_khonghinhanh)
             }
             itemView.tv_name_grid.text = lichGom.tenKhachHang
-            itemView.tv_address_grid.text = lichGom.diaChi
+            itemView.tv_address_grid.text = lichGom.diaChiThuGom
             itemView.tv_date_grid.text = lichGom.ngayDang
         }
 

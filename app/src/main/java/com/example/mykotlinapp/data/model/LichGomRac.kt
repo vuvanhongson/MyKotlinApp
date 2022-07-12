@@ -16,9 +16,13 @@ data class LichGomRac (
     @SerializedName("ten_khach_hang")
     var tenKhachHang: String = "",
 
-    @SerializedName("dia_chi")
+    @SerializedName("dia_chi_khach_hang")
     @Expose
-    var diaChi: String = "",
+    var diaChiKhachHang : String = "",
+
+    @SerializedName("dia_diem_thu_gom")
+    @Expose
+    var diaChiThuGom: String = "",
 
     @SerializedName("map_lat")
     @Expose

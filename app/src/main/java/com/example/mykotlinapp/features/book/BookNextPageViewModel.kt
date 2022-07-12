@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.mykotlinapp.data.UserRepository
+import com.example.mykotlinapp.data.model.AddressProvince
 import com.example.mykotlinapp.data.model.NewLichThu
 import com.example.mykotlinapp.util.base.BaseViewModel
 import kotlinx.coroutines.launch
@@ -17,6 +18,9 @@ import java.lang.Exception
 class BookNextPageViewModel(private val userRepository: UserRepository) : BaseViewModel() {
 
     val NewLich = MutableLiveData<NewLichThu>()
+    val tinhtp = MutableLiveData<MutableList<AddressProvince>>()
+    val huyenquan = MutableLiveData<MutableList<AddressProvince>>()
+    val xaphuong = MutableLiveData<MutableList<AddressProvince>>()
 
     fun addNewLichThu(
         customerUserNane: String,
@@ -68,6 +72,39 @@ class BookNextPageViewModel(private val userRepository: UserRepository) : BaseVi
             } catch (e: Exception) {
                 error.value = getErrorResponse(e)
                 Log.e("apiNew", "lỗi trời quá đất ")
+            }
+        }
+    }
+
+    fun getTinh(ten: String){
+        viewModelScope.launch {
+            try {
+                val data = userRepository.getTinh(ten).dataTinhtp!!
+                tinhtp.value = data
+            }catch (e: Exception){
+                error.value = getErrorResponse(e)
+            }
+        }
+    }
+
+    fun getHuyen(tinh_id: Int) {
+        viewModelScope.launch {
+            try {
+                val data = userRepository.getHuyen(tinh_id).dataTinhtp!!
+                huyenquan.value = data
+            } catch (e: Exception) {
+                error.value = getErrorResponse(e)
+            }
+        }
+    }
+
+    fun getXa(quan_id: Int) {
+        viewModelScope.launch {
+            try {
+                val data = userRepository.getXa(quan_id).dataTinhtp!!
+                xaphuong.value = data
+            } catch (e: Exception) {
+                error.value = getErrorResponse(e)
             }
         }
     }

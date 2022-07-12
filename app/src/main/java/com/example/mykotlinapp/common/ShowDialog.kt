@@ -4,9 +4,11 @@ import android.app.Dialog
 import android.content.Context
 import android.view.ViewGroup
 import android.widget.ImageView
+import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.listener.BottomItemChangedListener
 import com.example.mykotlinapp.common.listener.dialogAddNewListener
+import com.example.mykotlinapp.features.home.HomeFragment
 
 
 class ShowDialog{
@@ -68,6 +70,8 @@ class ShowDialog{
         val tvOk = customDialog.findViewById<BaseTextView>(R.id.tv_ok_true)
         tvOk.setOnClickListener {
             customDialog.dismiss()
+            MainActivity.navigateFragment(MainActivity.mHomeFragment)
+
         }
         customDialog.show()
     }

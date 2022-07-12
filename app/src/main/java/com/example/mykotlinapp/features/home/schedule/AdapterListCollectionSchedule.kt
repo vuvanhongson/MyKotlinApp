@@ -23,14 +23,14 @@ class AdapterListCollectionSchedule() :
         this.lichGomList = lichGom
 //        lichGom.addAll(lichGom)
         notifyDataSetChanged()
-        Log.d("lichGomlIST", " x - " + lichGom)
-        Log.d("lichGomlISTsize", " x - " + lichGom.size)
+//        Log.d("lichGomlIST", " x - " + lichGom)
+//        Log.d("lichGomlISTsize", " x - " + lichGom.size)
     }
     fun addDatalist(lichGom2: MutableList<LichGomRac>) {
 //        lichGomList.addAll(lichGom2)
 //        notifyItemInserted(lichGomList.size)
         Log.d("lichGomlIST", " x - " + lichGomList)
-        Log.d("lichGomlISTsize", " x 1- " + lichGomList.size)
+//        Log.d("lichGomlISTsize", " x 1- " + lichGomList.size)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -41,26 +41,26 @@ class AdapterListCollectionSchedule() :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bindView(lichGomList[position])
-        Log.d("lichGomposition", " position - " + lichGomList[position].id)
+//        Log.d("lichGomposition", " position - " + lichGomList[position].id)
     }
 
     override fun getItemCount(): Int {
-        Log.d("lichGomsize", " x - " + lichGomList.size)
+//        Log.d("lichGomsize", " x - " + lichGomList.size)
         return lichGomList.size
     }
 
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(lichGom: LichGomRac) {
-            Log.d("lichGomid", " ID - " + lichGom.id)
+//            Log.d("lichGomid", " ID - " + lichGom.id)
             try{
                 itemView.img_item_list.loadImage(lichGom?.picture1)
             }catch (e : Exception)
             {
                 itemView.img_item_list.setImageResource(R.drawable.ic_khonghinhanh)
             }
-            itemView.tv_name_list.text = lichGom.id.toString() + " - " + lichGom.tenKhachHang
-            itemView.tv_address_list.text = lichGom.diaChi
+            itemView.tv_name_list.text = lichGom.tenKhachHang
+            itemView.tv_address_list.text = lichGom.diaChiThuGom
             itemView.tv_date_list.text = lichGom.ngayDang
         }
     }
