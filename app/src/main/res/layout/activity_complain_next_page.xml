@@ -51,7 +51,17 @@
         android:background="@drawable/custom_layout_support"
         android:padding="@dimen/_20sdp">
 
+        <TextView
+            android:id="@+id/tv_name_complain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:text="NAME"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold" />
+
         <EditText
+            android:layout_below="@+id/tv_name_complain"
             android:id="@+id/edt_codeKH"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
@@ -77,10 +87,23 @@
             android:textSize="@dimen/_16sdp" />
 
         <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/edt_phone_number"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/custom_layout_support"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:textSize="@dimen/_16sdp" />
+
+        <EditText
             android:id="@+id/edt_content_complain"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_120sdp"
-            android:layout_below="@+id/edt_phone_number"
+            android:layout_below="@+id/edt_email"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/custom_layout_support"
             android:gravity="top"

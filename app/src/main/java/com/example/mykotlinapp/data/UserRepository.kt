@@ -76,6 +76,14 @@ class UserRepository(
         picture_3!!,
     )
 
+    suspend fun addNewYeuCauPhanLoai(
+        customerUserNane: RequestBody,
+        description: RequestBody,
+    ) = remote.addNewYeuCauPhanLoai(
+        customerUserNane,
+        description,
+    )
+
 
 //    suspend fun login(email: String, password: String) = remote.login(email, password)
 }

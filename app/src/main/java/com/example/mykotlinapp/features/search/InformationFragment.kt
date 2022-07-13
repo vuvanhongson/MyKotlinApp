@@ -84,7 +84,10 @@ class InformationFragment : BaseFragment() {
 //        SearchByLoginID("KH-CIQ300004143")
 
         binding.btnYeuCauCapNhat.setOnClickListener {
-            addFragment(R.id.container, RequestUpdateFragment.newInstance())
+//            MainActivity.mInforfragment = InformationFragment()
+            MainActivity.addNewFragment(MainActivity.mRequestUpdate)
+            val fragment = MainActivity.mRequestUpdate
+            MainActivity.navigateFragment(fragment)
         }
 
         binding.question.setOnClickListener {

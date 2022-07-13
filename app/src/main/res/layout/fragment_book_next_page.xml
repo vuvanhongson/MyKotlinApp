@@ -196,24 +196,49 @@
                     android:paddingEnd="@dimen/_10sdp"
                     android:textSize="@dimen/_16sdp" />
 
-                <EditText
-                    android:id="@+id/edt_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_below="@+id/edt_khoiluong"
+                <!--                <EditText-->
+                <!--                    android:id="@+id/edt_time"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="@dimen/_40sdp"-->
+                <!--                    android:layout_below="@+id/edt_khoiluong"-->
+                <!--                    android:layout_marginTop="@dimen/_10sdp"-->
+                <!--                    android:background="@drawable/custom_layout_support"-->
+                <!--                    android:hint="Thời gian thu gom"-->
+                <!--                    android:inputType="datetime"-->
+                <!--                    android:paddingStart="@dimen/_10sdp"-->
+                <!--                    android:paddingEnd="@dimen/_10sdp"-->
+                <!--                    android:textSize="@dimen/_16sdp" />-->
+                <RelativeLayout
+                    android:paddingTop="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/layout_datepicker"
                     android:background="@drawable/custom_layout_support"
-                    android:hint="Thời gian thu gom"
-                    android:inputType="datetime"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingEnd="@dimen/_10sdp"
-                    android:textSize="@dimen/_16sdp" />
+                    android:layout_below="@id/edt_khoiluong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <DatePicker
+
+                        android:id="@+id/date_picker"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_150sdp"
+                        android:calendarViewShown="false"
+                        android:datePickerMode="spinner" />
+
+                    <TextView
+                        android:textColor="@color/grac_grey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:text="Thời gian thu gom"
+                        android:textSize="@dimen/_16sdp" />
+                </RelativeLayout>
+
 
                 <EditText
                     android:id="@+id/edt_content"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_120sdp"
-                    android:layout_below="@+id/edt_time"
+                    android:layout_below="@+id/layout_datepicker"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/custom_layout_support"
                     android:gravity="top"

@@ -34,9 +34,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
-import java.lang.Exception
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class ComplainNextPageActivity : AppCompatActivity() {
@@ -49,7 +47,7 @@ class ComplainNextPageActivity : AppCompatActivity() {
     var id = ""
     var text = ""
 
-        override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
 
         window.statusBarColor = ContextCompat.getColor(this, R.color.grac_green)
 
@@ -61,11 +59,12 @@ class ComplainNextPageActivity : AppCompatActivity() {
         val intent = intent
         val bundle = intent.extras
 //        val text = intent.getStringExtra("namecomplain")
-        if(bundle != null){
+        if (bundle != null) {
             text = bundle.getString("namecomplain").toString()
-            id= bundle.getString("id").toString();
+            id = bundle.getString("id").toString();
         }
-        binding.tvToolbar.text = text.toString().toUpperCase()
+        binding.tvToolbar.text = text.toUpperCase()
+        binding.tvNameComplain.text = text.toUpperCase()
 
         //set adapter
         photoAdapter = PhotoAdapter(this)
@@ -77,8 +76,8 @@ class ComplainNextPageActivity : AppCompatActivity() {
         binding.recyclerviewPhoto.isNestedScrollingEnabled = false
         binding.recyclerviewPhoto.adapter = photoAdapter
 
-            registerLiveData()
-            event()
+        registerLiveData()
+        event()
 
     }
 
@@ -87,8 +86,6 @@ class ComplainNextPageActivity : AppCompatActivity() {
             Log.e("urlReal", " thanhf coong")
             if (it.accept == true) {
                 ShowDialog().showDialogAddNewTrue(this)
-                this.finish()
-                startActivity(Intent(this, MainActivity::class.java))
             } else
                 ShowDialog().showDialogAddNewFalse(this)
         }
@@ -194,6 +191,7 @@ class ComplainNextPageActivity : AppCompatActivity() {
             var makhach = binding.edtCodeKH.text.toString()
             var noidung = binding.edtContentComplain.text.toString()
             var sdt = binding.edtPhoneNumber.text.toString()
+            var email = binding.edtEmail.text.toString()
 
             if (makhach == "" || noidung == "" || sdt == "") {
                 ShowDialog().showDialogAddNewFalse(this)
@@ -201,7 +199,7 @@ class ComplainNextPageActivity : AppCompatActivity() {
                 viewModel.addNewKhieuNaiPhanAnh(
                     makhach,
                     sdt,
-                    "",
+                    email,
                     noidung,
                     id,
                     photo1!!,
@@ -235,6 +233,7 @@ class ComplainNextPageActivity : AppCompatActivity() {
             override fun onPermissionGranted() {
                 openBottomPicker()
             }
+
             override fun onPermissionDenied(deniedPermissions: List<String>) {
                 Toast.makeText(
                     this@ComplainNextPageActivity,
@@ -254,10 +253,10 @@ class ComplainNextPageActivity : AppCompatActivity() {
     }
 
     private fun openBottomPicker() {
-        val listener = TedBottomPicker.OnMultiImageSelectedListener {
-                uriList -> photoAdapter!!.setData(uriList)
-                mListPhotos = uriList
-            }
+        val listener = TedBottomPicker.OnMultiImageSelectedListener { uriList ->
+            photoAdapter!!.setData(uriList)
+            mListPhotos = uriList
+        }
         val tedBottomPicker = TedBottomPicker.Builder(this@ComplainNextPageActivity)
             .setOnMultiImageSelectedListener(listener)
             .setCompleteButtonText("XONG")

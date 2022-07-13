@@ -62,6 +62,7 @@
         android:background="@drawable/custom_layout_support">
 
         <EditText
+            android:id="@+id/edt_Makh"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginBottom="@dimen/_10sdp"
@@ -73,11 +74,12 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
+            android:id="@+id/edit_noidung"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:background="@drawable/custom_layout_support"
-            android:hint="Đăng ký phân loại rác"
+            android:hint="Nội dung yêu cầu"
             android:inputType="text"
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"

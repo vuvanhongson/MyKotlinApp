@@ -74,4 +74,12 @@ class UserRemoteDataSource (private val apiService: ApiService) {
         picture_3!!,
     )
 
+    suspend fun addNewYeuCauPhanLoai(
+        customerUserNane: RequestBody,
+        description: RequestBody,
+    ) = apiService.addNewYeuCauPhanLoai(
+        customerUserNane,
+        description,
+    )
+
 }

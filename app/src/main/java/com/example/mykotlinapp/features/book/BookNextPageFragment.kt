@@ -59,6 +59,7 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
     var idtinh: Int = 0
     var idhuyen: Int = 0
     var idxa: Int = 0
+    var thoigian: String = ""
     private var adapterTinh: TinhHuyenXaAdapter? = null
     private var photoBookAdapter: PhotoBookAdapter? = null
 
@@ -131,6 +132,17 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
         binding.tvToolbar.text = inputData.toString().toUpperCase()
         binding.tvName.text = inputData.toString().toUpperCase()
 
+        //datepicker
+        val today = Calendar.getInstance()
+        binding.datePicker.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH)){
+                view, year, month, day ->
+            val month = month + 1
+            var dayselect = "$year-$month-$day"
+            thoigian = dayselect
+            binding.datePicker.minDate = System.currentTimeMillis()
+//            Toast.makeText(requireActivity(), dayselect, Toast.LENGTH_SHORT).show()
+        }
+
         //set adapter
         photoBookAdapter = PhotoBookAdapter(requireActivity())
         val gridLayoutManager =
@@ -173,10 +185,12 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
 
         binding.dropdownMenu.setOnClickListener {
             registerLiveData1()
+            onHideSoftKeyBoard()
             binding.dropdownMenuQuan.setText("")
             binding.dropdownMenuPhuong.setText("")
         }
         binding.dropdownMenuQuan.setOnClickListener {
+            onHideSoftKeyBoard()
             if (idtinh != 0) {
                 registerLiveDataQuan(idtinh)
                 binding.dropdownMenuPhuong.setText("")
@@ -189,6 +203,7 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
             }
         }
         binding.dropdownMenuPhuong.setOnClickListener {
+            onHideSoftKeyBoard()
             if (idhuyen != 0) {
                 registerLiveDataPhuong(idhuyen)
             } else {
@@ -209,6 +224,7 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
             ShowDialog().showDialog(requireActivity())
         }
         binding.imgCameraSelect.setOnClickListener {
+            onHideSoftKeyBoard()
             checkPermissionForImage()
             binding.imgCameraSelect.visibility = View.GONE
 //            binding.imgAddImg1.visibility = View.VISIBLE
@@ -294,7 +310,7 @@ class BookNextPageFragment : BaseFragment(), dialogAddNewListener {
                 photo3 = MultipartBody.Part.createFormData("picture_3", "", image2)
             }
 
-            var thoigian = binding.edtTime.text.toString()
+//            var thoigian = binding.edtTime.text.toString()
             var diachi = binding.edtAddress.text.toString()
             var sdt = binding.edtPhoneNumber.text.toString()
             var chitiet = binding.edtContent.text.toString()

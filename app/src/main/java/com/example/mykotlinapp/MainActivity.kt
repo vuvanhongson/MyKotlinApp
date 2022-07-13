@@ -16,6 +16,7 @@ import com.example.mykotlinapp.features.book.BookNextPageFragment
 import com.example.mykotlinapp.features.home.HomeFragment
 import com.example.mykotlinapp.features.question.QuestionFragment
 import com.example.mykotlinapp.features.search.InformationFragment
+import com.example.mykotlinapp.features.search.RequestUpdateFragment
 import com.example.mykotlinapp.features.search.SearchFragment
 import com.example.mykotlinapp.features.support.ContactFragment
 import com.example.mykotlinapp.features.support.SupportFragment
@@ -90,6 +91,7 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
         mBookNextPageFragment = BookNextPageFragment()
         mSearch = SearchFragment()
         mInforfragment = InformationFragment()
+        mRequestUpdate = RequestUpdateFragment()
         when (type) {
             BottomBar.HOME -> {
 //                onBackPressed()
@@ -142,6 +144,7 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
         var mBookNextPageFragment = BookNextPageFragment()
         var mSearch = SearchFragment()
         var mInforfragment = InformationFragment()
+        var mRequestUpdate = RequestUpdateFragment()
 
 
         var mCurrentTabActive: Fragment? = null

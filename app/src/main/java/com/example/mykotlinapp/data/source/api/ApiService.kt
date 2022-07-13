@@ -70,5 +70,12 @@ interface ApiService {
         @Part picture_3: MultipartBody.Part?,
     ): DataComplain
 
+    @Multipart
+    @POST("/api/grac-mobile-app/addNewYeuCauPhanLoaiRacThai")
+    suspend fun addNewYeuCauPhanLoai(
+        @Part("customerUserName") customerUserNane: RequestBody,
+        @Part("description") description: RequestBody,
+    ): DataNewYeuCauPhanLoai
+
 
 }
