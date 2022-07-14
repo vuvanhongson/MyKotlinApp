@@ -1,9 +1,11 @@
 package com.example.mykotlinapp
 
+import android.app.Activity
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -72,8 +74,8 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
         ).hide(mBook).commit()
         mFragmentManager!!.beginTransaction().add(
             binding!!.container.id,
-            mQuestion, BottomBar.QUESTION
-        ).hide(mQuestion).commit()
+            mSearch, BottomBar.SEARCH
+        ).hide(mSearch).commit()
         mFragmentManager!!.beginTransaction().add(
             binding!!.container.id,
             mWallet, BottomBar.WALLET
@@ -109,8 +111,9 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
 //                onBackPressed()
                 navigateFragment(mBook)
             }
-            BottomBar.QUESTION -> {
-                navigateFragment(mQuestion)
+            BottomBar.SEARCH -> {
+                addNewFragment(mSearch)
+                navigateFragment(mSearch)
             }
             BottomBar.WALLET -> {
 //                onBackPressed()
@@ -170,5 +173,16 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
             CurrentTabActive.CURRENTTAB = fragment
             Log.d("hello", "back Fragment")
         }
+
+        fun backHome()
+        {
+            BottomBar.backHome()
+        }
+
+        fun backBook()
+        {
+            BottomBar.backBook()
+        }
+
     }
 }

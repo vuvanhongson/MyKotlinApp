@@ -33,7 +33,7 @@ class PriceWebViewActivity : AppCompatActivity() {
     }
 
     private fun initListen() {
-        binding.ivExit.setOnClickListener{
+        binding.backpage.setOnClickListener{
             onBackPressed()
         }
     }

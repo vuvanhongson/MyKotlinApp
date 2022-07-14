@@ -34,6 +34,7 @@ class BookFragment : Fragment(), BookOnclickListenner {
 
     override fun bookBackOnClick() {
         MainActivity.navigateFragment(MainActivity.mHomeFragment)
+        MainActivity.backHome()
     }
 
     override fun bookQuestionOnClick() {

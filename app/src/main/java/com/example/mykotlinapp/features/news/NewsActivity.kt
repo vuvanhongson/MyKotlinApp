@@ -1,5 +1,6 @@
 package com.example.mykotlinapp.features.news
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -8,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mykotlinapp.R
 import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.databinding.ActivityNewsBinding
+import com.example.mykotlinapp.features.garbagePrice.GarbagePriceAdapter
+import com.example.mykotlinapp.features.garbagePrice.PriceWebViewActivity
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class NewsActivity : AppCompatActivity() {
 
@@ -21,6 +25,8 @@ class NewsActivity : AppCompatActivity() {
     lateinit var tvTitleCenter2: Array<String>
     lateinit var tvContent: Array<String>
 
+    private var adapter: NewsAdapter? = null
+
     private lateinit var binding: ActivityNewsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,13 +36,13 @@ class NewsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityNewsBinding.inflate(layoutInflater)
-
+        setContentView(binding.root)
         //recyclerView
         initNews()
         getNewsData()
 
 
-        setContentView(binding.root)
+
 
 
         binding.ivBackNews.setOnClickListener{
@@ -52,7 +58,38 @@ class NewsActivity : AppCompatActivity() {
             val news = News(imageBgHeader[i], tvTitleHeader[i], tvTitleCenter[i], tvTitleCenter2[i], tvContent[i])
             newsArrayList.add(news)
         }
-        RecyclerView_news.adapter = NewsAdapter(newsArrayList)
+        adapter = NewsAdapter(newsArrayList)
+        binding.recyclerviewNews.adapter = adapter
+
+        adapter?.itemTinhClick = {
+            if(it == 0)
+            {
+                val intent = Intent(this, PriceWebViewActivity::class.java)
+                intent.putExtra(
+                    "urlprice",
+                    "https://grac.vn/#"
+                )
+                startActivity(intent)
+            }
+            if(it == 1)
+            {
+                val intent = Intent(this, PriceWebViewActivity::class.java)
+                intent.putExtra(
+                    "urlprice",
+                    "https://grac.vn/#"
+                )
+                startActivity(intent)
+            }
+            if(it == 2)
+            {
+                val intent = Intent(this, PriceWebViewActivity::class.java)
+                intent.putExtra(
+                    "urlprice",
+                    "https://grac.vn/#"
+                )
+                startActivity(intent)
+            }
+        }
     }
 
     private fun initNews() {

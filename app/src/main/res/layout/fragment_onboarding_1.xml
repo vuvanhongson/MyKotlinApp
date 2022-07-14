@@ -6,7 +6,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".features.slide.OnBoardingFragment1"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
+    android:layout_height="110dp">
 
     <TextView
         android:id="@+id/tvTitleOnBoarding"
@@ -16,7 +16,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/Title_slide_grac"
         android:textColor="@color/grac_green_bg"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -27,7 +27,7 @@
         android:id="@+id/tcScriptOnBoarding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:paddingStart="@dimen/_38sdp"
         android:paddingEnd="@dimen/_50sdp"
         android:text="@string/script_slide_grac"

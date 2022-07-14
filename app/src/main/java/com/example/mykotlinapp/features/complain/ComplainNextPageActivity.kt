@@ -85,7 +85,7 @@ class ComplainNextPageActivity : AppCompatActivity() {
         viewModel.NewComplain.observe(this) {
             Log.e("urlReal", " thanhf coong")
             if (it.accept == true) {
-                ShowDialog().showDialogAddNewTrue(this)
+                ShowDialog().showDialogAddComplainTrue(this, this)
             } else
                 ShowDialog().showDialogAddNewFalse(this)
         }

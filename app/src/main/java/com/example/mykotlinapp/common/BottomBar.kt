@@ -1,5 +1,6 @@
 package com.example.mykotlinapp.common
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -10,21 +11,7 @@ import com.example.mykotlinapp.databinding.LayoutViewBottomBarBinding
 
 class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs),
     BottomBarItemHandler {
-    private val binding: LayoutViewBottomBarBinding
-    private var mBottomItemChangedListener: BottomItemChangedListener? = null
-    private var isBookingClick = false
-    private var isHomeClick = false
-    private var isSupportClick = false
-    private var isQuestionlick = false
-    private var isWalletClick = false
-    private fun initControls() {
-        binding.itemHome.init(HOME)
-        binding.itemSupport.init(SUPPORT)
-        binding.itemBooking.init(BOOKING)
-        binding.itemQuestion.init(QUESTION)
-        binding.itemWallet.init(WALLET)
-        binding.itemHome.setCheck(true)
-    }
+
 
     fun setOnBottomItemChangedListener(bottomItemChangedListener: BottomItemChangedListener?) {
         mBottomItemChangedListener = bottomItemChangedListener
@@ -90,7 +77,7 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             binding.itemBooking.setCheck(false)
             binding.itemQuestion.setCheck(true)
             binding.itemWallet.setCheck(false)
-            mBottomItemChangedListener!!.onBottomItemClicked(QUESTION)
+            mBottomItemChangedListener!!.onBottomItemClicked(SEARCH)
         }
     }
 
@@ -127,8 +114,70 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
         const val HOME = "HOME"
         const val SUPPORT = "SUPPORT"
         const val BOOKING = "BOOKING"
-        const val QUESTION = "QUESTION"
+        const val SEARCH = "SEARCH"
         const val WALLET = "WALLET"
+        @SuppressLint("StaticFieldLeak")
+        lateinit var binding: LayoutViewBottomBarBinding
+        var mBottomItemChangedListener: BottomItemChangedListener? = null
+        var isBookingClick = false
+        var isHomeClick = false
+        var isSupportClick = false
+        var isQuestionlick = false
+        var isWalletClick = false
+
+        fun initControls() {
+            binding.itemHome.init(HOME)
+            binding.itemSupport.init(SUPPORT)
+            binding.itemBooking.init(BOOKING)
+            binding.itemQuestion.init(SEARCH)
+            binding.itemWallet.init(WALLET)
+            binding.itemHome.setCheck(true)
+        }
+        fun backHome()
+        {
+            isHomeClick = true
+            isBookingClick = false
+            isSupportClick = false
+            isQuestionlick = false
+            isWalletClick = false
+            binding.itemHome.setCheck(true)
+            binding.itemSupport.setCheck(false)
+            binding.itemBooking.setCheck(false)
+            binding.itemQuestion.setCheck(false)
+            binding.itemWallet.setCheck(false)
+            mBottomItemChangedListener!!.onBottomItemClicked(HOME)
+        }
+
+        fun backBook()
+        {
+            isHomeClick = false
+            isBookingClick = true
+            isSupportClick = false
+            isQuestionlick = false
+            isWalletClick = false
+            binding.itemHome.setCheck(false)
+            binding.itemSupport.setCheck(false)
+            binding.itemBooking.setCheck(true)
+            binding.itemQuestion.setCheck(false)
+            binding.itemWallet.setCheck(false)
+            mBottomItemChangedListener!!.onBottomItemClicked(BOOKING)
+        }
+
+        fun backSearch()
+        {
+            isHomeClick = false
+            isBookingClick = false
+            isSupportClick = false
+            isQuestionlick = true
+            isWalletClick = false
+            binding.itemHome.setCheck(false)
+            binding.itemSupport.setCheck(false)
+            binding.itemBooking.setCheck(false)
+            binding.itemQuestion.setCheck(true)
+            binding.itemWallet.setCheck(false)
+            mBottomItemChangedListener!!.onBottomItemClicked(SEARCH)
+        }
+
     }
 
     init {

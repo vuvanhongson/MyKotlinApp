@@ -7,5 +7,4 @@ data class News(
     var tvTitleCenter: String,
     var tvTitleCenter2: String,
     var tvContent: String,
-) {
-}
+)

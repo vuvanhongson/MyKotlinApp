@@ -92,20 +92,23 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener, SearchOnClic
 
         isSuccess.observe(viewLifecycleOwner)
         {
+            Log.d("loginID", "- isSuccess =  " + it)
             progressDialog.dismiss()
             if(it){
                 loginID.observe(viewLifecycleOwner){
                     inforViewModel.getLoginID(it)
                     onHideSoftKeyBoard()
-                    MainActivity.addNewFragment(MainActivity.mInforfragment)
-                    val fragment = MainActivity.mInforfragment
-                    MainActivity.navigateFragment(fragment)
+//                    MainActivity.addNewFragment(MainActivity.mInforfragment)
+//                    val fragment = MainActivity.mInforfragment
+//                    MainActivity.navigateFragment(fragment)
+                    addFragment(R.id.container, InformationFragment.newInstance())
 
                 }
             }
             else
             {
                 ShowDialog().showDialogSearch(requireActivity())
+                Log.d("loginID", "- error home")
             }
         }
 

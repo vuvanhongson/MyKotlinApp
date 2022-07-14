@@ -35,17 +35,21 @@ class SearchFragment : BaseFragment() {
             progressDialog.dismiss()
             Log.d("loginID", "- Không tìm thấy id")
         }
-        isSuccess.observe(viewLifecycleOwner)
+        isSuccessSearch.observe(viewLifecycleOwner)
         {
             progressDialog.dismiss()
             if (it) {
                 loginID.observe(viewLifecycleOwner) {
                     inforViewModel.getLoginID(it)
-                    addFragment(R.id.container, InformationFragment.newInstance())
+                    MainActivity.addNewFragment(MainActivity.mInforfragment)
+                    val fragment = MainActivity.mInforfragment
+                    MainActivity.navigateFragment(fragment)
                     Log.d("loginID", "- success ")
                 }
             } else {
+                Log.d("loginID", "- error ")
                 ShowDialog().showDialogSearch(requireActivity())
+
             }
         }
     }
@@ -61,11 +65,15 @@ class SearchFragment : BaseFragment() {
             if (it) {
                 address.observe(viewLifecycleOwner) {
                     inforViewModel.getAddress(it)
-                    addFragment(R.id.container, InformationFragment.newInstance())
+                    MainActivity.addNewFragment(MainActivity.mInforfragment)
+                    val fragment = MainActivity.mInforfragment
+                    MainActivity.navigateFragment(fragment)
                     Log.d("address", diachi)
                 }
             } else {
+                Log.d("loginID", "- error Address")
                 ShowDialog().showDialogSearch(requireActivity())
+
             }
         }
     }
@@ -86,7 +94,7 @@ class SearchFragment : BaseFragment() {
                 idapiQuan = it.id
                 tinh = it.fullName
             }
-            Log.d("datatinh", " - " + it.toString())
+            Log.d("datatinh", " - $it")
             binding.dropdownMenu.setAdapter(adapterTinh)
         }
     }
@@ -132,8 +140,6 @@ class SearchFragment : BaseFragment() {
         binding = FragmentSearchBinding.inflate(inflater)
         event()
         registerLiveData()
-//        registerLiveDataQuan(idapiQuan)
-//        registerLiveDataPhuong(idapiPhuong)
         searchInformationByLoginId()
         searchInformationByAddress()
         return binding.root
@@ -174,6 +180,7 @@ class SearchFragment : BaseFragment() {
             onHideSoftKeyBoard()
             MainActivity.mSearch = SearchFragment()
             MainActivity.navigateFragment(MainActivity.mHomeFragment)
+            MainActivity.backHome()
         }
 
         binding.question.setOnClickListener {

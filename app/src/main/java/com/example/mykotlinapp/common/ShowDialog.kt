@@ -1,18 +1,15 @@
 package com.example.mykotlinapp.common
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.example.mykotlinapp.MainActivity
 import com.example.mykotlinapp.R
-import com.example.mykotlinapp.common.listener.BottomItemChangedListener
-import com.example.mykotlinapp.common.listener.dialogAddNewListener
-import com.example.mykotlinapp.features.home.HomeFragment
 
 
 class ShowDialog{
-    private var mdialogAddNewListener: dialogAddNewListener? = null
 
    fun showDialog(context : Context) {
         val customDialog = Dialog(context)
@@ -71,7 +68,24 @@ class ShowDialog{
         tvOk.setOnClickListener {
             customDialog.dismiss()
             MainActivity.navigateFragment(MainActivity.mHomeFragment)
+            MainActivity.backHome()
 
+        }
+        customDialog.show()
+    }
+
+    fun showDialogAddComplainTrue(context : Context, reAc : Activity) {
+        val customDialog = Dialog(context)
+        customDialog.setContentView(R.layout.dialog_message_accept_true)
+        customDialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        customDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        val tvOk = customDialog.findViewById<BaseTextView>(R.id.tv_ok_true)
+        tvOk.setOnClickListener {
+            customDialog.dismiss()
+            reAc.onBackPressed()
         }
         customDialog.show()
     }
@@ -87,12 +101,8 @@ class ShowDialog{
         val tvOk = customDialog.findViewById<BaseTextView>(R.id.tv_ok_error)
         tvOk.setOnClickListener {
             customDialog.dismiss()
-            mdialogAddNewListener!!.onOkClicked()
         }
         customDialog.show()
     }
 
-    fun setOndialogAddNewListener(DialogAddNewListener: dialogAddNewListener?) {
-        mdialogAddNewListener = DialogAddNewListener
-    }
 }

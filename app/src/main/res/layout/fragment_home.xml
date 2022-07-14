@@ -20,7 +20,7 @@
         <View
             android:id="@+id/view2"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="250dp"
             android:layout_marginTop="-0dp"
             android:background="@drawable/bg_banner"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="340dp"
+                android:layout_height="250dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/bg_banner"
                 android:scaleType="centerCrop" />
@@ -91,9 +91,10 @@
                     <androidx.viewpager.widget.ViewPager
                         android:id="@+id/viewPager"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp" />
+                        android:layout_height="110dp" />
 
                     <RelativeLayout
+                        android:visibility="gone"
                         android:id="@+id/relativeLayoutBottom"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"

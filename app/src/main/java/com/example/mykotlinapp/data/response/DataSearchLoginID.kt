@@ -5,9 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 data class DataSearchLoginID(
-    @Expose
-    @SerializedName("data")
-    var dataSearchLoginID: MutableList<SearchByLoginID>? = null,
+
     @SerializedName("error")
     @Expose
     var error: Boolean = true,
@@ -17,4 +15,8 @@ data class DataSearchLoginID(
     @SerializedName("message")
     @Expose
     var message: String = "",
+
+    @Expose
+    @SerializedName("data")
+    var dataSearchLoginID: MutableList<SearchByLoginID>? = null,
 )

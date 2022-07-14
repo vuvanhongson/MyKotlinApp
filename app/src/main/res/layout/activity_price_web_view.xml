@@ -22,15 +22,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/ivExit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:src="@drawable/ic_baseline_close_24"
+        <RelativeLayout
+            android:id="@+id/backpage"
+            android:background="@drawable/custom_layout_support"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_13sdp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/ivExit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_close_24"/>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/_5sdp"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                android:text="Thoát"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

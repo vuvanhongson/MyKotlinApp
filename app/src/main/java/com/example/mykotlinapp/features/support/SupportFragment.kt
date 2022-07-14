@@ -1,5 +1,6 @@
 package com.example.mykotlinapp.features.support
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.mykotlinapp.common.ShowDialog
 import com.example.mykotlinapp.common.listener.BottomItemChangedListener
 import com.example.mykotlinapp.databinding.FragmentSupportBinding
 import com.example.mykotlinapp.features.CurrentTabActive
+import com.example.mykotlinapp.features.complain.ComplainActivity
 import com.example.mykotlinapp.util.ext.replaceChildFragment
 
 
@@ -51,14 +53,19 @@ class SupportFragment : Fragment() , SupportItemClick{
     }
 
     override fun Support2onClick() {
-        ShowDialog().showDialog(requireContext())
+        startActivity(Intent(requireActivity(), ComplainActivity::class.java))
     }
 
     override fun Support3onClick() {
-        ShowDialog().showDialog(requireContext())
+        MainActivity.navigateFragment(MainActivity.mBook)
+    }
+
+    override fun Support4onClick() {
+        MainActivity.navigateFragment(MainActivity.mQuestion)
     }
 
     override fun back() {
+        MainActivity.backHome()
         MainActivity.navigateFragment(MainActivity.mHomeFragment)
     }
 

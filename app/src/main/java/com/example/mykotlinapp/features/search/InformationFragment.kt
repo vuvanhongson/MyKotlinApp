@@ -95,6 +95,7 @@ class InformationFragment : BaseFragment() {
         }
         binding.backInformation.setOnClickListener {
             MainActivity.mInforfragment = InformationFragment()
+            MainActivity.mSearch = SearchFragment()
             MainActivity.addNewFragment(MainActivity.mSearch)
             val fragment = MainActivity.mSearch
             MainActivity.navigateFragment(fragment)

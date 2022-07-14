@@ -34,9 +34,9 @@ class BottomBarItem(context: Context, attrs: AttributeSet?) : FrameLayout(contex
                 binding.tvItemTitle.text = resources.getString(R.string.bottom_bar_booking_title)
                 setCheck(false)
             }
-            BottomBar.QUESTION -> {
-                mResChecked = R.drawable.ic_cauhoi_green
-                mResUnchecked = R.drawable.ic_cauhoi_gray
+            BottomBar.SEARCH -> {
+                mResChecked = R.drawable.ic_tracuu_green
+                mResUnchecked = R.drawable.ic_tracuu_grey
                 binding.tvItemTitle.text = resources.getString(R.string.bottom_bar_question_title)
                 setCheck(false)
             }

@@ -58,6 +58,7 @@ class QuestionFragment : Fragment() , QuestionItemClick {
 
     override fun back() {
         MainActivity.navigateFragment(MainActivity.mHomeFragment)
+        MainActivity.backHome()
     }
 
     override fun question() {

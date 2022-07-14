@@ -175,6 +175,25 @@
                         android:textColor="@color/grac_green"
                         android:textSize="@dimen/_18sdp" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_below="@+id/tv_hotline"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_190sdp"
+                    android:layout_marginBottom="@dimen/_80sdp"
+                    android:background="@drawable/custom_button_wgreen"
+                    android:gravity="center"
+                    android:onClick="@{()->support.Support4onClick()}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Câu hỏi thường gặp"
+                        android:textColor="@color/grac_green"
+                        android:textSize="@dimen/_18sdp" />
+                </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
     </FrameLayout>

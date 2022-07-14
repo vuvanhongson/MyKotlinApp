@@ -15,7 +15,7 @@ class SearchViewModel(private val userRepository: UserRepository) : BaseViewMode
     val huyenquan = MutableLiveData<MutableList<AddressProvince>>()
     val xaphuong = MutableLiveData<MutableList<AddressProvince>>()
     var loginID = MutableLiveData<MutableList<SearchByLoginID>>()
-    var isSuccess = MutableLiveData<Boolean>()
+    var isSuccessSearch = MutableLiveData<Boolean>()
     var address = MutableLiveData<MutableList<SearchByLoginID>>()
     var isSuccessAddress = MutableLiveData<Boolean>()
 
@@ -66,16 +66,16 @@ class SearchViewModel(private val userRepository: UserRepository) : BaseViewMode
                 if(data.code == 0)
                 {
                     loginID.value = data.dataSearchLoginID!!
-                    isSuccess.value = true
+                    isSuccessSearch.value = true
                     Log.d("api_loginid", "$maKhachHang - $data")
                 }
                 else
                 {
-                    isSuccess.value = false
+                    isSuccessSearch.value = false
                 }
 
             } catch (e: Exception) {
-                isSuccess.value = false
+                isSuccessSearch.value = false
                 error.value = getErrorResponse(e)
             }
         }
