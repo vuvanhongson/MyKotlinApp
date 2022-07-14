@@ -40,6 +40,7 @@ class SupportFragment : Fragment() , SupportItemClick{
 
         binding.support = this
 
+
         return binding.root
     }
 
@@ -57,6 +58,7 @@ class SupportFragment : Fragment() , SupportItemClick{
     }
 
     override fun Support3onClick() {
+        MainActivity.backBook()
         MainActivity.navigateFragment(MainActivity.mBook)
     }
 

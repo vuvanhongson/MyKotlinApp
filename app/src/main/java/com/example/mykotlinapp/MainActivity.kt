@@ -59,10 +59,10 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
             mContact, BottomBar.SUPPORT
         ).hide(mContact).commit()
 
-//        mFragmentManager!!.beginTransaction().add(
-//            binding!!.container.id,
-//            mBookNextPageFragment, BottomBar.BOOKING
-//        ).hide(mBookNextPageFragment).commit()
+        mFragmentManager!!.beginTransaction().add(
+            binding!!.container.id,
+            mQuestion, BottomBar.BOOKING
+        ).hide(mQuestion).commit()
 
         mFragmentManager!!.beginTransaction().add(
             binding!!.container.id,
@@ -184,5 +184,14 @@ class MainActivity : AppCompatActivity(), BottomItemChangedListener {
             BottomBar.backBook()
         }
 
+        fun backSearch()
+        {
+            BottomBar.backSearch()
+        }
+
+        fun backSupport()
+        {
+            BottomBar.backSupport()
+        }
     }
 }

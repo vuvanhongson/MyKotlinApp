@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:text="Hỗ trợ người dân thực hiện các yêu cầu\nnhanh chống"
+                android:text="Hỗ trợ người dân thực hiện các yêu cầu\nnhanh chóng"
                 android:textColor="@color/grac_grey"
                 android:textSize="@dimen/_17sdp"
                 android:textStyle="bold" />

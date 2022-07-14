@@ -48,11 +48,12 @@ class HomeViewModel(private val userRepository: UserRepository) : BaseViewModel(
     }
 
     fun getLoginID(maKhachHang: String) {
+        Log.d("api_loginid", "$maKhachHang")
         viewModelScope.launch {
             try {
                 loginID = MutableLiveData<MutableList<SearchByLoginID>>()
                 val data = userRepository.getDataLoginID(maKhachHang)
-                if(data.code == 0)
+                if(data.code == 200)
                 {
                     loginID.value = data.dataSearchLoginID!!
                     isSuccess.value = true
@@ -66,6 +67,7 @@ class HomeViewModel(private val userRepository: UserRepository) : BaseViewModel(
             } catch (e: Exception) {
                 isSuccess.value = false
                 error.value = getErrorResponse(e)
+                Log.d("api_loginid", "lỗi api")
             }
         }
     }

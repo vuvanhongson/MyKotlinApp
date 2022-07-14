@@ -98,10 +98,10 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener, SearchOnClic
                 loginID.observe(viewLifecycleOwner){
                     inforViewModel.getLoginID(it)
                     onHideSoftKeyBoard()
-//                    MainActivity.addNewFragment(MainActivity.mInforfragment)
-//                    val fragment = MainActivity.mInforfragment
-//                    MainActivity.navigateFragment(fragment)
-                    addFragment(R.id.container, InformationFragment.newInstance())
+                    MainActivity.backSearch()
+                    MainActivity.addNewFragment(MainActivity.mInforfragment)
+                    val fragment = MainActivity.mInforfragment
+                    MainActivity.navigateFragment(fragment)
 
                 }
             }
@@ -120,7 +120,6 @@ class HomeFragment : BaseFragment(), ItemButonRecyclerviewListener, SearchOnClic
     ): View? {
 // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater)
-
 
         viewPageAdapter = ViewPageAdapter(
             parentFragmentManager!!,

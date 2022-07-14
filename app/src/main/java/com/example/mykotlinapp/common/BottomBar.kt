@@ -145,7 +145,7 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             binding.itemBooking.setCheck(false)
             binding.itemQuestion.setCheck(false)
             binding.itemWallet.setCheck(false)
-            mBottomItemChangedListener!!.onBottomItemClicked(HOME)
+//            mBottomItemChangedListener!!.onBottomItemClicked(HOME)
         }
 
         fun backBook()
@@ -160,7 +160,7 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             binding.itemBooking.setCheck(true)
             binding.itemQuestion.setCheck(false)
             binding.itemWallet.setCheck(false)
-            mBottomItemChangedListener!!.onBottomItemClicked(BOOKING)
+//            mBottomItemChangedListener!!.onBottomItemClicked(BOOKING)
         }
 
         fun backSearch()
@@ -175,7 +175,21 @@ class BottomBar(context: Context, attrs: AttributeSet?) : FrameLayout(context, a
             binding.itemBooking.setCheck(false)
             binding.itemQuestion.setCheck(true)
             binding.itemWallet.setCheck(false)
-            mBottomItemChangedListener!!.onBottomItemClicked(SEARCH)
+//            mBottomItemChangedListener!!.onBottomItemClicked(SEARCH)
+        }
+        fun backSupport()
+        {
+            isHomeClick = false
+            isBookingClick = false
+            isSupportClick = true
+            isQuestionlick = false
+            isWalletClick = false
+            binding.itemHome.setCheck(false)
+            binding.itemSupport.setCheck(true)
+            binding.itemBooking.setCheck(false)
+            binding.itemQuestion.setCheck(false)
+            binding.itemWallet.setCheck(false)
+//            mBottomItemChangedListener!!.onBottomItemClicked(SUPPORT)
         }
 
     }

@@ -168,10 +168,18 @@
                                 android:id="@+id/radioButton5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="@dimen/_35sdp"
-                                android:layout_marginBottom="@dimen/_10sdp"
                                 android:button="@drawable/custom_radiobutton"
                                 android:paddingLeft="@dimen/_10sdp"
                                 android:text="Ký hợp đồng thu rác mới" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:button="@drawable/custom_radiobutton"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:text="Đồ cũ: Quần áo, đồ chơi em bé, sách vở" />
 
                             <LinearLayout
                                 android:weightSum="10"

@@ -63,7 +63,7 @@ class SearchViewModel(private val userRepository: UserRepository) : BaseViewMode
             try {
                 loginID = MutableLiveData<MutableList<SearchByLoginID>>()
                 val data = userRepository.getDataLoginID(maKhachHang)
-                if(data.code == 0)
+                if(data.code == 200)
                 {
                     loginID.value = data.dataSearchLoginID!!
                     isSuccessSearch.value = true
@@ -86,7 +86,7 @@ class SearchViewModel(private val userRepository: UserRepository) : BaseViewMode
             try {
                 address = MutableLiveData<MutableList<SearchByLoginID>>()
                 val data = userRepository.getAddress(customerAddress)
-                if(data.code == 0)
+                if(data.code == 200)
                 {
                     address.value = data.dataSearchLoginID!!
                     isSuccessAddress.value = true

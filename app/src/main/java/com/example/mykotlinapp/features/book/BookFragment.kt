@@ -28,7 +28,10 @@ class BookFragment : Fragment(), BookOnclickListenner {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentBookBinding.inflate(inflater)
+
         binding.book = this
+
+
         return binding.root
     }
 
@@ -77,6 +80,13 @@ class BookFragment : Fragment(), BookOnclickListenner {
                 loai = "rtsh"
                 id = "5"
             }
+
+            radioButton11.isChecked -> {
+                nametoolbar =
+                    binding.radioButton5.text.toString() // id = 5 "title": "Ký hợp đồng thu rác mới"
+                loai = "rtsh"
+                id = "6"
+            }
             //rtdb
             radioButton6.isChecked -> {
                 nametoolbar =
@@ -106,7 +116,7 @@ class BookFragment : Fragment(), BookOnclickListenner {
                 nametoolbar =
                     binding.radioButton10.text.toString()//id = 5 "title": "Dầu ăn thải"
                 loai = "rtdb"
-                id = "1"
+                id = "5"
             }
         }
         val bundle = Bundle()

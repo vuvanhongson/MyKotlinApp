@@ -26,6 +26,7 @@ class QuestionFragment : Fragment() , QuestionItemClick {
 
         binding.question = this
 
+
         return binding.root
     }
 
@@ -57,8 +58,8 @@ class QuestionFragment : Fragment() , QuestionItemClick {
     }
 
     override fun back() {
-        MainActivity.navigateFragment(MainActivity.mHomeFragment)
-        MainActivity.backHome()
+        MainActivity.navigateFragment(MainActivity.mSupport)
+        MainActivity.backSupport()
     }
 
     override fun question() {
